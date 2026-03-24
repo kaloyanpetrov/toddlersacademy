@@ -376,9 +376,8 @@ main section {
 .footer-overlay {
     position: absolute;
     inset: 0;
-    background: url("assets/crayon.png") center/cover no-repeat;
-    opacity: 0.5;
-    mix-blend-mode: luminosity;
+    background: url("../images/crayon-effect.png") center/cover no-repeat;
+    opacity: 0.35;
     pointer-events: none;
 }
 
@@ -677,6 +676,17 @@ main section {
 .btn-solid { background: white; color: var(--accent-blue); padding: 0 32px; height: 56px; border-radius: 999px; display: inline-flex; align-items: center; font-weight: 700; font-size: 16px; text-decoration: none; transition: opacity 0.2s; }
 .btn-solid:hover { opacity: 1; }
 
+.cta-crayon-left,
+.cta-crayon-right {
+    position: absolute;
+    width: 170px;
+    opacity: 0.6;
+    z-index: 1;
+    pointer-events: none;
+}
+.cta-crayon-left { left: 13%; bottom: -8px; transform: rotate(-14deg); }
+.cta-crayon-right { right: 13%; top: -8px; transform: scaleX(-1) rotate(-6deg); }
+
 .cta-float-left { position: absolute; left: 15%; bottom: -30px; max-width: 140px; transform: rotate(-20deg); z-index: 2; }
 .cta-float-right { position: absolute; right: 15%; top: -30px; max-width: 140px; transform: rotate(5deg); z-index: 2; }
 
@@ -726,7 +736,7 @@ main section {
     .testimonials-track { grid-template-columns: 1fr; }
     .testimonial-card:not(.active) { display: none; }
     .cta-banner-content h2 { font-size: 36px; }
-    .cta-float-left, .cta-float-right { display: none; }
+    .cta-float-left, .cta-float-right, .cta-crayon-left, .cta-crayon-right { display: none; }
 }
 @media (max-width: 600px) {
     .features-grid { grid-template-columns: 1fr; }
@@ -798,9 +808,8 @@ main section {
 .cta-overlay {
     position: absolute;
     inset: 0;
-    background: url("assets/crayon.png") center/cover no-repeat;
-    opacity: 1;
-    mix-blend-mode: luminosity;
+    background: url("../images/crayon-effect.png") center/cover no-repeat;
+    opacity: 0.35;
     pointer-events: none;
     z-index: 0;
 }
