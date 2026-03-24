@@ -7,7 +7,9 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/remixicon@4.3.0/fonts/remixicon.css" rel="stylesheet">
     <link rel="stylesheet" href="assets/style/styles.css">
+    <script src="assets/js/section-reveal.js" defer></script>
 </head>
 <body>
     <div class="page-shell">
@@ -28,7 +30,7 @@
                 </nav>
 
                 <div class="header-actions">
-                    <a class="cta-button" href="#footer">Enroll now <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" style="margin-left: 6px;"><line x1="7" y1="17" x2="17" y2="7"></line><polyline points="7 7 17 7 17 17"></polyline></svg></a>
+                    <a class="cta-button" href="admission.html">Enroll now <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" style="margin-left: 6px;"><line x1="7" y1="17" x2="17" y2="7"></line><polyline points="7 7 17 7 17 17"></polyline></svg></a>
 
                     <button class="mobile-menu-trigger" aria-label="Open menu" aria-expanded="false">
                         <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><line x1="3" y1="12" x2="21" y2="12"></line><line x1="3" y1="6" x2="21" y2="6"></line><line x1="3" y1="18" x2="21" y2="18"></line></svg>
@@ -56,12 +58,174 @@
                 <a href="q-center.html">Q-Center</a>
                 <a href="the-bells.html">The Bells</a>
 
-                <a class="cta-button mobile-cta" href="#footer">Enroll now <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" style="margin-left: 6px;"><line x1="7" y1="17" x2="17" y2="7"></line><polyline points="7 7 17 7 17 17"></polyline></svg></a>
+                <a class="cta-button mobile-cta" href="admission.html">Enroll now <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" style="margin-left: 6px;"><line x1="7" y1="17" x2="17" y2="7"></line><polyline points="7 7 17 7 17 17"></polyline></svg></a>
             </nav>
         </div>
 
-        <main>
+        <main class="admission-page">
+
+            <!-- Hero / Director Letter -->
+            <section class="admission-hero">
+                <div class="adm-hero-overlay"></div>
+                <div class="container adm-hero-inner">
+                    <div class="adm-hero-heading">
+                        <img src="assets/director.jpg" alt="Dessislava Pirzada, Director" class="director-avatar">
+                        <h1 class="adm-hero-title">Dear Parent,</h1>
+                    </div>
+                    <div class="adm-hero-body">
+                        <p>Congratulations on choosing Toddlers Academy! We&rsquo;re proud to offer a bilingual program featuring both the Oxford International Program and the Bulgarian curriculum, officially approved by the Bulgarian Ministry of Education. We understand that selecting the right kindergarten is not an easy decision. By choosing Toddlers Academy, you have entrusted your child to a kindergarten that has undergone thorough authorization processes and demonstrated a strong commitment to professionalism and high-quality education recognized internationally.</p>
+                        <p>Our staff adhere to strict professional and ethical standards. We provide ongoing, high-quality training to ensure that our teaching reflects the best practices in early childhood education.</p>
+                        <p>Education, however, extends beyond the classroom. We encourage all parents to take an active role in their child&rsquo;s learning journey. Simple activities at home&mdash;such as reading a bedtime story or counting cars of a certain color on the way home&mdash;can make a big difference.</p>
+                        <p>This website offers an overview of our Mission, Philosophy, and Approach to teaching, as well as how we incorporate internationally developed methods to serve your child&rsquo;s best interests.</p>
+                        <p>We sincerely hope that your family and child will enjoy all the wonderful opportunities our kindergarten provides. If you have any questions or need further information, please do not hesitate to contact us. We look forward to hearing from you.</p>
+                        <p class="adm-signature">Yours sincerely,<br>Dessislava Pirzada<br>Director</p>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Admission Process Cards -->
+            <section class="admission-process">
+                <div class="container">
+                    <h2 class="adm-process-title">Admission Process</h2>
+                    <div class="adm-cards-grid">
+
+                        <div class="adm-card">
+                            <div class="adm-card-icon" aria-hidden="true">
+                                <i class="ri-file-list-3-line"></i>
+                            </div>
+                            <p class="adm-card-title">Kindergarten 2026/2027 Tuition and Enrollment Agreement</p>
+                            <a href="#" class="adm-card-download">
+                                Download
+                                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
+                            </a>
+                        </div>
+
+                        <div class="adm-card">
+                            <div class="adm-card-icon" aria-hidden="true">
+                                <i class="ri-file-list-3-line"></i>
+                            </div>
+                            <p class="adm-card-title">Kindergarten Handbook</p>
+                            <a href="#" class="adm-card-download">
+                                Download
+                                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
+                            </a>
+                        </div>
+
+                        <div class="adm-card">
+                            <div class="adm-card-icon" aria-hidden="true">
+                                <i class="ri-file-list-3-line"></i>
+                            </div>
+                            <p class="adm-card-title">Medical Documents</p>
+                            <a href="#" class="adm-card-download">
+                                Download
+                                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
+                            </a>
+                        </div>
+
+                        <div class="adm-card">
+                            <div class="adm-card-icon" aria-hidden="true">
+                                <i class="ri-file-list-3-line"></i>
+                            </div>
+                            <p class="adm-card-title">Toddlers Calendar</p>
+                            <a href="#" class="adm-card-download">
+                                Download
+                                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
+                            </a>
+                        </div>
+
+                        <div class="adm-card">
+                            <div class="adm-card-icon" aria-hidden="true">
+                                <i class="ri-file-list-3-line"></i>
+                            </div>
+                            <p class="adm-card-title">Enrollment Procedure</p>
+                            <a href="#" class="adm-card-download">
+                                Download
+                                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
+                            </a>
+                        </div>
+
+                        <div class="adm-card adm-card-cta">
+                            <div class="adm-card-icon" aria-hidden="true">
+                                <i class="ri-file-list-3-line"></i>
+                            </div>
+                            <p class="adm-card-title">Enrollment Form</p>
+                            <div class="adm-card-cta-arrow" aria-hidden="true">
+                                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><line x1="7" y1="17" x2="17" y2="7"/><polyline points="7 7 17 7 17 17"/></svg>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+            </section>
+
         </main>
+
+        <footer class="site-footer" id="footer">
+            <div class="footer-overlay"></div>
+            <div class="container footer-content">
+                <div class="footer-branding">
+                    <img src="assets/full_logo.png" alt="Toddlers Academy full logo" width="480" height="175">
+                    <p class="copyright">© 2026 Toddlers Academy | Privacy Policy</p>
+                    <div class="social-links" aria-label="Social media links">
+                        <a href="#" aria-label="Facebook">f</a>
+                        <a href="#" aria-label="Instagram">◎</a>
+                    </div>
+                </div>
+
+                <div class="footer-links">
+                    <h3>Quick links</h3>
+                    <a href="about-us.html">About us</a>
+                    <a href="student-life.html">Student life</a>
+                    <a href="academic-approach.html">Academic Approach</a>
+                    <a href="admission.html">Admission</a>
+                    <a href="#">Contacts</a>
+                </div>
+
+                <div class="footer-contact">
+                    <h3>Contact us</h3>
+                    <a href="mailto:info@toddlersacademy.eu">info@toddlersacademy.eu</a>
+                    <a href="tel:+359898455375">+359 898 455 375</a>
+                </div>
+            </div>
+        </footer>
     </div>
+
+    <script>
+        const header = document.querySelector('.site-header');
+        const mobileMenuTrigger = document.querySelector('.mobile-menu-trigger');
+        const mobileMenuClose = document.querySelector('.mobile-menu-close');
+        const mobileMenu = document.getElementById('mobileMenu');
+        const mobileNavLinks = document.querySelectorAll('.mobile-nav a');
+        let lastScrollTop = 0;
+
+        function openMenu() {
+            mobileMenu.classList.add('open');
+            document.body.style.overflow = 'hidden';
+        }
+
+        function closeMenu() {
+            mobileMenu.classList.remove('open');
+            document.body.style.overflow = '';
+        }
+
+        mobileMenuTrigger.addEventListener('click', openMenu);
+        mobileMenuClose.addEventListener('click', closeMenu);
+
+        mobileNavLinks.forEach(link => {
+            link.addEventListener('click', closeMenu);
+        });
+
+        window.addEventListener('scroll', () => {
+            let scrollTop = window.pageYOffset || document.documentElement.scrollTop;
+            if (scrollTop > lastScrollTop && scrollTop > 100) {
+                header.classList.add('hidden-header');
+            } else {
+                header.classList.remove('hidden-header');
+            }
+            lastScrollTop = scrollTop;
+        });
+
+        window.dispatchEvent(new Event('scroll'));
+    </script>
 </body>
 </html>
