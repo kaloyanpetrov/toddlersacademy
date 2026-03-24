@@ -608,6 +608,12 @@ main section {
     display: flex;
     justify-content: flex-end;
 }
+.first-step-section .image-content img {
+    width: min(100%, 440px);
+    max-height: 430px;
+    object-fit: contain;
+    transform: translateX(-28px);
+}
 .why-choose-us-section {
     padding: 60px 0;
 }
@@ -687,8 +693,8 @@ main section {
 .cta-crayon-left { left: 13%; bottom: -8px; transform: rotate(-14deg); }
 .cta-crayon-right { right: 13%; top: -8px; transform: scaleX(-1) rotate(-6deg); }
 
-.cta-float-left { position: absolute; left: 15%; bottom: -30px; max-width: 140px; transform: rotate(-20deg); z-index: 2; }
-.cta-float-right { position: absolute; right: 15%; top: -30px; max-width: 140px; transform: rotate(5deg); z-index: 2; }
+.cta-float-left { position: absolute; left: 8%; bottom: -50px; max-width: 140px; transform: rotate(-20deg); z-index: 2; }
+.cta-float-right { position: absolute; right: 8%; top: -30px; max-width: 140px; transform: rotate(5deg); z-index: 2; }
 
 .locations-section { padding: 60px 0; }
 .locations-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 32px; margin-top: 40px; }
@@ -731,6 +737,13 @@ main section {
 
 @media (max-width: 900px) {
     .twocol-layout { grid-template-columns: 1fr; }
+    .first-step-section .image-content {
+        justify-content: center;
+    }
+    .first-step-section .image-content img {
+        transform: none;
+        max-height: 400px;
+    }
     .features-grid { grid-template-columns: repeat(2, 1fr); }
     .locations-grid { grid-template-columns: 1fr; }
     .testimonials-track { grid-template-columns: 1fr; }
@@ -1038,6 +1051,26 @@ main section {
 }
 .section-max-width { max-width: 900px; }
 
+.about-intro .twocol-layout {
+    grid-template-columns: 0.48fr 1.52fr;
+    gap: 10px;
+}
+
+.about-intro .image-content {
+    justify-content: flex-start;
+    text-align: left;
+}
+
+.about-intro .image-content img {
+    width: min(100%, 175px);
+    max-height: 235px;
+    object-fit: contain;
+}
+
+.about-mission {
+    padding-top: 42px;
+}
+
 .about-quote {
     background-color: var(--accent-orange);
     color: white;
@@ -1082,32 +1115,45 @@ main section {
 .philosophy-list {
     display: flex;
     flex-direction: column;
-    gap: 20px;
+    gap: 70px;
+    padding-left: 0;
 }
 .philosophy-item {
     background-color: var(--accent-blue);
     color: white;
-    border-radius: 999px;
-    padding: 18px 40px 18px 100px;
+    border-radius: 0 999px 999px 0;
+    padding: 12px 28px 12px 108px;
+    /* width: calc(100% + 34px);
+    margin-left: -34px; */
     position: relative;
-    font-size: 18px;
+    font-size: 16px;
     font-weight: 500;
-    min-height: 72px;
+    min-height: 64px;
     display: flex;
     align-items: center;
+    margin-left: 35px;
 }
 .philosophy-item .phil-img {
+    margin-left: -35px;
     position: absolute;
-    left: -20px;
+    left: -8px;
     top: 50%;
     transform: translateY(-50%);
-    height: 90px;
+    height: 118px;
     width: auto;
     max-width: none;
     z-index: 2;
 }
 
 @media (max-width: 900px) {
+    .about-intro .twocol-layout {
+        grid-template-columns: 1fr;
+        gap: 20px;
+    }
+    .about-intro .image-content {
+        justify-content: center;
+        text-align: center;
+    }
     .about-quote-inner {
         flex-direction: column;
         gap: 20px;
@@ -1120,12 +1166,22 @@ main section {
         font-size: 28px;
     }
     .philosophy-item {
-        padding: 16px 24px 16px 80px;
-        font-size: 16px;
+        padding: 12px 20px 12px 82px;
+        font-size: 15px;
+        min-height: 58px;
+        width: calc(100% + 24px);
+        margin-left: -24px;
+    }
+    .philosophy-list {
+        gap: 36px;
     }
     .philosophy-item .phil-img {
-        height: 70px;
-        left: -10px;
+        height: 94px;
+        left: -6px;
+    }
+
+    .philosophy-item:nth-child(3) span {
+        margin-left: -6px;
     }
 }
 @media (max-width: 768px) {
