@@ -20,6 +20,40 @@ html {
     scroll-behavior: smooth;
 }
 
+/* Custom Scrollbar */
+::-webkit-scrollbar {
+    width: 6px;
+    height: 6px;
+}
+
+::-webkit-scrollbar-track {
+    background: transparent;
+}
+
+::-webkit-scrollbar-thumb {
+    background: #004a66;
+    border-radius: 4px;
+}
+
+::-webkit-scrollbar-button {
+    display: none;
+}
+
+/* Modal Specific Scrollbar */
+.modal-container::-webkit-scrollbar {
+    width: 6px;
+}
+
+.modal-container::-webkit-scrollbar-track {
+    background: transparent;
+    margin: 24px 0; /* Prevents scrollbar from extending out of the rounded corners */
+}
+
+.modal-container::-webkit-scrollbar-thumb {
+    background: #c0c0c0; /* Neutral color instead of blue */
+    border-radius: 4px;
+}
+
 body {
     margin: 0;
     font-family: "Inter", sans-serif;
@@ -974,14 +1008,22 @@ main section {
     justify-content: center;
     color: var(--accent-blue);
     flex-shrink: 0;
-    transition: all 0.2s;
+    transition: all 0.3s ease;
     text-decoration: none;
 }
 
-.adm-card-arrow:hover {
+.adm-card-arrow svg {
+    transition: transform 0.3s ease;
+}
+
+.adm-card:hover .adm-card-arrow {
     background: var(--accent-blue);
     color: white;
     border-color: var(--accent-blue);
+}
+
+.adm-card:hover .adm-card-arrow svg {
+    transform: translate(3px, -3px);
 }
 
 .adm-card.adm-card-cta {
@@ -1010,6 +1052,20 @@ main section {
     justify-content: center;
     color: white;
     flex-shrink: 0;
+    transition: all 0.3s ease;
+}
+
+.adm-card-cta-arrow svg {
+    transition: transform 0.3s ease;
+}
+
+.adm-card.adm-card-cta:hover .adm-card-cta-arrow {
+    background: rgba(255, 255, 255, 0.2);
+    border-color: white;
+}
+
+.adm-card.adm-card-cta:hover .adm-card-cta-arrow svg {
+    transform: translate(3px, -3px);
 }
 
 @media (max-width: 900px) {
@@ -1531,11 +1587,9 @@ main section {
     width: 90%;
     max-width: 800px;
     max-height: 90vh;
-    background: rgba(255, 255, 255, 0.4);
-    backdrop-filter: blur(16px);
-    -webkit-backdrop-filter: blur(16px);
-    border: 1px solid rgba(255, 255, 255, 0.6);
-    box-shadow: 0 4px 30px rgba(0, 0, 0, 0.05);
+    background: #ffffff;
+    border: 1px solid rgba(0, 0, 0, 0.1);
+    box-shadow: var(--shadow-soft, 0 18px 40px rgba(0, 74, 102, 0.08));
     border-radius: 24px;
     padding: 32px;
     position: relative;
@@ -1552,7 +1606,7 @@ main section {
     position: absolute;
     top: 24px;
     right: 24px;
-    background: rgba(255, 255, 255, 0.5);
+    background: rgba(0, 0, 0, 0.05);
     border: none;
     border-radius: 50%;
     width: 36px;
@@ -1567,7 +1621,7 @@ main section {
 }
 
 .modal-close:hover {
-    background: rgba(255, 255, 255, 0.8);
+    background: rgba(0, 0, 0, 0.1);
 }
 
 .modal-content {
@@ -1591,7 +1645,7 @@ main section {
     width: 100%;
     border-collapse: collapse;
     margin-bottom: 24px;
-    background: rgba(255,255,255,0.3);
+    background: transparent;
     border-radius: 8px;
     overflow: hidden;
 }
@@ -1603,7 +1657,7 @@ main section {
 }
 
 .modal-content th {
-    background: rgba(255,255,255,0.5);
+    background: rgba(0,0,0,0.02);
     font-weight: 600;
 }
 
@@ -1615,14 +1669,28 @@ main section {
 }
 
 .modal-content table.form-table {
-    table-layout: fixed;
     width: 100%;
     margin-top: 16px;
     margin-bottom: 32px;
+    overflow: visible; /* Prevents clipping of the custom dropdown menus */
+}
+.modal-content table.form-table.two-cols tr {
+    display: flex;
+    flex-direction: column;
 }
 .modal-content table.form-table.two-cols th,
 .modal-content table.form-table.two-cols td {
-    width: 50%;
+    width: 100%;
+    box-sizing: border-box;
+    display: block;
+}
+.modal-content table.form-table.two-cols td:first-child {
+    border-bottom: none;
+    padding-bottom: 4px;
+}
+.modal-content table.form-table.two-cols td:last-child {
+    border-top: none;
+    padding-top: 0;
 }
 .modal-content table.form-table.three-cols th,
 .modal-content table.form-table.three-cols td {
@@ -1637,34 +1705,181 @@ main section {
     border: none;
 }
 .modal-content tr.sub-header th {
-    background-color: rgba(255,255,255,0.7) !important;
+    background-color: rgba(0,0,0,0.02) !important;
 }
 
 .modal-content input.form-input, .modal-content select.form-input {
     width: 100%;
-    padding: 8px 12px;
+    padding: 8px 16px;
     border: 1px solid rgba(0,0,0,0.1);
-    border-radius: 6px;
-    background: rgba(255,255,255,0.5);
+    border-radius: 999px;
+    background: transparent;
     font-family: inherit;
     font-size: 14px;
     box-sizing: border-box;
     transition: all 0.2s ease;
 }
 
+/* Base style for actual select inputs to hide them when replaced by custom wrapper */
+.custom-select-wrapper select.form-input {
+    position: absolute;
+    opacity: 0;
+    pointer-events: none;
+    height: 0;
+    width: 100%;
+    bottom: 0;
+    z-index: -1;
+    margin: 0;
+    padding: 0;
+    border: none;
+}
+
+/* Fallback visible select if JS fails/loads late */
+.modal-content select.form-input:not(.custom-select-wrapper select) {
+    appearance: none;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    background-image: url("data:image/svg+xml;charset=UTF-8,%3Csvg xmlns='http://www.w3.org/2000/svg' width='24' height='24' viewBox='0 0 24 24' fill='none' stroke='%23333333' stroke-width='2.5' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpolyline points='6 9 12 15 18 9'%3E%3C/polyline%3E%3C/svg%3E");
+    background-repeat: no-repeat;
+    background-position: right 16px center;
+    background-size: 16px;
+    padding-right: 40px;
+    cursor: pointer;
+}
+
+/* Custom Select Architecture */
+.custom-select-wrapper {
+    position: relative;
+    width: 100%;
+}
+
+.custom-select-trigger {
+    width: 100%;
+    padding: 8px 40px 8px 16px;
+    border: 1px solid rgba(0,0,0,0.1);
+    border-radius: 999px;
+    background-color: transparent;
+    font-family: inherit;
+    font-size: 14px;
+    color: var(--text-dark);
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    background-image: url("data:image/svg+xml;charset=UTF-8,%3Csvg xmlns='http://www.w3.org/2000/svg' width='24' height='24' viewBox='0 0 24 24' fill='none' stroke='%23333333' stroke-width='2.5' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpolyline points='6 9 12 15 18 9'%3E%3C/polyline%3E%3C/svg%3E");
+    background-repeat: no-repeat;
+    background-position: right 16px center;
+    background-size: 16px;
+    transition: all 0.2s ease;
+    box-sizing: border-box;
+    min-height: 38px;
+    user-select: none;
+}
+
+.custom-select-trigger.focus,
 .modal-content input.form-input:focus, .modal-content select.form-input:focus {
     outline: none;
     border-color: #f15931;
-    background: rgba(255,255,255,0.8);
+    background: transparent;
     box-shadow: 0 0 0 3px rgba(241,89,49,0.2);
 }
 
-.modal-content .form-input.error-border {
+.custom-select-options {
+    position: absolute;
+    top: calc(100% + 8px);
+    left: 0;
+    right: 0;
+    background: #ffffff;
+    border: 1px solid rgba(0,0,0,0.08);
+    border-radius: 20px; /* Custom rounded corners for the dropdown popup */
+    box-shadow: 0 10px 30px rgba(0,74,102,0.12);
+    opacity: 0;
+    visibility: hidden;
+    transform: translateY(-10px);
+    transition: all 0.25s cubic-bezier(0.4, 0, 0.2, 1);
+    z-index: 100;
+    overflow: hidden;
+}
+
+.custom-select-options.open {
+    opacity: 1;
+    visibility: visible;
+    transform: translateY(0);
+}
+
+.custom-option {
+    padding: 12px 18px;
+    font-size: 14px;
+    cursor: pointer;
+    transition: background 0.2s;
+    color: #333;
+    border-bottom: 1px solid rgba(0,0,0,0.04);
+}
+
+.custom-option:last-child {
+    border-bottom: none;
+}
+
+.custom-option:hover {
+    background: rgba(0,74,102,0.04);
+}
+
+.custom-option.selected {
+    background: rgba(0,74,102,0.08);
+    font-weight: 600;
+    color: #004a66;
+}
+
+/* Custom Round Checkboxes */
+.round-checkbox {
+    appearance: none;
+    -webkit-appearance: none;
+    width: 22px !important;
+    height: 22px !important;
+    border: 2px solid rgba(0,0,0,0.2) !important;
+    border-radius: 50% !important;
+    outline: none !important;
+    cursor: pointer;
+    position: relative;
+    flex-shrink: 0;
+    transition: all 0.2s ease;
+    margin: 0 !important;
+    background-color: transparent;
+}
+
+.round-checkbox:hover {
+    border-color: var(--accent-orange) !important;
+}
+
+.round-checkbox:checked {
+    background-color: var(--accent-orange);
+    border-color: var(--accent-orange) !important;
+}
+
+.round-checkbox:checked::after {
+    content: '';
+    position: absolute;
+    left: 6px;
+    top: 2px;
+    width: 5px;
+    height: 10px;
+    border: solid white;
+    border-width: 0 2px 2px 0;
+    transform: rotate(45deg);
+}
+
+.round-checkbox.error-border {
+    border-color: red !important;
+    background: rgba(255,0,0,0.05);
+}
+
+/* Bind Error state */
+.modal-content .form-input.error-border,
+select.form-input.error-border ~ .custom-select-trigger {
     border: 2px solid red !important;
     background: rgba(255,0,0,0.05);
 }
 
-input[type="checkbox"].error-border {
+input[type="checkbox"]:not(.round-checkbox).error-border {
     outline: 2px solid red !important;
     outline-offset: 2px;
 }
@@ -1697,4 +1912,45 @@ input[type="checkbox"].error-border {
 .modal-submit-btn:hover {
     background-color: #d14725;
     transform: translateY(-2px);
+}
+
+@media (max-width: 768px) {
+    .tuition-table, 
+    .tuition-table tbody, 
+    .tuition-table tr, 
+    .tuition-table th, 
+    .tuition-table td {
+        display: block;
+        width: 100%;
+        box-sizing: border-box;
+    }
+    
+    .tuition-table td {
+        white-space: normal !important;
+        text-align: left !important;
+        border-bottom: 1px solid rgba(0,0,0,0.05);
+    }
+
+    .tuition-table td[colspan="2"] {
+        display: block;
+    }
+    
+    .tuition-table tr {
+        margin-bottom: 24px;
+        border: 2px solid rgba(0, 0, 0, 0.1);
+        border-radius: 8px;
+        overflow: hidden;
+    }
+    
+    .tuition-table td[rowspan] {
+        background: rgba(0, 74, 102, 0.05); /* very light blue to subtly emphasize section group */
+        font-weight: 700;
+        font-size: 16px;
+        border-bottom: 2px solid rgba(0, 0, 0, 0.1);
+    }
+    
+    .tuition-table td strong {
+        display: block;
+        margin-bottom: 4px;
+    }
 }

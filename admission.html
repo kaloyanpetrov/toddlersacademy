@@ -109,14 +109,14 @@
                             </a>
                         </div>
 
-                        <div class="adm-card">
+                        <div class="adm-card" id="medicalCardBtn" role="button" tabindex="0" style="cursor: pointer;">
                             <div class="adm-card-icon" aria-hidden="true">
                                 <i class="ri-file-list-3-line"></i>
                             </div>
                             <p class="adm-card-title">Medical Documents</p>
-                            <a href="#" class="adm-card-arrow" aria-label="Download">
+                            <div class="adm-card-arrow" aria-label="Open">
                                 <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><line x1="7" y1="17" x2="17" y2="7"/><polyline points="7 7 17 7 17 17"/></svg>
-                            </a>
+                            </div>
                         </div>
 
                         <div class="adm-card">
@@ -129,14 +129,14 @@
                             </a>
                         </div>
 
-                        <div class="adm-card">
+                        <div class="adm-card" id="procedureCardBtn" role="button" tabindex="0" style="cursor: pointer;">
                             <div class="adm-card-icon" aria-hidden="true">
                                 <i class="ri-file-list-3-line"></i>
                             </div>
                             <p class="adm-card-title">Enrollment Procedure</p>
-                            <a href="#" class="adm-card-arrow" aria-label="Download">
+                            <div class="adm-card-arrow" aria-label="Open">
                                 <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><line x1="7" y1="17" x2="17" y2="7"/><polyline points="7 7 17 7 17 17"/></svg>
-                            </a>
+                            </div>
                         </div>
 
                         <div class="adm-card adm-card-cta" id="enrollmentCardBtn" role="button" tabindex="0" style="cursor: pointer;">
@@ -193,7 +193,7 @@
                 <div class="modal-content">
                     <h1>Kindergarten 2026/2027 Tuition and Enrollment Agreement</h1>
                     <hr>
-                    <table>
+                    <table class="tuition-table">
                         <tbody>
                             <tr>
                                 <td><strong>Academic Year</strong></td>
@@ -261,6 +261,78 @@
             </div>
         </div>
 
+        <!-- Medical Documents Modal -->
+        <div id="medicalModal" class="modal-overlay">
+            <div class="modal-container" style="max-width: 900px;">
+                <button id="closeMedicalModalBtn" class="modal-close" aria-label="Close modal">
+                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><line x1="18" y1="6" x2="6" y2="18"></line><line x1="6" y1="6" x2="18" y2="18"></line></svg>
+                </button>
+                <div class="modal-content">
+                    <h1>Medical Documents</h1>
+                    <hr>
+                    <p style="text-align: left; margin-bottom: 20px;">The health of our children and teachers is our top priority at kindergarten. We believe that a safe and healthy environment is essential for happy learning and growth. To ensure this, we strictly follow all the guidelines and instructions provided by the Ministry of Health. By doing so, we create a caring space where every child and staff member can thrive with confidence and peace of mind. Your child's well-being is at the heart of everything we do!</p>
+                    
+                    <p style="text-align: left; margin-bottom: 15px;"><strong>Required data upon admission:</strong> Although paper documents are no longer needed, parents must ensure a visit to the general practitioner to have the following current data entered the system:</p>
+                    <ul style="text-align: left; margin-bottom: 25px; padding-left: 20px;">
+                        <li style="margin-bottom: 10px;"><strong>Health prevention card:</strong> Contains information about the child's general condition, height, weight, and specific needs.</li>
+                        <li style="margin-bottom: 10px;"><strong>Immunization status:</strong> Data on all mandatory vaccines according to the immunization schedule.</li>
+                        <li style="margin-bottom: 10px;"><strong>Microbiological tests:</strong>
+                            <ul style="margin-top: 5px; padding-left: 20px; list-style-type: circle;">
+                                <li style="margin-bottom: 5px;">For pathogenic intestinal bacteria and parasites: Must be done no earlier than 15 days before admission.</li>
+                                <li style="margin-bottom: 5px;">Blood and urine tests: (Only for nursery groups) Must be done within one month before admission.</li>
+                            </ul>
+                        </li>
+                    </ul>
+
+                    <p style="text-align: left; margin-bottom: 15px;"><strong>Requirements for child absence:</strong> According to the new rules and the current Regulation No. 3 on health requirements:</p>
+                    <ul style="text-align: left; padding-left: 20px;">
+                        <li style="margin-bottom: 10px;"><strong>Over 30 days:</strong> For absence due to epidemic indicators, a single negative test result for intestinal bacteria is required.</li>
+                        <li style="margin-bottom: 10px;"><strong>Over 2 months:</strong> A mandatory single negative test result for intestinal parasites is required.</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+        <!-- Procedure Modal -->
+        <div id="procedureModal" class="modal-overlay">
+            <div class="modal-container" style="max-width: 900px;">
+                <button id="closeProcedureModalBtn" class="modal-close" aria-label="Close modal">
+                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><line x1="18" y1="6" x2="6" y2="18"></line><line x1="6" y1="6" x2="18" y2="18"></line></svg>
+                </button>
+                <div class="modal-content">
+                    <h1>Enrollment Procedure</h1>
+                    <hr>
+                    <ol style="text-align: left; margin-bottom: 25px; padding-left: 20px; font-size: 1.1em; line-height: 1.6;">
+                        <li style="margin-bottom: 15px;">
+                            <strong>Complete the Enrollment Form</strong><br>
+                            Please fill out the enrollment form accurately to begin the process.
+                        </li>
+                        <li style="margin-bottom: 15px;">
+                            <strong>Sign the Enrollment Agreement</strong>
+                            <ul style="margin-top: 5px; padding-left: 20px; list-style-type: circle;">
+                                <li style="margin-bottom: 5px;">It is <strong>not necessary to come in person</strong> to sign the agreement.</li>
+                                <li style="margin-bottom: 5px;">You may sign digitally, or sign a printed copy, scan it, and send it to us via email.</li>
+                            </ul>
+                        </li>
+                        <li style="margin-bottom: 15px;">
+                            <strong>Deposit and One-Time Registration Fee Payment</strong>
+                            <ul style="margin-top: 5px; padding-left: 20px; list-style-type: circle;">
+                                <li>After completing the enrollment form and signing the agreement, we will send you an invoice for the deposit and one-time registration fee which you should pay via bank transfer.</li>
+                            </ul>
+                        </li>
+                        <li style="margin-bottom: 15px;">
+                            <strong>Submit Required Documents</strong>
+                            <ul style="margin-top: 5px; padding-left: 20px; list-style-type: circle;">
+                                <li style="margin-bottom: 5px;">Birth Certificate</li>
+                                <li>Medical Documents (to be submitted upon admission)</li>
+                            </ul>
+                        </li>
+                    </ol>
+                    <p style="text-align: left; font-size: 1.1em; line-height: 1.6;"><strong>Please note:</strong> Paying the deposit and one-time registration fee will guarantee a spot for your child.</p>
+                </div>
+            </div>
+        </div>
+
         <!-- Enrollment Modal -->
         <div id="enrollmentModal" class="modal-overlay">
             <div class="modal-container">
@@ -268,27 +340,27 @@
                     <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><line x1="18" y1="6" x2="6" y2="18"></line><line x1="6" y1="6" x2="18" y2="18"></line></svg>
                 </button>
                 <div class="modal-content">
-                    <h1>Student Enrollment Form 2026-2027 / Формуляр за записване на ученици 2026-2027</h1>
+                    <h1>Student Enrollment Form 2026-2027</h1>
                     <img src="assets/images/toddlers-header-preview.png" alt="Toddlers Academy Header">
                     <hr>
                     <form id="enrollmentForm" novalidate>
-                        <h3>Welcome / Добре дошли</h3>
+                        <h3>Welcome</h3>
                         <table>
                         <tbody>
-                            <tr><td>Please fill out the form in the order presented, providing accurate and detailed information.</td><td>Моля, попълнете формуляра в представения ред, като предоставите точна и подробна информация.</td></tr>
-                            <tr><td>Thank you for choosing <strong>Toddlers Academy Kindergarten</strong>.</td><td>Благодарим ви, че избрахте <strong>ЧДГ „Детска Академия“</strong>.</td></tr>
-                            <tr><td>We look forward to welcoming your family into our community!</td><td>Очакваме с нетърпение да посрещнем вашето семейство в нашата общност!</td></tr>
-                            <tr><td>* Please provide your details for enrollment purposes only.</td><td>* Моля, предоставете данните си само за целите на записването.</td></tr>
+                            <tr><td>Please fill out the form in the order presented, providing accurate and detailed information.</td></tr>
+                            <tr><td>Thank you for choosing <strong>Toddlers Academy Kindergarten</strong>.</td></tr>
+                            <tr><td>We look forward to welcoming your family into our community!</td></tr>
+                            <tr><td>* Please provide your details for enrollment purposes only.</td></tr>
                         </tbody>
                     </table>
 
                     <table class="form-table two-cols" style="margin-bottom: 24px;">
                         <tbody>
                             <tr>
-                                <td><strong>Preferred Location</strong><br><em>Предпочитана локация</em></td>
+                                <td><strong>Preferred Location</strong></td>
                                 <td>
                                     <select class="form-input" required>
-                                        <option value="" disabled selected>Select / Изберете</option>
+                                        <option value="" disabled selected>Select</option>
                                         <option value="Q-Center, Tsarigradsko Shose">Q-Center, Tsarigradsko Shose</option>
                                         <option value="The Bells, Vitoshki Kambani">The Bells, Vitoshki Kambani</option>
                                     </select>
@@ -299,95 +371,91 @@
 
                     <table class="form-table two-cols">
                         <thead>
-                            <tr class="section-header"><th colspan="2">I. CHILD INFORMATION<br>ИНФОРМАЦИЯ ЗА ДЕТЕТО</th></tr>
+                            <tr class="section-header"><th colspan="2">I. CHILD INFORMATION</th></tr>
                         </thead>
                         <tbody>
-                            <tr><td><strong>Full Name</strong><br><em>Име, презиме и фамилия</em></td><td><input type="text" class="form-input" required></td></tr>
-                            <tr><td><strong>Age at Admission</strong><br><em>Възраст при постъпване</em></td><td><input type="text" class="form-input" required></td></tr>
-                            <tr><td><strong>Date of Birth</strong><br><em>Дата на раждане</em></td><td><input type="text" class="form-input" required></td></tr>
-                            <tr><td><strong>Place of Birth</strong><br><em>Място на раждане</em></td><td><input type="text" class="form-input" required></td></tr>
-                            <tr><td><strong>Sex</strong><br><em>Пол</em></td><td>
+                            <tr><td><strong>Full Name</strong></td><td><input type="text" class="form-input" required placeholder="e.g., John Doe"></td></tr>
+                            <tr><td><strong>Age at Admission</strong></td><td><input type="text" class="form-input" required placeholder="e.g., 3 years"></td></tr>
+                            <tr><td><strong>Date of Birth</strong></td><td><input type="text" class="form-input" required placeholder="DD/MM/YYYY"></td></tr>
+                            <tr><td><strong>Place of Birth</strong></td><td><input type="text" class="form-input" required placeholder="e.g., Sofia, Bulgaria"></td></tr>
+                            <tr><td><strong>Sex</strong></td><td>
                                 <select class="form-input" required>
-                                    <option value="" disabled selected>Select / Изберете</option>
-                                    <option value="Male">Male / Момче</option>
-                                    <option value="Female">Female / Момиче</option>
-                                    <option value="Prefer Not to Say">Prefer Not to Say / Предпочитам да не посочвам</option>
+                                    <option value="" disabled selected>Select</option>
+                                    <option value="Male">Male</option>
+                                    <option value="Female">Female</option>
+                                    <option value="Prefer Not to Say">Prefer Not to Say</option>
                                 </select>
                             </td></tr>
-                            <tr><td><strong>Bulgarian National Identification Number (EGN) or Personal Foreigner Number (LNCH)</strong><br><em>Единен Граждански Номер (ЕГН) или Личен Номер на Чужденец (ЛНЧ)</em></td><td><input type="text" class="form-input" required></td></tr>
-                            <tr><td><strong>Nationality</strong><br><em>Националност</em></td><td><input type="text" class="form-input" required></td></tr>
-                            <tr><td><strong>Primary Language Spoken</strong><br><em>Майчин език</em></td><td><input type="text" class="form-input" required></td></tr>
-                            <tr><td><strong>Other Languages Spoken</strong><br><em>Други говорими езици</em></td><td><input type="text" class="form-input"></td></tr>
-                            <tr><td><strong>Home Address</strong><br><em>Домашен адрес</em></td><td><input type="text" class="form-input" required></td></tr>
-                            <tr><td><strong>Allergies or Special Diets</strong><br><em>Алергии или Диети</em></td><td><input type="text" class="form-input"></td></tr>
+                            <tr><td><strong>Bulgarian National Identification Number (EGN) or Personal Foreigner Number (LNCH)</strong></td><td><input type="text" class="form-input" required placeholder="Enter EGN or LNCH"></td></tr>
+                            <tr><td><strong>Nationality</strong></td><td><input type="text" class="form-input" required placeholder="e.g., Bulgarian"></td></tr>
+                            <tr><td><strong>Primary Language Spoken</strong></td><td><input type="text" class="form-input" required placeholder="e.g., English"></td></tr>
+                            <tr><td><strong>Other Languages Spoken</strong></td><td><input type="text" class="form-input" placeholder="e.g., Spanish, German"></td></tr>
+                            <tr><td><strong>Home Address</strong></td><td><input type="text" class="form-input" required placeholder="Enter full address"></td></tr>
+                            <tr><td><strong>Allergies or Special Diets</strong></td><td><input type="text" class="form-input" placeholder="e.g., Peanut allergy, Vegetarian"></td></tr>
                         </tbody>
                     </table>
 
                     <table class="form-table two-cols">
                         <thead>
-                            <tr class="section-header"><th colspan="2">II. PARENT/GUARDIAN INFORMATION<br>ИНФОРМАЦИЯ ЗА РОДИТЕЛ/НАСТРОЙНИК</th></tr>
+                            <tr class="section-header"><th colspan="2">II. PARENT/GUARDIAN INFORMATION</th></tr>
                         </thead>
                         <tbody>
-                            <tr><td><strong>Full Name</strong><br><em>Име, презиме и фамилия</em></td><td><input type="text" class="form-input" required></td></tr>
-                            <tr><td><strong>EGN or LNCH</strong><br><em>ЕГН или ЛНЧ</em></td><td><input type="text" class="form-input" required></td></tr>
-                            <tr><td><strong>Relationship to Child</strong><br><em>Връзка с детето</em></td><td><input type="text" class="form-input" required></td></tr>
-                            <tr><td><strong>Home Address</strong><br><em>Домашен адрес</em></td><td><input type="text" class="form-input" required></td></tr>
-                            <tr><td><strong>E-mail</strong><br><em>Електронна поща</em></td><td><input type="email" class="form-input" required></td></tr>
-                            <tr><td><strong>Mobile Phone Number</strong><br><em>Мобилен номер</em></td><td><input type="tel" class="form-input" required></td></tr>
+                            <tr><td><strong>Full Name</strong></td><td><input type="text" class="form-input" required placeholder="e.g., Jane Doe"></td></tr>
+                            <tr><td><strong>ID Number (EGN or LNCH)</strong></td><td><input type="text" class="form-input" required placeholder="Enter EGN or LNCH"></td></tr>
+                            <tr><td><strong>Relationship to Child</strong></td><td><input type="text" class="form-input" required placeholder="e.g., Mother, Father, Guardian"></td></tr>
+                            <tr><td><strong>Home Address</strong></td><td><input type="text" class="form-input" required placeholder="Enter full address"></td></tr>
+                            <tr><td><strong>E-mail</strong></td><td><input type="email" class="form-input" required placeholder="example@email.com"></td></tr>
+                            <tr><td><strong>Mobile Phone Number</strong></td><td><input type="tel" class="form-input" required placeholder="+359..."></td></tr>
                         </tbody>
                     </table>
 
                     <blockquote style="border-left: 4px solid rgba(0,0,0,0.2); padding-left: 16px; margin: 16px 0; font-style: italic; background: rgba(255,255,255,0.2); padding: 16px; border-radius: 0 8px 8px 0;">
-                        <p><strong>English:</strong> This contact should be different from the two you entered earlier. If there is no third contact person (such as another family member), please provide the contact information for one of the parents who can always respond to an emergency call from the kindergarten.</p>
-                        <p><strong>Български:</strong> Този контакт трябва да е различен от двата, които сте въвели по-рано. Ако няма трето лице за контакт (като друг член на семейството), моля, посочете координатите на някой от родителите, който винаги може да се отзове на спешно обаждане от детската градина.</p>
+                        <p><strong>Note:</strong> This contact should be different from the two you entered earlier. If there is no third contact person (such as another family member), please provide the contact information for one of the parents who can always respond to an emergency call from the kindergarten.</p>
                     </blockquote>
                     <table class="form-table two-cols">
                         <thead>
-                            <tr class="section-header"><th colspan="2">III. EMERGENCY CONTACT<br>СПЕШЕН КОНТАКТ</th></tr>
+                            <tr class="section-header"><th colspan="2">III. EMERGENCY CONTACT</th></tr>
                         </thead>
                         <tbody>
-                            <tr><td><strong>Name and Surname</strong><br><em>Име, презиме и фамилия</em></td><td><input type="text" class="form-input" required></td></tr>
-                            <tr><td><strong>Mobile Phone Number</strong><br><em>Мобилен номер</em></td><td><input type="tel" class="form-input" required></td></tr>
+                            <tr><td><strong>Name and Surname</strong></td><td><input type="text" class="form-input" required placeholder="e.g., Mark Doe"></td></tr>
+                            <tr><td><strong>Mobile Phone Number</strong></td><td><input type="tel" class="form-input" required placeholder="+359..."></td></tr>
                         </tbody>
                     </table>
 
                     <table class="form-table two-cols">
                         <thead>
-                            <tr class="section-header"><th colspan="2">IV. GENERAL PRACTITIONER INFORMATION<br>ИНФОРМАЦИЯ ЗА ЛИЧЕН ЛЕКАР</th></tr>
+                            <tr class="section-header"><th colspan="2">IV. GENERAL PRACTITIONER INFORMATION</th></tr>
                         </thead>
                         <tbody>
-                            <tr><td><strong>Full Name</strong><br><em>Име, презиме и фамилия</em></td><td><input type="text" class="form-input" required></td></tr>
-                            <tr><td><strong>Mobile Phone Number</strong><br><em>Мобилен номер</em></td><td><input type="tel" class="form-input" required></td></tr>
+                            <tr><td><strong>Full Name</strong></td><td><input type="text" class="form-input" required placeholder="e.g., Dr. Smith"></td></tr>
+                            <tr><td><strong>Mobile Phone Number</strong></td><td><input type="tel" class="form-input" required placeholder="+359..."></td></tr>
                         </tbody>
                     </table>
 
-                    <h2>V. GDPR INFORMATION / GDPR ИНФОРМАЦИЯ</h2>
-                    <h3>English</h3>
-                    <p>At Toddlers Academy Kindergarten, we are committed to protecting your personal data and ensuring compliance with the General Data Protection Regulation (GDPR).</p>
+                    <h2>V. GDPR INFORMATION</h2>
+                    <p>At Toddlers Academy Kindergarten, we are committed to protecting your personal data and ensuring compliance with the General Data Protection Regulation (GDPR). Below, we explain how your data will be handled and your rights under GDPR:</p>
                     <ul>
-                        <li><strong>Why We Collect Your Data:</strong> We collect personal data to facilitate the enrollment process and provide educational services.</li>
-                        <li><strong>How Your Data Will Be Used:</strong> Data will only be used for the purposes outlined in this form. We will not share your data with third parties unless required by law.</li>
-                        <li><strong>Your Rights:</strong> You have the right to access, correction, and withdrawal of consent.</li>
+                        <li><strong>Why We Collect Your Data</strong><br>We collect personal data, such as your name, contact information, and your child's details, to facilitate the enrollment process and provide educational services. This data is necessary to ensure proper communication and administration of your child's education.</li>
+                        <li><strong>How Your Data Will Be Used</strong><br>Your data will only be used for the purposes outlined in this form, such as processing your child's enrollment and maintaining school records. We will not share your data with third parties unless required by law or explicitly stated in our privacy policy.</li>
+                        <li><strong>Your Rights Under GDPR</strong><br>As a parent or guardian, you have the following rights regarding your personal data:
+                            <ul style="margin-top: 8px;">
+                                <li><strong>Access:</strong> You can request access to the data we hold about you or your child.</li>
+                                <li><strong>Correction:</strong> You can request corrections to any inaccurate or incomplete data.</li>
+                                <li><strong>Withdrawal of Consent:</strong> You can withdraw your consent at any time. If you do so, we will stop processing your data unless we have another legal basis to retain it (e.g., compliance with legal obligations).</li>
+                            </ul>
+                        </li>
                     </ul>
 
-                    <h3>Български</h3>
-                    <p>В ЧДГ "Детска Академия" ООД се ангажираме да защитаваме вашите лични данни и да гарантираме спазването на Общия регламент за защита на данните (GDPR).</p>
-                    <ul>
-                        <li><strong>Защо събираме вашите данни:</strong> Ние събираме лични данни, за да улесним процеса на записване и да предоставим образователни услуги.</li>
-                        <li><strong>Как ще бъдат използвани вашите данни:</strong> Вашите данни ще бъдат използвани само за целите, посочени в този формуляр. Ние няма да споделяме вашите данни с трети страни, освен ако това не се изисква от закона.</li>
-                        <li><strong>Вашите права:</strong> Имате право на достъп, корекция и оттегляне на съгласието.</li>
-                    </ul>
-
-                    <h3>Consent & Signature / Съгласие и подпис</h3>
-                    <p><label style="cursor: pointer; display: flex; align-items: flex-start; gap: 8px;"><input type="checkbox" required style="width: 16px; height: 16px; margin-top: 4px;"> <strong>I understand how our data will be used / Разбирам как ще бъдат използвани данните ни</strong></label></p>
-                    <p><label style="cursor: pointer; display: flex; align-items: flex-start; gap: 8px;"><input type="checkbox" required style="width: 16px; height: 16px; margin-top: 4px;"> <strong>I agree to the collection and processing of our personal data / Съгласен съм личните ни данни да бъдат събирани и обработвани</strong></label></p>
+                    <h3>Consent & Signature</h3>
+                    <p><label style="cursor: pointer; display: flex; align-items: center; gap: 8px;"><input type="checkbox" required class="round-checkbox"> <strong>I understand how our data will be used</strong></label></p>
+                    <p><label style="cursor: pointer; display: flex; align-items: center; gap: 8px;"><input type="checkbox" required class="round-checkbox"> <strong>I agree to the collection and processing of our personal data</strong></label></p>
                     <div style="margin-top: 24px; display: flex; flex-direction: column; gap: 16px;">
                         <label style="display: flex; align-items: center; gap: 12px; flex-wrap: wrap;">
-                            <strong>Parent Signature / Подпис на родителя:</strong> 
+                            <strong>Parent Signature:</strong> 
                             <input type="text" class="form-input" required style="max-width: 300px; flex: 1;" placeholder="Your name...">
                         </label>
                         <label style="display: flex; align-items: center; gap: 12px; flex-wrap: wrap;">
-                            <strong>Date / Дата:</strong> 
+                            <strong>Date:</strong> 
                             <input type="date" class="form-input" required style="max-width: 200px;">
                         </label>
                     </div>
@@ -445,7 +513,78 @@
         const tuitionCardBtn = document.getElementById('tuitionCardBtn');
         const tuitionModal = document.getElementById('tuitionModal');
         const closeTuitionModalBtn = document.getElementById('closeTuitionModalBtn');
+        const medicalCardBtn = document.getElementById('medicalCardBtn');
+        const medicalModal = document.getElementById('medicalModal');
+        const closeMedicalModalBtn = document.getElementById('closeMedicalModalBtn');
+        const procedureCardBtn = document.getElementById('procedureCardBtn');
+        const procedureModal = document.getElementById('procedureModal');
+        const closeProcedureModalBtn = document.getElementById('closeProcedureModalBtn');
         const pageShell = document.querySelector('.page-shell');
+
+        // Custom Select Initialization
+        document.querySelectorAll('select.form-input').forEach(select => {
+            const wrapper = document.createElement('div');
+            wrapper.className = 'custom-select-wrapper';
+            select.parentNode.insertBefore(wrapper, select);
+            wrapper.appendChild(select);
+            
+            const trigger = document.createElement('div');
+            trigger.className = 'custom-select-trigger';
+            const selectedOpt = select.options[select.selectedIndex];
+            trigger.innerText = selectedOpt ? selectedOpt.text : 'Select';
+            wrapper.appendChild(trigger);
+            
+            const optionsList = document.createElement('div');
+            optionsList.className = 'custom-select-options';
+            
+            Array.from(select.options).forEach(option => {
+                if (option.disabled) return;
+                const optDiv = document.createElement('div');
+                optDiv.className = 'custom-option';
+                optDiv.innerText = option.text;
+                
+                optDiv.addEventListener('click', (e) => {
+                    select.value = option.value;
+                    trigger.innerText = option.text;
+                    optionsList.classList.remove('open');
+                    trigger.classList.remove('focus');
+                    
+                    select.dispatchEvent(new Event('input', { bubbles: true }));
+                    
+                    Array.from(optionsList.children).forEach(c => c.classList.remove('selected'));
+                    optDiv.classList.add('selected');
+                    e.stopPropagation();
+                });
+                optionsList.appendChild(optDiv);
+            });
+            
+            wrapper.appendChild(optionsList);
+            
+            trigger.addEventListener('click', (e) => {
+                const isOpen = optionsList.classList.contains('open');
+                document.querySelectorAll('.custom-select-options.open').forEach(menu => {
+                    menu.classList.remove('open');
+                    menu.previousElementSibling.classList.remove('focus');
+                });
+                if (!isOpen) {
+                    optionsList.classList.add('open');
+                    trigger.classList.add('focus');
+                }
+                e.stopPropagation();
+            });
+            
+            // Allow clicking wrapper to trigger it when clicking empty space
+            wrapper.addEventListener('click', (e) => {
+                if (e.target === wrapper) trigger.click();
+            });
+        });
+
+        document.addEventListener('click', () => {
+            document.querySelectorAll('.custom-select-options').forEach(menu => {
+                menu.classList.remove('open');
+                menu.previousElementSibling.classList.remove('focus');
+            });
+        });
 
         function openModal() {
             enrollmentModal.classList.add('active');
@@ -455,6 +594,31 @@
         function openTuitionModal() {
             tuitionModal.classList.add('active');
             document.body.style.overflow = 'hidden';
+        }
+
+        function closeTuitionModal() {
+            tuitionModal.classList.remove('active');
+            document.body.style.overflow = '';
+        }
+
+        function openMedicalModal() {
+            medicalModal.classList.add('active');
+            document.body.style.overflow = 'hidden';
+        }
+
+        function closeMedicalModal() {
+            medicalModal.classList.remove('active');
+            document.body.style.overflow = '';
+        }
+
+        function openProcedureModal() {
+            procedureModal.classList.add('active');
+            document.body.style.overflow = 'hidden';
+        }
+
+        function closeProcedureModal() {
+            procedureModal.classList.remove('active');
+            document.body.style.overflow = '';
         }
 
         function closeTuitionModal() {
@@ -473,6 +637,18 @@
                     input.checked = false;
                 } else {
                     input.value = '';
+                    if (input.tagName === 'SELECT') {
+                        const customTrigger = input.parentElement.querySelector('.custom-select-trigger');
+                        if (customTrigger) {
+                            const defaultOpt = input.querySelector('option[selected]');
+                            customTrigger.innerText = defaultOpt ? defaultOpt.text : 'Select';
+                            
+                            const optionsList = input.parentElement.querySelector('.custom-select-options');
+                            if (optionsList) {
+                                Array.from(optionsList.children).forEach(c => c.classList.remove('selected'));
+                            }
+                        }
+                    }
                 }
                 input.classList.remove('error-border');
             });
@@ -497,6 +673,8 @@
                 let targetNode = input;
                 if (input.type === 'checkbox' && input.closest('label')) {
                     targetNode = input.closest('label');
+                } else if (input.tagName === 'SELECT' && input.closest('.custom-select-wrapper')) {
+                    targetNode = input.closest('.custom-select-wrapper');
                 }
                 
                 let errorMsg = targetNode.previousElementSibling;
@@ -540,6 +718,8 @@
                     let targetNode = e.target;
                     if (e.target.type === 'checkbox' && e.target.closest('label')) {
                         targetNode = e.target.closest('label');
+                    } else if (e.target.tagName === 'SELECT' && e.target.closest('.custom-select-wrapper')) {
+                        targetNode = e.target.closest('.custom-select-wrapper');
                     }
                     let errorMsg = targetNode.previousElementSibling;
                     if (errorMsg && errorMsg.classList.contains('error-message')) {
@@ -564,6 +744,42 @@
         tuitionModal.addEventListener('click', (e) => {
             if (e.target === tuitionModal) {
                 closeTuitionModal();
+            }
+        });
+
+        // Medical Modal Events
+        medicalCardBtn.addEventListener('click', openMedicalModal);
+        
+        medicalCardBtn.addEventListener('keydown', (e) => {
+            if (e.key === 'Enter' || e.key === ' ') {
+                e.preventDefault();
+                openMedicalModal();
+            }
+        });
+
+        closeMedicalModalBtn.addEventListener('click', closeMedicalModal);
+
+        medicalModal.addEventListener('click', (e) => {
+            if (e.target === medicalModal) {
+                closeMedicalModal();
+            }
+        });
+
+        // Procedure Modal Events
+        procedureCardBtn.addEventListener('click', openProcedureModal);
+        
+        procedureCardBtn.addEventListener('keydown', (e) => {
+            if (e.key === 'Enter' || e.key === ' ') {
+                e.preventDefault();
+                openProcedureModal();
+            }
+        });
+
+        closeProcedureModalBtn.addEventListener('click', closeProcedureModal);
+
+        procedureModal.addEventListener('click', (e) => {
+            if (e.target === procedureModal) {
+                closeProcedureModal();
             }
         });
 
@@ -595,6 +811,12 @@
                 }
                 if (tuitionModal.classList.contains('active')) {
                     closeTuitionModal();
+                }
+                if (medicalModal.classList.contains('active')) {
+                    closeMedicalModal();
+                }
+                if (procedureModal.classList.contains('active')) {
+                    closeProcedureModal();
                 }
             }
         });
