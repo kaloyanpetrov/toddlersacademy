@@ -759,15 +759,86 @@ main section {
 .location-arrow:hover { transform: scale(1.08); background: rgba(255,255,255,0.34); }
 
 .testimonials-section { padding: 60px 0 100px; }
-.testimonials-slider { display: flex; align-items: center; gap: 24px; margin-top: 40px; }
-.testimonials-track { display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px; flex: 1; align-items: center; }
-.testimonial-card { background: transparent; border-radius: 16px; padding: 32px; border: 1px solid rgba(0,0,0,0.1); opacity: 0.4; transition: all 0.3s ease; }
-.testimonial-card.active { opacity: 1; border-color: rgba(0,0,0,0.15); box-shadow: none; padding: 40px 32px; }
+.testimonials-slider { display: flex; align-items: center; gap: 24px; margin-top: 40px; position: relative; }
+.testimonials-track { 
+    display: flex; 
+    gap: 24px; 
+    flex: 1; 
+    align-items: stretch;
+    overflow-x: auto; 
+    scroll-snap-type: x mandatory;
+    scroll-behavior: smooth;
+    -ms-overflow-style: none; /* IE and Edge */
+    scrollbar-width: none; /* Firefox */
+    padding: 16px;
+    margin: -16px;
+    scroll-padding: 16px;
+}
+.testimonials-track::-webkit-scrollbar { display: none; }
+
+.testimonial-card { 
+    flex: 0 0 calc((100% - 48px) / 3);
+    scroll-snap-align: start;
+    background: transparent; 
+    border-radius: 16px; 
+    padding: 32px; 
+    border: 1px solid rgba(0,0,0,0.15); 
+    opacity: 1; 
+    transition: all 0.3s ease; 
+    display: flex;
+    flex-direction: column;
+}
+.testimonial-card:hover { border-color: rgba(0,0,0,0.3); }
 .testimonial-card h4 { margin: 0 0 16px; font-size: 20px; color: var(--text-primary); }
-.testimonial-card p { color: var(--text-muted); font-size: 15px; line-height: 1.6; margin: 0 0 16px; }
-.read-more { color: var(--accent-blue); font-weight: 700; font-size: 14px; }
+.testimonial-card p { 
+    color: var(--text-muted); 
+    font-size: 15px; 
+    line-height: 1.6; 
+    margin: 0 0 16px; 
+    display: -webkit-box;
+    -webkit-line-clamp: 5;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+    flex-grow: 1;
+}
+.read-more { color: var(--accent-blue); font-weight: 700; font-size: 14px; cursor: pointer; text-decoration: none; background: none; border: none; padding: 0; text-align: left; }
 .slider-btn { width: 56px; height: 56px; border-radius: 50%; border: 1px solid rgba(0,0,0,0.6); background: transparent; display: flex; align-items: center; justify-content: center; cursor: pointer; color: var(--text-primary); flex-shrink: 0; transition: all 0.2s; }
 .slider-btn:hover { background: var(--text-primary); color: white; border-color: var(--text-primary); }
+
+/* Review Modal styling */
+.review-modal-container {
+    background: #fff;
+    width: 600px;
+    max-width: 90%;
+    border-radius: 24px;
+    padding: 40px;
+    position: relative;
+    box-shadow: 0 20px 40px rgba(0,0,0,0.1);
+}
+.review-modal-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 24px;
+}
+.review-modal-header h3 {
+    margin: 0;
+    font-size: 24px;
+    color: var(--text-primary);
+}
+.review-modal-close {
+    background: transparent;
+    border: none;
+    font-size: 24px;
+    cursor: pointer;
+    color: var(--text-muted);
+}
+.review-modal-body p {
+    color: var(--text-muted);
+    font-size: 16px;
+    line-height: 1.7;
+    margin: 0;
+}
 
 @media (max-width: 900px) {
     .twocol-layout { grid-template-columns: 1fr; }
@@ -780,13 +851,14 @@ main section {
     }
     .features-grid { grid-template-columns: repeat(2, 1fr); }
     .locations-grid { grid-template-columns: 1fr; }
-    .testimonials-track { grid-template-columns: 1fr; }
-    .testimonial-card:not(.active) { display: none; }
+    .testimonials-track { gap: 16px; }
+    .testimonial-card { flex: 0 0 calc((100% - 16px) / 2); padding: 24px; }
     .cta-banner-content h2 { font-size: 36px; }
     .cta-float-left, .cta-float-right, .cta-crayon-left, .cta-crayon-right { display: none; }
 }
 @media (max-width: 600px) {
     .features-grid { grid-template-columns: 1fr; }
+    .testimonial-card { flex: 0 0 100%; }
 }
 
 /* MAP STYLES */
