@@ -427,6 +427,7 @@ main section {
 
 .footer-branding img {
     width: min(480px, 100%);
+    height: auto;
 }
 
 .copyright {
@@ -585,6 +586,10 @@ main section {
         grid-template-columns: 1fr;
         gap: 34px;
         padding: 48px 0 54px;
+    }
+
+    .footer-branding img {
+        max-width: 260px;
     }
 
     .footer-links h3,
