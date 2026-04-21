@@ -9,6 +9,12 @@
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
     <link href="https://cdn.jsdelivr.net/npm/remixicon@4.3.0/fonts/remixicon.css" rel="stylesheet">
     <link rel="stylesheet" href="assets/style/styles.css">
+    <style>
+        /* Hide carousel arrows when all 4 cards fit on screen */
+        @media (min-width: 1400px) {
+            .team-carousel-controls { display: none; }
+        }
+    </style>
     <script src="assets/js/section-reveal.js" defer></script>
 </head>
 <body>
@@ -97,12 +103,78 @@
                         </div>
                     </div>
                 </section>
-
-                <section class="location-team">
-                    <h2 class="location-team-title">Meet our team</h2>
-                    <p class="location-team-desc">Getting to know the people who care for your child each day builds trust and confidence, ensuring a nurturing, supportive environment where every child can thrive.</p>
-                </section>
             </div>
+
+            <section class="location-team">
+                <div class="container">
+                    <div class="team-section-header">
+                        <div class="team-section-intro">
+                            <h2 class="location-team-title">Meet our team</h2>
+                            <p class="location-team-desc">Getting to know the people who care for your child each day builds trust and confidence, ensuring a nurturing, supportive environment where every child can thrive.</p>
+                        </div>
+                        <div class="team-carousel-controls">
+                            <button class="team-carousel-arrow" id="teamCarouselPrev" aria-label="Scroll team cards left">
+                                <i class="ri-arrow-left-s-line"></i>
+                            </button>
+                            <button class="team-carousel-arrow" id="teamCarouselNext" aria-label="Scroll team cards right">
+                                <i class="ri-arrow-right-s-line"></i>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="team-carousel-viewport" id="teamCarouselViewport" tabindex="0">
+                    <div class="team-carousel-track">
+                        <article class="team-card team-card-featured">
+                            <div class="team-card-copy">
+                                <h3 class="team-card-name">Dessislava Pirzada</h3>
+                                <p class="team-card-role">Founder &amp; Director</p>
+                                <p class="team-card-bio">With a track record spanning more than 15 years, Dessislava Vassileva Pirzada has been at the forefront of educational innovation in Bulgaria.</p>
+                            </div>
+                            <div class="team-card-media">
+                                <img src="assets/images/teams-gallery/bells-team/Dessislava.jpg" alt="Dessislava Pirzada" class="team-card-photo">
+                                <a href="#" class="team-read-more">Read More <i class="ri-arrow-right-line"></i></a>
+                            </div>
+                        </article>
+
+                        <article class="team-card">
+                            <div class="team-card-copy">
+                                <h3 class="team-card-name">Emiliya Dimova</h3>
+                                <p class="team-card-role">Primary &amp; Preschool Pedagogy Specialist</p>
+                                <p class="team-card-bio">Emilia is currently completing her degree in Primary and Preschool Pedagogy at the New Bulgarian University.</p>
+                            </div>
+                            <div class="team-card-media">
+                                <img src="assets/images/teams-gallery/bells-team/Emilia.jpg" alt="Emiliya Dimova" class="team-card-photo">
+                                <a href="#" class="team-read-more">Read More <i class="ri-arrow-right-line"></i></a>
+                            </div>
+                        </article>
+
+                        <article class="team-card">
+                            <div class="team-card-copy">
+                                <h3 class="team-card-name">Marina Haqshenas</h3>
+                                <p class="team-card-role">English Language Teacher</p>
+                                <p class="team-card-bio">Marina brings a unique and impressive breadth of expertise to our English language program.</p>
+                            </div>
+                            <div class="team-card-media">
+                                <img src="assets/images/teams-gallery/bells-team/Marina.png" alt="Marina Haqshenas" class="team-card-photo">
+                                <a href="#" class="team-read-more">Read More <i class="ri-arrow-right-line"></i></a>
+                            </div>
+                        </article>
+
+                        <article class="team-card">
+                            <div class="team-card-copy">
+                                <h3 class="team-card-name">Tcvetelina Diyakova</h3>
+                                <p class="team-card-role">Our Nursery Group Assistant</p>
+                                <p class="team-card-bio">Working alongside Miss Emi, Tcveti provides gentle, steady support that allows our youngest learners to flourish.</p>
+                            </div>
+                            <div class="team-card-media">
+                                <img src="assets/images/teams-gallery/bells-team/Cvetelina.png" alt="Tcvetelina Diyakova" class="team-card-photo">
+                                <a href="#" class="team-read-more">Read More <i class="ri-arrow-right-line"></i></a>
+                            </div>
+                        </article>
+                    </div>
+                </div>
+            </section>
 
             <section class="cta-banner">
                 <div class="cta-overlay"></div>
@@ -145,6 +217,25 @@
                 </div>
             </section>
         </main>
+
+        <!-- Team Member Modal -->
+        <div class="modal-overlay" id="teamModal" aria-hidden="true">
+            <div class="modal-container" style="max-width: 680px;">
+                <button class="modal-close" id="teamModalClose" aria-label="Close modal">
+                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><line x1="18" y1="6" x2="6" y2="18"></line><line x1="6" y1="6" x2="18" y2="18"></line></svg>
+                </button>
+                <div class="modal-content team-modal-content">
+                    <div class="team-modal-header">
+                        <img id="teamModalPhoto" src="" alt="" class="team-modal-photo">
+                        <div class="team-modal-header-text">
+                            <h3 id="teamModalName"></h3>
+                            <p id="teamModalRole"></p>
+                        </div>
+                    </div>
+                    <div id="teamModalBio"></div>
+                </div>
+            </div>
+        </div>
 
         <div class="lightbox" id="lightbox">
             <div class="lightbox-content">
@@ -222,6 +313,125 @@
         });
 
         window.dispatchEvent(new Event('scroll'));
+
+        // Team Member Modal
+        const teamModal = document.getElementById('teamModal');
+        const teamModalClose = document.getElementById('teamModalClose');
+        const teamModalPhoto = document.getElementById('teamModalPhoto');
+        const teamModalName = document.getElementById('teamModalName');
+        const teamModalRole = document.getElementById('teamModalRole');
+        const teamModalBio = document.getElementById('teamModalBio');
+
+        const teamData = [
+            {
+                name: 'Dessislava Pirzada',
+                role: 'Founder & Director',
+                photo: 'assets/images/teams-gallery/bells-team/Dessislava.jpg',
+                bio: `<p>With a track record spanning more than 15 years, Dessislava Vassileva Pirzada has been at the forefront of educational innovation in Bulgaria.</p>
+                      <p>As the founder of Toddlers Academy, she has redefined early childhood standards by establishing two premier bilingual kindergartens that prioritize holistic development and child-centered excellence.</p>
+                      <p>Drawing on seven years of academic and professional experience in London, Dessislava brings an international flair to her work, balanced with a deeply personal, local touch. Her approach is anchored by her two master's degrees in Preschool Pedagogy and Human Resource Management, a combination that allows her to build high-performing teams while staying rooted in the needs of the child. She also holds a Diploma in Management of Information Systems from the University of Greenwich and a Cambridge Certificate of Proficiency in English.</p>
+                      <p>A compassionate visionary, Dessislava is committed to implementing global educational trends, ensuring Toddlers Academy remains the first choice for modern, forward-thinking families.</p>`
+            },
+            {
+                name: 'Emiliya Dimova',
+                role: 'Primary & Preschool Pedagogy Specialist',
+                photo: 'assets/images/teams-gallery/bells-team/Emilia.jpg',
+                bio: `<p><em>"I believe every child is a unique world waiting to be discovered."</em></p>
+                      <p>Emilia is currently completing her degree in Primary and Preschool Pedagogy at the New Bulgarian University. Her approach to teaching is rooted in the belief that a child's best work happens when they feel <strong>loved, calm, and inspired</strong>.</p>
+                      <p>By blending academic theory with a genuine passion for creative play, Emilia strives to build a positive environment where young learners feel safe to explore, ask questions, and grow. For Emilia, education isn't just about lessons, it's about nurturing the joy of discovery every single day.</p>`
+            },
+            {
+                name: 'Marina Haqshenas',
+                role: 'English Language Teacher',
+                photo: 'assets/images/teams-gallery/bells-team/Marina.png',
+                bio: `<p><em>"Fostering confidence through language and a nurturing heart."</em></p>
+                      <p>Marina brings a unique and impressive breadth of expertise to our English language program. Holding a <strong>master's degree in criminal law</strong> and a <strong>Diploma in Business Administration</strong>, she pairs high-level professional discipline with a <strong>TEFL certification</strong> and over three years of dedicated kindergarten teaching experience.</p>
+                      <p>Marina specializes in creating an immersive English-speaking environment that feels natural and supportive. She is committed to helping children develop their communication skills through a positive, nurturing approach, ensuring that every child feels empowered to find their voice in a second language.</p>`
+            },
+            {
+                name: 'Tcvetelina Diyakova',
+                role: 'Our Nursery Group Assistant',
+                photo: 'assets/images/teams-gallery/bells-team/Cvetelina.png',
+                bio: `<p>Working alongside Miss Emi, Tcveti provides gentle, steady support that allows our youngest learners to flourish. She specializes in the "heart of the classroom," focusing on the emotional warmth and individual attentiveness that make our nursery feel like a second home. Whether she is guiding a child through sensory play or providing comfort during a transition, Tcveti ensures every child feels seen and secure.</p>
+                      <p>With years of experience in the childcare sector and a deep background in early development, Tcveti excels at fostering the first social bonds between peers. By maintaining a warm and observant presence, she helps our students build the physical coordination and emotional confidence they need to explore their world with joy.</p>`
+            }
+        ];
+
+        function openTeamModal(index) {
+            const member = teamData[index];
+            teamModalPhoto.src = member.photo;
+            teamModalPhoto.alt = member.name;
+            teamModalName.textContent = member.name;
+            teamModalRole.textContent = member.role;
+            teamModalBio.innerHTML = member.bio;
+            teamModal.classList.add('active');
+            teamModal.setAttribute('aria-hidden', 'false');
+            document.body.style.overflow = 'hidden';
+        }
+
+        function closeTeamModal() {
+            teamModal.classList.remove('active');
+            teamModal.setAttribute('aria-hidden', 'true');
+            document.body.style.overflow = '';
+        }
+
+        document.querySelectorAll('.team-card').forEach((card, index) => {
+            card.style.cursor = 'pointer';
+            card.setAttribute('tabindex', '0');
+            card.addEventListener('click', () => openTeamModal(index));
+            card.addEventListener('keydown', (e) => {
+                if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); openTeamModal(index); }
+            });
+        });
+
+        document.querySelectorAll('.team-read-more').forEach((btn, index) => {
+            btn.addEventListener('click', (e) => { e.stopPropagation(); openTeamModal(index); });
+        });
+
+        teamModalClose.addEventListener('click', closeTeamModal);
+        teamModal.addEventListener('click', (e) => { if (e.target === teamModal) closeTeamModal(); });
+        document.addEventListener('keydown', (e) => {
+            if (e.key === 'Escape' && teamModal.classList.contains('active')) closeTeamModal();
+        });
+
+        // Team carousel scrolling
+        const teamCarouselViewport = document.getElementById('teamCarouselViewport');
+        const teamCarouselPrev = document.getElementById('teamCarouselPrev');
+        const teamCarouselNext = document.getElementById('teamCarouselNext');
+
+        if (teamCarouselViewport && teamCarouselPrev && teamCarouselNext) {
+            const getScrollStep = () => {
+                const firstCard = teamCarouselViewport.querySelector('.team-card');
+                if (!firstCard) return 300;
+                const styles = window.getComputedStyle(firstCard);
+                const margin = parseFloat(styles.marginRight) || 0;
+                return firstCard.getBoundingClientRect().width + margin + 18;
+            };
+
+            teamCarouselPrev.addEventListener('click', () => {
+                const atStart = teamCarouselViewport.scrollLeft <= 8;
+                if (atStart) {
+                    teamCarouselViewport.scrollTo({ left: teamCarouselViewport.scrollWidth - teamCarouselViewport.clientWidth, behavior: 'smooth' });
+                    return;
+                }
+                teamCarouselViewport.scrollBy({ left: -getScrollStep(), behavior: 'smooth' });
+            });
+
+            teamCarouselNext.addEventListener('click', () => {
+                const maxScrollLeft = teamCarouselViewport.scrollWidth - teamCarouselViewport.clientWidth;
+                const atEnd = teamCarouselViewport.scrollLeft >= maxScrollLeft - 8;
+                if (atEnd) {
+                    teamCarouselViewport.scrollTo({ left: 0, behavior: 'smooth' });
+                    return;
+                }
+                teamCarouselViewport.scrollBy({ left: getScrollStep(), behavior: 'smooth' });
+            });
+
+            teamCarouselViewport.addEventListener('keydown', (event) => {
+                if (event.key === 'ArrowLeft') { event.preventDefault(); teamCarouselPrev.click(); }
+                else if (event.key === 'ArrowRight') { event.preventDefault(); teamCarouselNext.click(); }
+            });
+        }
 
         // Lightbox Logic
         const galleryItems = document.querySelectorAll('.masonry-item img');

@@ -99,14 +99,14 @@
                             </div>
                         </div>
 
-                        <div class="adm-card">
+                        <div class="adm-card" id="handbookCardBtn" role="button" tabindex="0" style="cursor: pointer;">
                             <div class="adm-card-icon" aria-hidden="true">
                                 <i class="ri-file-list-3-line"></i>
                             </div>
                             <p class="adm-card-title">Kindergarten Handbook</p>
-                            <a href="#" class="adm-card-arrow" aria-label="Download">
+                            <div class="adm-card-arrow" aria-label="Open">
                                 <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><line x1="7" y1="17" x2="17" y2="7"/><polyline points="7 7 17 7 17 17"/></svg>
-                            </a>
+                            </div>
                         </div>
 
                         <div class="adm-card" id="medicalCardBtn" role="button" tabindex="0" style="cursor: pointer;">
@@ -119,14 +119,14 @@
                             </div>
                         </div>
 
-                        <div class="adm-card">
+                        <div class="adm-card" id="calendarCardBtn" role="button" tabindex="0" style="cursor: pointer;">
                             <div class="adm-card-icon" aria-hidden="true">
                                 <i class="ri-file-list-3-line"></i>
                             </div>
                             <p class="adm-card-title">Toddlers Calendar</p>
-                            <a href="#" class="adm-card-arrow" aria-label="Download">
+                            <div class="adm-card-arrow" aria-label="Open">
                                 <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><line x1="7" y1="17" x2="17" y2="7"/><polyline points="7 7 17 7 17 17"/></svg>
-                            </a>
+                            </div>
                         </div>
 
                         <div class="adm-card" id="procedureCardBtn" role="button" tabindex="0" style="cursor: pointer;">
@@ -183,6 +183,160 @@
                 </div>
             </div>
         </footer>
+
+        <!-- Calendar Modal -->
+        <div id="calendarModal" class="modal-overlay">
+            <div class="modal-container" style="max-width: 700px;">
+                <button id="closeCalendarModalBtn" class="modal-close" aria-label="Close modal">
+                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><line x1="18" y1="6" x2="6" y2="18"></line><line x1="6" y1="6" x2="18" y2="18"></line></svg>
+                </button>
+                <div class="modal-content">
+                    <h1>Toddlers Calendar</h1>
+                    <hr>
+                    <table class="tuition-table">
+                        <thead>
+                            <tr>
+                                <th style="width: 50%;">Period</th>
+                                <th style="width: 50%;">Status</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td><strong>Sept 1st &ndash; July 31st</strong></td>
+                                <td>Official School Year</td>
+                            </tr>
+                            <tr>
+                                <td><strong>August</strong></td>
+                                <td>Summer School (Paid Weekly)</td>
+                            </tr>
+                            <tr>
+                                <td><strong>Bank Holidays</strong></td>
+                                <td>Closed</td>
+                            </tr>
+                            <tr>
+                                <td><strong>Christmas &amp; New Year</strong></td>
+                                <td>Closed for Winter Break</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+
+        <!-- Handbook Modal -->
+        <div id="handbookModal" class="modal-overlay">
+            <div class="modal-container" style="max-width: 900px;">
+                <button id="closeHandbookModalBtn" class="modal-close" aria-label="Close modal">
+                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><line x1="18" y1="6" x2="6" y2="18"></line><line x1="6" y1="6" x2="18" y2="18"></line></svg>
+                </button>
+                <div class="modal-content">
+                    <h1>Internal Regulations</h1>
+                    <p style="text-align: center; font-size: 1.1em; margin: 4px 0;">Toddlers Academy Kindergarten</p>
+                    <p style="text-align: center; font-size: 1em; margin: 0 0 16px;"><em>Principles of Learning, Discipline, and Community</em></p>
+                    <hr>
+
+                    <h2>&#128681; Who We Are</h2>
+                    <ul style="text-align: left; padding-left: 20px; margin-bottom: 20px;">
+                        <li style="margin-bottom: 8px;"><strong>Director:</strong> Desislava Pirzada</li>
+                        <li style="margin-bottom: 8px;"><strong>Address:</strong> 32 Tsarigradsko Shose Blvd</li>
+                        <li style="margin-bottom: 8px;"><strong>Registered Entity:</strong> ChDG &ldquo;Children&rsquo;s Academy&rdquo; Ltd. (Certificate No. RD14-330/08.08.2017)</li>
+                        <li style="margin-bottom: 8px;"><strong>Status:</strong> Private Kindergarten &amp; Nursery Group, licensed by the Ministry of Education and Culture.</li>
+                        <li style="margin-bottom: 8px;"><strong>Age Groups:</strong> 12 months to 7 years.</li>
+                        <li style="margin-bottom: 8px;"><strong>Opening Hours:</strong> 08:00 &ndash; 18:30</li>
+                        <li style="margin-bottom: 8px;"><strong>Academic Year:</strong> September 1 &ndash; August 31</li>
+                        <li style="margin-bottom: 8px;"><strong>Holiday Observance:</strong> The kindergarten is closed on official Bulgarian public holidays.</li>
+                    </ul>
+                    <hr>
+
+                    <h2>&#129505; Our Team</h2>
+                    <ul style="text-align: left; padding-left: 20px; margin-bottom: 20px;">
+                        <li style="margin-bottom: 8px;"><strong>Lead Teachers:</strong> Visionary educators with a creative, child-centered approach and specialized pedagogical backgrounds.</li>
+                        <li style="margin-bottom: 8px;"><strong>English Teachers:</strong> Specialists who build early fluency through daily immersion and engaging English-language activities.</li>
+                        <li style="margin-bottom: 8px;"><strong>Bulgarian &amp; Enrichment Teachers:</strong> Educators who provide depth in core subjects, including mathematics, Bulgarian language, and environmental studies.</li>
+                        <li style="margin-bottom: 8px;"><strong>School Nurse:</strong> A qualified medical professional on-site specifically to care for our nursery group.</li>
+                        <li style="margin-bottom: 8px;"><strong>External Specialists:</strong> Expert athletes and instructors providing high-level coaching in specialized fields.</li>
+                        <li style="margin-bottom: 8px;"><strong>Facilities &amp; Care Team:</strong> Friendly professionals dedicated to maintaining a spotless, safe, and cozy environment.</li>
+                    </ul>
+                    <hr>
+
+                    <h2>&#11088; Our Mission</h2>
+                    <p style="text-align: left; margin-bottom: 12px;">At Toddlers Academy Kindergarten, children thrive in an environment built on mutual respect, creativity, curiosity, and discovery. We believe early childhood development flourishes within a calm atmosphere of love and support.</p>
+                    <p style="text-align: left; margin-bottom: 20px;">Our goal is to give children the freedom to express themselves while nurturing them into responsible, independent, and critical thinkers. We ensure that children are active participants in their growth: they <em>experience</em> rather than observe, and <em>create</em> rather than imitate.</p>
+                    <hr>
+
+                    <h2>&#128197; A Day at Toddlers Academy</h2>
+
+                    <h3 style="text-align: left; margin: 16px 0 8px;">Morning Routine</h3>
+                    <ul style="text-align: left; padding-left: 20px; margin-bottom: 16px;">
+                        <li style="margin-bottom: 8px;"><strong>08:00 &ndash; 09:00 | Arrival &amp; Logic Games:</strong> A warm welcome in our communal area. Children transition to their classrooms at 8:30.
+                            <ul style="margin-top: 4px; padding-left: 20px; list-style-type: circle;">
+                                <li><em>Handover Policy:</em> For safety, a child is only officially accepted when handed over personally to a teacher or authorized staff member.</li>
+                            </ul>
+                        </li>
+                        <li style="margin-bottom: 8px;"><strong>Morning Circle:</strong> We begin with &ldquo;Circle Time,&rdquo; using multi-sensory techniques (music, movement, and visuals) to cater to unique learning styles.</li>
+                        <li style="margin-bottom: 8px;"><strong>09:00 &ndash; 09:30 | Breakfast:</strong> A varied and nutritious start to the day.</li>
+                    </ul>
+
+                    <h3 style="text-align: left; margin: 16px 0 8px;">Academic &amp; Active Play</h3>
+                    <ul style="text-align: left; padding-left: 20px; margin-bottom: 16px;">
+                        <li style="margin-bottom: 8px;"><strong>09:30 &ndash; 11:30 | Core Curriculum &amp; English:</strong> 30-minute modules covering Ministry of Education standards, creative arts, music, and English immersion.</li>
+                        <li style="margin-bottom: 8px;"><strong>11:30 &ndash; 12:00 | Active Play:</strong> Time to relax, move, and recharge.</li>
+                        <li style="margin-bottom: 8px;"><strong>12:00 &ndash; 13:00 | Lunch &amp; Etiquette:</strong> A relaxed meal focusing on independence, healthy habits, and table manners.</li>
+                    </ul>
+
+                    <h3 style="text-align: left; margin: 16px 0 8px;">Afternoon &amp; Departure</h3>
+                    <ul style="text-align: left; padding-left: 20px; margin-bottom: 20px;">
+                        <li style="margin-bottom: 8px;"><strong>13:00 &ndash; 15:30 | Rest &amp; Recovery:</strong> A quiet break to calm the nervous system and restore energy.</li>
+                        <li style="margin-bottom: 8px;"><strong>15:30 &ndash; 16:00 | Afternoon Snack:</strong> A healthy boost from our curated weekly menu.</li>
+                        <li style="margin-bottom: 8px;"><strong>16:00 &ndash; 17:30 | Afternoon Enrichment:</strong> Further educational modules and creative activities.</li>
+                        <li style="margin-bottom: 8px;"><strong>17:30 &ndash; 18:30 | Supervised Play &amp; Pickup:</strong> Supervised indoor/outdoor games until final departure at 18:30.</li>
+                    </ul>
+                    <hr>
+
+                    <h2>&#128203; General Policies</h2>
+
+                    <h3 style="text-align: left; margin: 16px 0 8px;">Departure &amp; Transitions</h3>
+                    <ul style="text-align: left; padding-left: 20px; margin-bottom: 16px;">
+                        <li style="margin-bottom: 8px;"><strong>Authorized Pickup:</strong> Children are only released to parents or explicitly designated third parties.</li>
+                        <li style="margin-bottom: 8px;"><strong>Daily Updates:</strong> Teachers provide brief updates on achievements or concerns during the afternoon handover.</li>
+                        <li style="margin-bottom: 8px;"><strong>Personal Care:</strong> Parents must provide clean spare clothes in labeled bags. Reusable water bottles should be taken home every Friday for sanitization.</li>
+                    </ul>
+
+                    <h3 style="text-align: left; margin: 16px 0 8px;">Parent Communication</h3>
+                    <ul style="text-align: left; padding-left: 20px; margin-bottom: 16px;">
+                        <li style="margin-bottom: 8px;"><strong>Student Progress Map:</strong> Used during parent-teacher conferences to track mastery of skills.</li>
+                        <li style="margin-bottom: 8px;"><strong>Weekly Curriculums:</strong> Sent by Lead Teachers to outline themes, projects, and special events.</li>
+                        <li style="margin-bottom: 8px;"><strong>Monthly Portfolios:</strong> Creative work folders are sent home on the last Friday of each month.</li>
+                    </ul>
+
+                    <h3 style="text-align: left; margin: 16px 0 8px;">What to Bring</h3>
+                    <ul style="text-align: left; padding-left: 20px; margin-bottom: 20px;">
+                        <li style="margin-bottom: 8px;">Non-slip indoor shoes/slippers.</li>
+                        <li style="margin-bottom: 8px;">A full set of spare clothes (including socks and underwear).</li>
+                        <li style="margin-bottom: 8px;"><strong>Note:</strong> Please label all items. Valuable jewelry and toys that cause disruption or safety risks should remain at home.</li>
+                    </ul>
+                    <hr>
+
+                    <h2>&#127891; Educational &amp; Social Philosophy</h2>
+                    <ul style="text-align: left; padding-left: 20px; margin-bottom: 20px;">
+                        <li style="margin-bottom: 8px;"><strong>Thematic &amp; Project-Based Learning:</strong> We use deep-dive themes and long-term projects to allow children to explore topics according to their own interests.</li>
+                        <li style="margin-bottom: 8px;"><strong>Bilingual Environment:</strong> Communication happens in both English and Bulgarian, allowing children to learn &ldquo;language in action&rdquo; during daily routines.</li>
+                        <li style="margin-bottom: 8px;"><strong>Conflict Resolution:</strong> We teach children to resolve conflicts peacefully. If needed, a &ldquo;Reflection Space&rdquo; (Thinking Chair) is used to help a child regain composure and discuss the situation with a teacher.</li>
+                        <li style="margin-bottom: 8px;"><strong>Safety &amp; Dignity:</strong> We maintain a zero-tolerance policy regarding humiliation, threats, or harm to any child.</li>
+                    </ul>
+                    <hr>
+
+                    <h2>&#128197; Health, Safety, &amp; Finances</h2>
+                    <ul style="text-align: left; padding-left: 20px; margin-bottom: 20px;">
+                        <li style="margin-bottom: 8px;"><strong>Nutrition:</strong> Balanced meals provided by a licensed catering service.</li>
+                        <li style="margin-bottom: 8px;"><strong>Health Policy:</strong> Sick children cannot be admitted. A medical note is required for re-entry after a prolonged illness. No medication is administered without written parental consent.</li>
+                        <li style="margin-bottom: 8px;"><strong>Security:</strong> No child is ever left unsupervised. We rely on parents for personal handovers to ensure total safety.</li>
+                    </ul>
+                    <hr>
+                    <p style="text-align: left;"><strong>Financial Terms:</strong> Fees and conditions are governed by the Educational Contract signed prior to the school year.</p>
+                </div>
+            </div>
+        </div>
 
         <!-- Tuition Modal -->
         <div id="tuitionModal" class="modal-overlay">
@@ -519,6 +673,12 @@
         const procedureCardBtn = document.getElementById('procedureCardBtn');
         const procedureModal = document.getElementById('procedureModal');
         const closeProcedureModalBtn = document.getElementById('closeProcedureModalBtn');
+        const handbookCardBtn = document.getElementById('handbookCardBtn');
+        const handbookModal = document.getElementById('handbookModal');
+        const closeHandbookModalBtn = document.getElementById('closeHandbookModalBtn');
+        const calendarCardBtn = document.getElementById('calendarCardBtn');
+        const calendarModal = document.getElementById('calendarModal');
+        const closeCalendarModalBtn = document.getElementById('closeCalendarModalBtn');
         const pageShell = document.querySelector('.page-shell');
 
         // Custom Select Initialization
@@ -618,6 +778,26 @@
 
         function closeProcedureModal() {
             procedureModal.classList.remove('active');
+            document.body.style.overflow = '';
+        }
+
+        function openHandbookModal() {
+            handbookModal.classList.add('active');
+            document.body.style.overflow = 'hidden';
+        }
+
+        function closeHandbookModal() {
+            handbookModal.classList.remove('active');
+            document.body.style.overflow = '';
+        }
+
+        function openCalendarModal() {
+            calendarModal.classList.add('active');
+            document.body.style.overflow = 'hidden';
+        }
+
+        function closeCalendarModal() {
+            calendarModal.classList.remove('active');
             document.body.style.overflow = '';
         }
 
@@ -783,6 +963,42 @@
             }
         });
 
+        // Calendar Modal Events
+        calendarCardBtn.addEventListener('click', openCalendarModal);
+
+        calendarCardBtn.addEventListener('keydown', (e) => {
+            if (e.key === 'Enter' || e.key === ' ') {
+                e.preventDefault();
+                openCalendarModal();
+            }
+        });
+
+        closeCalendarModalBtn.addEventListener('click', closeCalendarModal);
+
+        calendarModal.addEventListener('click', (e) => {
+            if (e.target === calendarModal) {
+                closeCalendarModal();
+            }
+        });
+
+        // Handbook Modal Events
+        handbookCardBtn.addEventListener('click', openHandbookModal);
+
+        handbookCardBtn.addEventListener('keydown', (e) => {
+            if (e.key === 'Enter' || e.key === ' ') {
+                e.preventDefault();
+                openHandbookModal();
+            }
+        });
+
+        closeHandbookModalBtn.addEventListener('click', closeHandbookModal);
+
+        handbookModal.addEventListener('click', (e) => {
+            if (e.target === handbookModal) {
+                closeHandbookModal();
+            }
+        });
+
         // Enrollment Modal Events
         enrollmentCardBtn.addEventListener('click', openModal);
         
@@ -817,6 +1033,12 @@
                 }
                 if (procedureModal.classList.contains('active')) {
                     closeProcedureModal();
+                }
+                if (handbookModal.classList.contains('active')) {
+                    closeHandbookModal();
+                }
+                if (calendarModal.classList.contains('active')) {
+                    closeCalendarModal();
                 }
             }
         });
