@@ -711,7 +711,7 @@ main section {
     margin-bottom: 32px;
 }
 .cta-banner-actions { display: flex; gap: 16px; justify-content: center; }
-.btn-outline { border: 2px solid white; color: white; padding: 0 32px; height: 56px; border-radius: 999px; display: inline-flex; align-items: center; font-weight: 700; font-size: 16px; text-decoration: none; transition: background 0.2s, color 0.2s; }
+.btn-outline { border: 2px solid white; color: white; padding: 0 32px; height: 56px; border-radius: 999px; display: inline-flex; align-items: center; font-weight: 700; font-size: 16px; text-decoration: none; background: transparent; cursor: pointer; transition: background 0.2s, color 0.2s; }
 .btn-outline:hover { background: white; color: var(--accent-blue); }
 .btn-solid { background: white; color: var(--accent-blue); padding: 0 32px; height: 56px; border-radius: 999px; display: inline-flex; align-items: center; font-weight: 700; font-size: 16px; text-decoration: none; transition: opacity 0.2s; }
 .btn-solid:hover { opacity: 1; }
@@ -757,6 +757,51 @@ main section {
 .location-card:hover .location-arrow,
 .location-card:focus-within .location-arrow,
 .location-arrow:hover { transform: scale(1.08); background: rgba(255,255,255,0.34); }
+
+/* Book a Visit Modal — iframe & placeholder */
+.book-visit-iframe-wrap {
+    position: relative;
+    border-radius: 12px;
+    overflow: hidden;
+    border: 1px solid rgba(0, 0, 0, 0.08);
+    background: #f5f5f3;
+    min-height: 200px;
+}
+
+.book-visit-placeholder {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 60px 24px;
+    text-align: center;
+    color: var(--text-muted);
+}
+
+.book-visit-placeholder svg {
+    color: var(--accent-blue);
+    opacity: 0.4;
+    margin-bottom: 16px;
+}
+
+.book-visit-placeholder p {
+    margin: 0 0 8px;
+    font-size: 15px;
+    font-weight: 500;
+    color: var(--text-muted);
+}
+
+.book-visit-placeholder span {
+    font-size: 13px;
+    opacity: 0.7;
+}
+
+.book-visit-placeholder code {
+    background: rgba(0,0,0,0.06);
+    padding: 1px 6px;
+    border-radius: 4px;
+    font-size: 12px;
+}
 
 .testimonials-section { padding: 60px 0 100px; }
 .testimonials-slider { display: flex; align-items: center; gap: 24px; margin-top: 40px; position: relative; }
