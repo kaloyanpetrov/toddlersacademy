@@ -987,7 +987,7 @@ main section {
     border-radius: 50%;
     object-fit: cover;
     flex-shrink: 0;
-    border: 3px solid rgba(255, 255, 255, 0.35);
+    border: none;
 }
 
 .adm-hero-title {
@@ -1725,11 +1725,29 @@ main section {
     border-radius: 8px;
 }
 
+.enrollment-welcome-block {
+    margin: 0 0 24px;
+    padding: 0;
+}
+
+.enrollment-welcome-block p {
+    margin: 0 0 10px;
+    line-height: 1.7;
+}
+
+.enrollment-welcome-block p:last-child {
+    margin-bottom: 0;
+}
+
 .modal-content table.form-table {
     width: 100%;
     margin-top: 16px;
     margin-bottom: 32px;
     overflow: visible; /* Prevents clipping of the custom dropdown menus */
+}
+#enrollmentModal .modal-content table.form-table th,
+#enrollmentModal .modal-content table.form-table td {
+    border: none;
 }
 .modal-content table.form-table.two-cols tr {
     display: flex;
@@ -1760,6 +1778,7 @@ main section {
     line-height: 1.4;
     text-align: left;
     border: none;
+    border-radius: 12px;
 }
 .modal-content tr.sub-header th {
     background-color: rgba(0,0,0,0.02) !important;
@@ -1812,7 +1831,7 @@ main section {
 
 .custom-select-trigger {
     width: 100%;
-    padding: 8px 40px 8px 16px;
+    padding: 8px 44px 8px 16px;
     border: 1px solid rgba(0,0,0,0.1);
     border-radius: 999px;
     background-color: transparent;
@@ -1822,14 +1841,25 @@ main section {
     cursor: pointer;
     display: flex;
     align-items: center;
-    background-image: url("data:image/svg+xml;charset=UTF-8,%3Csvg xmlns='http://www.w3.org/2000/svg' width='24' height='24' viewBox='0 0 24 24' fill='none' stroke='%23333333' stroke-width='2.5' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpolyline points='6 9 12 15 18 9'%3E%3C/polyline%3E%3C/svg%3E");
-    background-repeat: no-repeat;
-    background-position: right 16px center;
-    background-size: 16px;
     transition: all 0.2s ease;
     box-sizing: border-box;
     min-height: 38px;
     user-select: none;
+    position: relative;
+}
+
+.custom-select-trigger::after {
+    content: "";
+    position: absolute;
+    right: 18px;
+    top: 50%;
+    width: 8px;
+    height: 8px;
+    border-right: 2px solid #333333;
+    border-bottom: 2px solid #333333;
+    transform: translateY(-65%) rotate(45deg);
+    transition: transform 0.2s ease;
+    pointer-events: none;
 }
 
 .custom-select-trigger.focus,
@@ -1838,6 +1868,10 @@ main section {
     border-color: #f15931;
     background: transparent;
     box-shadow: 0 0 0 3px rgba(241,89,49,0.2);
+}
+
+.custom-select-trigger.focus::after {
+    transform: translateY(-35%) rotate(-135deg);
 }
 
 .custom-select-options {
