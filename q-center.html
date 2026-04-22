@@ -22,8 +22,8 @@
                 <nav class="main-nav" aria-label="Primary navigation">
                     <a href="index.html">Home</a>
                     <a href="about-us.html">About us</a>
-                    <a href="student-life.html">Student life</a>
                     <a href="academic-approach.html">Academic Approach</a>
+                    <a href="student-life.html">Student life</a>
                     <a href="admission.html">Admission</a>
                     <a class="active" href="q-center.html">Q-Center</a>
                     <a href="the-bells.html">The Bells</a>
@@ -52,8 +52,8 @@
             <nav class="mobile-nav" aria-label="Mobile navigation">
                 <a href="index.html">Home</a>
                 <a href="about-us.html">About us</a>
-                <a href="student-life.html">Student life</a>
                 <a href="academic-approach.html">Academic Approach</a>
+                <a href="student-life.html">Student life</a>
                 <a href="admission.html">Admission</a>
                 <a class="active" href="q-center.html">Q-Center</a>
                 <a href="the-bells.html">The Bells</a>
@@ -127,7 +127,7 @@
                                     </div>
                                     <div class="team-card-media">
                                         <img src="assets/images/teams-gallery/q-center-team/Dessislava.jpg" alt="Dessislava Pirzada" class="team-card-photo">
-                                        <a href="#" class="team-read-more">Read More <i class="ri-arrow-right-line"></i></a>
+                                        <a href="#" class="team-read-more" style="color: #000;">Read More <i class="ri-arrow-right-line"></i></a>
                                     </div>
                                 </article>
 
@@ -157,12 +157,12 @@
 
                                 <article class="team-card">
                                     <div class="team-card-copy">
-                                        <h3 class="team-card-name">Sofia Matova</h3>
+                                        <h3 class="team-card-name">Sophia Matova</h3>
                                         <p class="team-card-role">Primary & Preschool Pedagogy Specialist</p>
                                         <p class="team-card-bio">Sofia has been a warm and welcoming part of the Toddlers Academy family since 2021. She is deeply passionate about understanding how children think, learn, and grow.</p>
                                     </div>
                                     <div class="team-card-media">
-                                        <img src="assets/images/teams-gallery/q-center-team/Sophia.jpg" alt="Sofia Matova" class="team-card-photo">
+                                        <img src="assets/images/teams-gallery/q-center-team/Sophia.jpg" alt="Sophia Matova" class="team-card-photo">
                                         <a href="#" class="team-read-more">Read More <i class="ri-arrow-right-line"></i></a>
                                     </div>
                                 </article>
@@ -218,7 +218,7 @@
                                 <article class="team-card">
                                     <div class="team-card-copy">
                                         <h3 class="team-card-name">Dimitrina Zekova</h3>
-                                        <p class="team-card-role">Nursery Group Lead</p>
+                                        <p class="team-card-role">Dedicated Assistant Educator</p>
                                         <p class="team-card-bio">As the leader of our Nursery Group, Dima brings over a decade of specialized experience to the most foundational years of childhood.</p>
                                     </div>
                                     <div class="team-card-media">
@@ -240,7 +240,7 @@
                         <h2>Take the first step</h2>
                         <p>Enrolling your child in <strong>Toddlers Academy</strong> is extremely simple!</p>
                         <div class="cta-banner-actions">
-                            <a href="#" class="btn-outline">Book a visit <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="margin-left: 4px;"><line x1="7" y1="17" x2="17" y2="7"></line><polyline points="7 7 17 7 17 17"></polyline></svg></a>
+                            <button id="bookVisitBtn" class="btn-outline">Book a visit <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="margin-left: 4px;"><line x1="7" y1="17" x2="17" y2="7"></line><polyline points="7 7 17 7 17 17"></polyline></svg></button>
                             <a href="#" class="btn-solid">Enroll now <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="margin-left: 4px;"><line x1="7" y1="17" x2="17" y2="7"></line><polyline points="7 7 17 7 17 17"></polyline></svg></a>
                         </div>
                     </div>
@@ -274,6 +274,48 @@
                 </div>
             </section>
         </main>
+
+        <!-- Book a Visit Modal -->
+        <div id="bookVisitModal" class="modal-overlay" aria-hidden="true">
+            <div class="modal-container" style="max-width: 720px;">
+                <button id="closeBookVisitModal" class="modal-close" aria-label="Close modal">
+                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><line x1="18" y1="6" x2="6" y2="18"></line><line x1="6" y1="6" x2="18" y2="18"></line></svg>
+                </button>
+                <div class="modal-content">
+                    <h2 style="margin-top: 0; margin-bottom: 8px;">Book a Visit</h2>
+                    <p style="color: var(--text-muted); margin-bottom: 20px; font-size: 15px;">Choose a convenient time to visit Toddlers Academy. We look forward to welcoming you and your family!</p>
+
+                    <!-- Location Switch -->
+                    <div class="location-switch-wrap">
+                        <input type="checkbox" id="locationToggle">
+                        <label for="locationToggle" class="location-pill-track" aria-label="Select location">
+                            <span class="location-pill-thumb"></span>
+                            <span class="location-pill-label left">Q-Center</span>
+                            <span class="location-pill-label right">The Bells</span>
+                        </label>
+                    </div>
+
+                    <div class="book-visit-iframe-wrap">
+                        <iframe
+                            id="bookVisitFrame"
+                            src="about:blank"
+                            data-qcenter-src="https://calendar.app.google/KFmCVf97nGR2eEy36"
+                            data-bells-src="https://calendar.app.google/KFmCVf97nGR2eEy36"
+                            width="100%"
+                            height="520"
+                            frameborder="0"
+                            title="Book a visit — Google Appointment Scheduling"
+                            style="display: block; border: none;"
+                        ></iframe>
+                        <div class="book-visit-placeholder" id="bookVisitPlaceholder">
+                            <svg width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="18" rx="2" ry="2"></rect><line x1="16" y1="2" x2="16" y2="6"></line><line x1="8" y1="2" x2="8" y2="6"></line><line x1="3" y1="10" x2="21" y2="10"></line></svg>
+                            <p>Google Appointment Scheduling will appear here once connected.</p>
+                            <span>Add the booking URL to <code>data-appointment-src</code> on the iframe to activate.</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
 
         <!-- Team Member Modal -->
         <div class="modal-overlay" id="teamModal" aria-hidden="true">
@@ -326,7 +368,7 @@
 
                 <div class="footer-contact">
                     <h3>Contact us</h3>
-                    <a href="mailto:info@toddlersacademy.eu">info@toddlersacademy.eu</a>
+                    <a href="mailto:toddlersacademykindergarten@gmail.com">toddlersacademykindergarten@gmail.com</a>
                     <a href="tel:+359898455375">+359 898 455 375</a>
                 </div>
             </div>
@@ -405,7 +447,7 @@
                       <p>Radina holds a degree in Pedagogy from Sofia University "St. Kliment Ohridski" and a Master's in Psychological Counseling from Burgas Free University. As a certified Expressive Arts Therapist, she uses color, music, and play to help children share what is in their hearts when words aren't enough. In her daily work, she integrates preschool preparation with kids' yoga, meditation, and emotional literacy, ensuring students are both school-ready and emotionally balanced.</p>`
             },
             {
-                name: 'Sofia Matova',
+                name: 'Sophia Matova',
                 role: 'Primary & Preschool Pedagogy Specialist',
                 photo: 'assets/images/teams-gallery/q-center-team/Sophia.jpg',
                 bio: `<p><em>"Being part of a child's early years is a true joy for me. My goal is to support their natural development with patience and care, helping every little one build the confidence to explore the world with a smile!"</em></p>
@@ -442,7 +484,7 @@
             },
             {
                 name: 'Dimitrina Zekova',
-                role: 'Nursery Group Lead',
+                role: 'Dedicated Assistant Educator',
                 photo: 'assets/images/teams-gallery/q-center-team/Dimitrina.jpg',
                 bio: `<p>As the leader of our Nursery Group, Dima brings over a decade of specialized experience to the most foundational years of childhood. She possesses a deep, intuitive understanding of the unique needs of our youngest learners as they take their first steps into the world.</p>
                       <p>Dima focuses on creating a calm, predictable, and highly structured environment, believing that routine and clear boundaries are essential for helping small children feel secure enough to explore. Her approach combines expert care with purposeful play, ensuring every day is filled with discoveries that stimulate both the mind and body. Throughout her career, Dima has mastered the art of building trusting partnerships with parents to help our youngest students develop emotional resilience and confidence.</p>`
@@ -616,6 +658,65 @@
                 showPrev();
             }
         });
+
+        // Book a Visit Modal
+        const bookVisitModal = document.getElementById('bookVisitModal');
+        const bookVisitBtn = document.getElementById('bookVisitBtn');
+        const closeBookVisitModalBtn = document.getElementById('closeBookVisitModal');
+        const bookVisitFrame = document.getElementById('bookVisitFrame');
+        const bookVisitPlaceholder = document.getElementById('bookVisitPlaceholder');
+        const locationToggle = document.getElementById('locationToggle');
+
+        function getCalendarSrc() {
+            if (locationToggle && locationToggle.checked) {
+                return (bookVisitFrame.getAttribute('data-bells-src') || '').trim();
+            }
+            return (bookVisitFrame.getAttribute('data-qcenter-src') || '').trim();
+        }
+
+        function loadCalendar() {
+            const src = getCalendarSrc();
+            if (src !== '') {
+                bookVisitFrame.src = src;
+                bookVisitFrame.style.display = 'block';
+                if (bookVisitPlaceholder) bookVisitPlaceholder.style.display = 'none';
+            } else {
+                bookVisitFrame.src = 'about:blank';
+                bookVisitFrame.style.display = 'none';
+                if (bookVisitPlaceholder) bookVisitPlaceholder.style.display = 'flex';
+            }
+        }
+
+        if (locationToggle) {
+            locationToggle.addEventListener('change', () => {
+                if (bookVisitModal.classList.contains('active')) loadCalendar();
+            });
+        }
+
+        if (bookVisitModal && bookVisitBtn) {
+            function openBookVisitModal() {
+                locationToggle.checked = false; // Default to Q-Center
+                loadCalendar();
+                bookVisitModal.classList.add('active');
+                bookVisitModal.removeAttribute('aria-hidden');
+                document.body.style.overflow = 'hidden';
+            }
+
+            function closeBookVisitModalFn() {
+                bookVisitModal.classList.remove('active');
+                bookVisitModal.setAttribute('aria-hidden', 'true');
+                document.body.style.overflow = '';
+            }
+
+            bookVisitBtn.addEventListener('click', openBookVisitModal);
+            closeBookVisitModalBtn.addEventListener('click', closeBookVisitModalFn);
+            bookVisitModal.addEventListener('click', (e) => {
+                if (e.target === bookVisitModal) closeBookVisitModalFn();
+            });
+            document.addEventListener('keydown', (e) => {
+                if (e.key === 'Escape' && bookVisitModal.classList.contains('active')) closeBookVisitModalFn();
+            });
+        }
     </script>
 </body>
 </html>

@@ -28,8 +28,8 @@
                 <nav class="main-nav" aria-label="Primary navigation">
                     <a href="index.html">Home</a>
                     <a href="about-us.html">About us</a>
-                    <a href="student-life.html">Student life</a>
                     <a href="academic-approach.html">Academic Approach</a>
+                    <a href="student-life.html">Student life</a>
                     <a href="admission.html">Admission</a>
                     <a href="q-center.html">Q-Center</a>
                     <a class="active" href="the-bells.html">The Bells</a>
@@ -58,8 +58,8 @@
             <nav class="mobile-nav" aria-label="Mobile navigation">
                 <a href="index.html">Home</a>
                 <a href="about-us.html">About us</a>
-                <a href="student-life.html">Student life</a>
                 <a href="academic-approach.html">Academic Approach</a>
+                <a href="student-life.html">Student life</a>
                 <a href="admission.html">Admission</a>
                 <a href="q-center.html">Q-Center</a>
                 <a class="active" href="the-bells.html">The Bells</a>
@@ -161,17 +161,6 @@
                             </div>
                         </article>
 
-                        <article class="team-card">
-                            <div class="team-card-copy">
-                                <h3 class="team-card-name">Tcvetelina Diyakova</h3>
-                                <p class="team-card-role">Our Nursery Group Assistant</p>
-                                <p class="team-card-bio">Working alongside Miss Emi, Tcveti provides gentle, steady support that allows our youngest learners to flourish.</p>
-                            </div>
-                            <div class="team-card-media">
-                                <img src="assets/images/teams-gallery/bells-team/Cvetelina.png" alt="Tcvetelina Diyakova" class="team-card-photo">
-                                <a href="#" class="team-read-more">Read More <i class="ri-arrow-right-line"></i></a>
-                            </div>
-                        </article>
                     </div>
                 </div>
             </section>
@@ -184,7 +173,7 @@
                         <h2>Take the first step</h2>
                         <p>Enrolling your child in <strong>Toddlers Academy</strong> is extremely simple!</p>
                         <div class="cta-banner-actions">
-                            <a href="#" class="btn-outline">Book a visit <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="margin-left: 4px;"><line x1="7" y1="17" x2="17" y2="7"></line><polyline points="7 7 17 7 17 17"></polyline></svg></a>
+                            <button id="bookVisitBtn" class="btn-outline">Book a visit <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="margin-left: 4px;"><line x1="7" y1="17" x2="17" y2="7"></line><polyline points="7 7 17 7 17 17"></polyline></svg></button>
                             <a href="#" class="btn-solid">Enroll now <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="margin-left: 4px;"><line x1="7" y1="17" x2="17" y2="7"></line><polyline points="7 7 17 7 17 17"></polyline></svg></a>
                         </div>
                     </div>
@@ -217,6 +206,48 @@
                 </div>
             </section>
         </main>
+
+        <!-- Book a Visit Modal -->
+        <div id="bookVisitModal" class="modal-overlay" aria-hidden="true">
+            <div class="modal-container" style="max-width: 720px;">
+                <button id="closeBookVisitModal" class="modal-close" aria-label="Close modal">
+                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><line x1="18" y1="6" x2="6" y2="18"></line><line x1="6" y1="6" x2="18" y2="18"></line></svg>
+                </button>
+                <div class="modal-content">
+                    <h2 style="margin-top: 0; margin-bottom: 8px;">Book a Visit</h2>
+                    <p style="color: var(--text-muted); margin-bottom: 20px; font-size: 15px;">Choose a convenient time to visit Toddlers Academy. We look forward to welcoming you and your family!</p>
+
+                    <!-- Location Switch -->
+                    <div class="location-switch-wrap">
+                        <input type="checkbox" id="locationToggle">
+                        <label for="locationToggle" class="location-pill-track" aria-label="Select location">
+                            <span class="location-pill-thumb"></span>
+                            <span class="location-pill-label left">Q-Center</span>
+                            <span class="location-pill-label right">The Bells</span>
+                        </label>
+                    </div>
+
+                    <div class="book-visit-iframe-wrap">
+                        <iframe
+                            id="bookVisitFrame"
+                            src="about:blank"
+                            data-qcenter-src="https://calendar.app.google/KFmCVf97nGR2eEy36"
+                            data-bells-src="https://calendar.app.google/KFmCVf97nGR2eEy36"
+                            width="100%"
+                            height="520"
+                            frameborder="0"
+                            title="Book a visit — Google Appointment Scheduling"
+                            style="display: block; border: none;"
+                        ></iframe>
+                        <div class="book-visit-placeholder" id="bookVisitPlaceholder">
+                            <svg width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="18" rx="2" ry="2"></rect><line x1="16" y1="2" x2="16" y2="6"></line><line x1="8" y1="2" x2="8" y2="6"></line><line x1="3" y1="10" x2="21" y2="10"></line></svg>
+                            <p>Google Appointment Scheduling will appear here once connected.</p>
+                            <span>Add the booking URL to <code>data-appointment-src</code> on the iframe to activate.</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
 
         <!-- Team Member Modal -->
         <div class="modal-overlay" id="teamModal" aria-hidden="true">
@@ -269,7 +300,7 @@
 
                 <div class="footer-contact">
                     <h3>Contact us</h3>
-                    <a href="mailto:info@toddlersacademy.eu">info@toddlersacademy.eu</a>
+                    <a href="mailto:toddlersacademykindergarten@gmail.com">toddlersacademykindergarten@gmail.com</a>
                     <a href="tel:+359898455375">+359 898 455 375</a>
                 </div>
             </div>
@@ -337,7 +368,7 @@
                 role: 'Primary & Preschool Pedagogy Specialist',
                 photo: 'assets/images/teams-gallery/bells-team/Emilia.jpg',
                 bio: `<p><em>"I believe every child is a unique world waiting to be discovered."</em></p>
-                      <p>Emilia is currently completing her degree in Primary and Preschool Pedagogy at the New Bulgarian University. Her approach to teaching is rooted in the belief that a child's best work happens when they feel <strong>loved, calm, and inspired</strong>.</p>
+                      <p>Emilia is currently completing her degree in Primary and Preschool Pedagogy at the New Bulgarian University. Her approach to teaching is rooted in the belief that a child's best work happens when they feel loved, calm, and inspired.</p>
                       <p>By blending academic theory with a genuine passion for creative play, Emilia strives to build a positive environment where young learners feel safe to explore, ask questions, and grow. For Emilia, education isn't just about lessons, it's about nurturing the joy of discovery every single day.</p>`
             },
             {
@@ -345,15 +376,8 @@
                 role: 'English Language Teacher',
                 photo: 'assets/images/teams-gallery/bells-team/Marina.png',
                 bio: `<p><em>"Fostering confidence through language and a nurturing heart."</em></p>
-                      <p>Marina brings a unique and impressive breadth of expertise to our English language program. Holding a <strong>master's degree in criminal law</strong> and a <strong>Diploma in Business Administration</strong>, she pairs high-level professional discipline with a <strong>TEFL certification</strong> and over three years of dedicated kindergarten teaching experience.</p>
+                      <p>Marina brings a unique and impressive breadth of expertise to our English language program. Holding a master's degree in criminal law and a Diploma in Business Administration, she pairs high-level professional discipline with a TEFL certification and over three years of dedicated kindergarten teaching experience.</p>
                       <p>Marina specializes in creating an immersive English-speaking environment that feels natural and supportive. She is committed to helping children develop their communication skills through a positive, nurturing approach, ensuring that every child feels empowered to find their voice in a second language.</p>`
-            },
-            {
-                name: 'Tcvetelina Diyakova',
-                role: 'Our Nursery Group Assistant',
-                photo: 'assets/images/teams-gallery/bells-team/Cvetelina.png',
-                bio: `<p>Working alongside Miss Emi, Tcveti provides gentle, steady support that allows our youngest learners to flourish. She specializes in the "heart of the classroom," focusing on the emotional warmth and individual attentiveness that make our nursery feel like a second home. Whether she is guiding a child through sensory play or providing comfort during a transition, Tcveti ensures every child feels seen and secure.</p>
-                      <p>With years of experience in the childcare sector and a deep background in early development, Tcveti excels at fostering the first social bonds between peers. By maintaining a warm and observant presence, she helps our students build the physical coordination and emotional confidence they need to explore their world with joy.</p>`
             }
         ];
 
@@ -499,6 +523,65 @@
                 showPrev();
             }
         });
+
+        // Book a Visit Modal
+        const bookVisitModal = document.getElementById('bookVisitModal');
+        const bookVisitBtn = document.getElementById('bookVisitBtn');
+        const closeBookVisitModalBtn = document.getElementById('closeBookVisitModal');
+        const bookVisitFrame = document.getElementById('bookVisitFrame');
+        const bookVisitPlaceholder = document.getElementById('bookVisitPlaceholder');
+        const locationToggle = document.getElementById('locationToggle');
+
+        function getCalendarSrc() {
+            if (locationToggle && locationToggle.checked) {
+                return (bookVisitFrame.getAttribute('data-bells-src') || '').trim();
+            }
+            return (bookVisitFrame.getAttribute('data-qcenter-src') || '').trim();
+        }
+
+        function loadCalendar() {
+            const src = getCalendarSrc();
+            if (src !== '') {
+                bookVisitFrame.src = src;
+                bookVisitFrame.style.display = 'block';
+                if (bookVisitPlaceholder) bookVisitPlaceholder.style.display = 'none';
+            } else {
+                bookVisitFrame.src = 'about:blank';
+                bookVisitFrame.style.display = 'none';
+                if (bookVisitPlaceholder) bookVisitPlaceholder.style.display = 'flex';
+            }
+        }
+
+        if (locationToggle) {
+            locationToggle.addEventListener('change', () => {
+                if (bookVisitModal.classList.contains('active')) loadCalendar();
+            });
+        }
+
+        if (bookVisitModal && bookVisitBtn) {
+            function openBookVisitModal() {
+                locationToggle.checked = true; // Default to The Bells
+                loadCalendar();
+                bookVisitModal.classList.add('active');
+                bookVisitModal.removeAttribute('aria-hidden');
+                document.body.style.overflow = 'hidden';
+            }
+
+            function closeBookVisitModalFn() {
+                bookVisitModal.classList.remove('active');
+                bookVisitModal.setAttribute('aria-hidden', 'true');
+                document.body.style.overflow = '';
+            }
+
+            bookVisitBtn.addEventListener('click', openBookVisitModal);
+            closeBookVisitModalBtn.addEventListener('click', closeBookVisitModalFn);
+            bookVisitModal.addEventListener('click', (e) => {
+                if (e.target === bookVisitModal) closeBookVisitModalFn();
+            });
+            document.addEventListener('keydown', (e) => {
+                if (e.key === 'Escape' && bookVisitModal.classList.contains('active')) closeBookVisitModalFn();
+            });
+        }
     </script>
 </body>
 </html>
