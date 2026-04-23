@@ -280,6 +280,13 @@ main section {
     margin-bottom: 52px;
 }
 
+.section-heading h2 {
+    margin: 0;
+    font-size: clamp(32px, 4vw, 42px);
+    line-height: 1.2;
+    font-weight: 700;
+}
+
 .eyebrow {
     margin: 0 0 10px;
     font-size: 18px;
@@ -387,7 +394,7 @@ main section {
     display: inline-block;
     margin: 14px 0 14px;
     padding-left: 18px;
-    font-size: 36px;
+    font-size: clamp(32px, 4vw, 42px);
     line-height: 1.08;
     font-weight: 600;
     vertical-align: middle;
@@ -765,7 +772,7 @@ main section {
     z-index: 1;
 }
 .cta-banner-content h2 {
-    font-size: 48px;
+    font-size: clamp(32px, 4vw, 42px);
     margin: 0 0 16px;
 }
 .cta-banner-content p {
@@ -795,7 +802,7 @@ main section {
 
 .locations-section { padding: 60px 0; }
 .locations-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 32px; margin-top: 40px; }
-.location-card { position: relative; border-radius: 24px; overflow: hidden; height: 480px; box-shadow: var(--shadow-soft); cursor: pointer; transition: none; }
+.location-card { display: block; position: relative; border-radius: 24px; overflow: hidden; height: 480px; box-shadow: var(--shadow-soft); cursor: pointer; transition: none; text-decoration: none; color: inherit; }
 .location-card:hover,
 .location-card:focus-within { box-shadow: 0 15px 35px rgba(0,0,0,0.1); }
 .location-card img { width: 100%; height: 100%; object-fit: cover; transition: transform 0.08s linear; }
@@ -820,6 +827,70 @@ main section {
 .location-card:hover .location-arrow,
 .location-card:focus-within .location-arrow,
 .location-arrow:hover { transform: scale(1.08); background: rgba(255,255,255,0.34); }
+
+/* Book a Visit Modal — location switch */
+.location-switch-wrap {
+    display: flex;
+    justify-content: center;
+    margin-bottom: 24px;
+}
+
+#locationToggle {
+    position: absolute;
+    opacity: 0;
+    width: 0;
+    height: 0;
+    pointer-events: none;
+}
+
+.location-pill-track {
+    position: relative;
+    display: flex;
+    align-items: stretch;
+    background: rgba(0, 74, 102, 0.10);
+    border-radius: 100px;
+    padding: 4px;
+    cursor: pointer;
+    user-select: none;
+    gap: 0;
+}
+
+.location-pill-thumb {
+    position: absolute;
+    top: 4px;
+    left: 4px;
+    width: calc(50% - 4px);
+    bottom: 4px;
+    background: var(--accent-blue);
+    border-radius: 100px;
+    transition: transform 0.28s cubic-bezier(0.4, 0, 0.2, 1);
+    z-index: 0;
+}
+
+#locationToggle:checked ~ .location-pill-track .location-pill-thumb {
+    transform: translateX(100%);
+}
+
+.location-pill-label {
+    position: relative;
+    z-index: 1;
+    flex: 1;
+    text-align: center;
+    font-size: 14px;
+    font-weight: 600;
+    padding: 8px 22px;
+    border-radius: 100px;
+    transition: color 0.25s;
+    white-space: nowrap;
+}
+
+/* Q-Center active (unchecked) */
+#locationToggle:not(:checked) ~ .location-pill-track .location-pill-label.left  { color: #fff; }
+#locationToggle:not(:checked) ~ .location-pill-track .location-pill-label.right { color: var(--text-muted); }
+
+/* The Bells active (checked) */
+#locationToggle:checked ~ .location-pill-track .location-pill-label.left  { color: var(--text-muted); }
+#locationToggle:checked ~ .location-pill-track .location-pill-label.right { color: #fff; }
 
 /* Book a Visit Modal — iframe & placeholder */
 .book-visit-iframe-wrap {
@@ -867,7 +938,7 @@ main section {
 }
 
 .testimonials-section { padding: 60px 0 100px; }
-.testimonials-slider { display: flex; align-items: center; gap: 24px; margin-top: 40px; position: relative; }
+.testimonials-slider { margin-top: 40px; }
 .testimonials-track { 
     display: flex; 
     gap: 24px; 
@@ -887,19 +958,19 @@ main section {
 .testimonial-card { 
     flex: 0 0 calc((100% - 48px) / 3);
     scroll-snap-align: start;
-    background: transparent; 
+    background: var(--accent-orange); 
     border-radius: 16px; 
     padding: 32px; 
-    border: 1px solid rgba(0,0,0,0.15); 
+    border: 1px solid transparent; 
     opacity: 1; 
     transition: all 0.3s ease; 
     display: flex;
     flex-direction: column;
 }
-.testimonial-card:hover { border-color: rgba(0,0,0,0.3); }
-.testimonial-card h4 { margin: 0 0 16px; font-size: 20px; color: var(--text-primary); }
+.testimonial-card:hover { border-color: transparent; filter: brightness(1.06); }
+.testimonial-card h4 { margin: 0 0 16px; font-size: 20px; color: #ffffff; }
 .testimonial-card p { 
-    color: var(--text-muted); 
+    color: rgba(255, 255, 255, 0.88); 
     font-size: 15px; 
     line-height: 1.6; 
     margin: 0 0 16px; 
@@ -909,7 +980,7 @@ main section {
     overflow: hidden;
     flex-grow: 1;
 }
-.read-more { color: var(--accent-blue); font-weight: 700; font-size: 14px; cursor: pointer; text-decoration: none; background: none; border: none; padding: 0; text-align: left; }
+.testimonial-card .read-more { color: #ffffff; font-weight: 700; font-size: 14px; cursor: pointer; text-decoration: underline; text-underline-offset: 3px; background: none; border: none; padding: 0; text-align: left; }
 .slider-btn { width: 56px; height: 56px; border-radius: 50%; border: 1px solid rgba(0,0,0,0.6); background: transparent; display: flex; align-items: center; justify-content: center; cursor: pointer; color: var(--text-primary); flex-shrink: 0; transition: all 0.2s; }
 .slider-btn:hover { background: var(--text-primary); color: white; border-color: var(--text-primary); }
 
@@ -961,7 +1032,6 @@ main section {
     .locations-grid { grid-template-columns: 1fr; }
     .testimonials-track { gap: 16px; }
     .testimonial-card { flex: 0 0 calc((100% - 16px) / 2); padding: 24px; }
-    .cta-banner-content h2 { font-size: 36px; }
     .cta-float-left, .cta-float-right, .cta-crayon-left, .cta-crayon-right { display: none; }
 }
 @media (max-width: 600px) {
@@ -1325,7 +1395,7 @@ main section {
     padding-top: 20px;
 }
 .quote-content h2 {
-    font-size: 38px;
+    font-size: clamp(32px, 4vw, 42px);
     line-height: 1.3;
     margin-bottom: 16px;
     font-weight: 700;
@@ -1390,7 +1460,7 @@ main section {
         transform: translateY(0);
      font-family: "Georgia", serif;}
     .quote-content h2 {
-        font-size: 28px;
+        font-size: clamp(28px, 6vw, 36px);
     }
     .philosophy-item {
         padding: 12px 20px 12px 82px;
@@ -1447,7 +1517,7 @@ main section {
 
 .acad-section-title {
     margin: 0;
-    font-size: clamp(34px, 4vw, 52px);
+    font-size: clamp(32px, 4vw, 42px);
     line-height: 1.08;
     font-weight: 700;
     color: #333333;
@@ -1675,6 +1745,67 @@ main section {
     background: #f0b857;
 }
 
+/* Extra activity — active state (visual feedback while modal is open handled by JS) */
+.extra-icon.is-active {
+    transform: scale(1.13);
+    box-shadow: 0 0 0 4px rgba(255,255,255,0.55), 0 14px 28px rgba(0,0,0,0.22);
+}
+
+/* Activity modal */
+.activity-modal-content {
+    padding-top: 8px;
+}
+
+.activity-modal-header {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    gap: 20px;
+    margin-bottom: 24px;
+    padding-bottom: 24px;
+    border-bottom: 1px solid rgba(0, 0, 0, 0.08);
+}
+
+.activity-modal-icon {
+    width: 72px;
+    height: 72px;
+    border-radius: 50%;
+    flex-shrink: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 32px;
+    color: #fff;
+}
+
+.activity-modal-icon.icon-blue-dark  { background: #004a66; }
+.activity-modal-icon.icon-blue-light { background: #82c2da; }
+.activity-modal-icon.icon-orange     { background: #f15931; }
+.activity-modal-icon.icon-mustard    { background: #f0b857; }
+
+.activity-modal-header-text h3 {
+    margin: 0;
+    font-size: 24px;
+    font-weight: 700;
+}
+
+.activity-modal-body p {
+    font-size: 15px;
+    line-height: 1.75;
+    color: var(--text-muted);
+    margin: 0 0 14px;
+}
+
+.activity-modal-body p:last-of-type {
+    margin-bottom: 0;
+    padding-top: 14px;
+    border-top: 1px solid rgba(0, 0, 0, 0.08);
+}
+
+#activityModalPhotos:not(:empty) {
+    margin-top: 24px;
+}
+
 @media (max-width: 1200px) {
     .feature-cards {
         grid-template-columns: repeat(3, 1fr);
@@ -1690,9 +1821,12 @@ main section {
         grid-template-columns: repeat(2, 1fr);
     }
 
-    .academic-title,
-    .acad-section-title {
+    .academic-title {
         font-size: clamp(36px, 7.8vw, 48px);
+    }
+
+    .acad-section-title {
+        font-size: clamp(32px, 4vw, 42px);
     }
 }
 
@@ -2298,7 +2432,7 @@ input[type="checkbox"]:not(.round-checkbox).error-border {
 }
 
 .location-team-title {
-    font-size: clamp(32px, 3vw, 36px);
+    font-size: clamp(32px, 4vw, 42px);
     font-weight: 700;
     color: var(--text-primary);
     margin-top: 0;
@@ -2531,7 +2665,7 @@ input[type="checkbox"]:not(.round-checkbox).error-border {
     background-color: var(--page-bg-soft);
 }
 .location-facility-title {
-    font-size: clamp(32px, 3vw, 36px);
+    font-size: clamp(32px, 4vw, 42px);
     font-weight: 700;
     color: var(--text-primary);
     margin-bottom: 32px;

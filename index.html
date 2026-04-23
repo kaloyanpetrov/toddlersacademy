@@ -26,8 +26,8 @@
                 <nav class="main-nav" aria-label="Primary navigation">
                     <a class="active" href="index.html">Home</a>
                     <a href="about-us.html">About us</a>
-                    <a href="student-life.html">Student life</a>
                     <a href="academic-approach.html">Academic Approach</a>
+                    <a href="student-life.html">Student life</a>
                     <a href="admission.html">Admission</a>
                     <a href="q-center.html">Q-Center</a>
                     <a href="the-bells.html">The Bells</a>
@@ -56,8 +56,8 @@
             <nav class="mobile-nav" aria-label="Mobile navigation">
                 <a class="active" href="index.html">Home</a>
                 <a href="about-us.html">About us</a>
-                <a href="student-life.html">Student life</a>
                 <a href="academic-approach.html">Academic Approach</a>
+                <a href="student-life.html">Student life</a>
                 <a href="admission.html">Admission</a>
                 <a href="q-center.html">Q-Center</a>
                 <a href="the-bells.html">The Bells</a>
@@ -183,7 +183,7 @@
                 <p style="color: var(--text-muted); margin-top: 16px; line-height: 1.6;">Two Convenient Locations for Your Family. We know how important convenience is for working parents, so we offer two modern, thoughtfully designed locations, strategically situated near major business hubs:</p>
             </div>
             <div class="locations-grid">
-                <div class="location-card">
+                <a class="location-card" href="q-center.html">
                     <img src="assets/images/q-center-preview.png" alt="Q Center">
                     <div class="location-card-content">
                         <h3>Q Center</h3>
@@ -194,8 +194,8 @@
                         <p style="font-size: 13px; margin-top: 8px;">Monday to Friday | 8:00 AM - 6:30 PM</p>
                     </div>
                     <div class="location-arrow"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="7" y1="17" x2="17" y2="7"></line><polyline points="7 7 17 7 17 17"></polyline></svg></div>
-                </div>
-                <div class="location-card">
+                </a>
+                <a class="location-card" href="the-bells.html">
                     <img src="assets/images/the-bells-preview.png" alt="The Bells">
                     <div class="location-card-content">
                         <h3>The Bells</h3>
@@ -205,20 +205,25 @@
                         <p style="font-size: 13px; margin-top: 8px;">Monday to Friday | 8:00 AM - 6:30 PM</p>
                     </div>
                     <div class="location-arrow"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="7" y1="17" x2="17" y2="7"></line><polyline points="7 7 17 7 17 17"></polyline></svg></div>
-                </div>
+                </a>
             </div>
         </div>
     </section>
 
     <section class="testimonials-section">
         <div class="container">
-            <div class="section-heading">
-                <h2>Hear from the parents of our students</h2>
-                <p style="color: var(--text-muted); margin-top: 16px;">Our families are the biggest supporters and fans!</p>
+            <div class="team-section-header">
+                <div class="team-section-intro">
+                    <h2 class="location-team-title">Hear from the parents of our students</h2>
+                    <p class="location-team-desc">Our families are the biggest supporters and fans!</p>
+                </div>
+                <div class="team-carousel-controls">
+                    <button class="team-carousel-arrow" id="testimonialPrev" aria-label="Previous testimonial"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="19" y1="12" x2="5" y2="12"></line><polyline points="12 19 5 12 12 5"></polyline></svg></button>
+                    <button class="team-carousel-arrow" id="testimonialNext" aria-label="Next testimonial"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"></line><polyline points="12 5 19 12 12 19"></polyline></svg></button>
+                </div>
             </div>
-            
+
             <div class="testimonials-slider">
-                <button class="slider-btn prev-btn" id="testimonialPrev"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="19" y1="12" x2="5" y2="12"></line><polyline points="12 19 5 12 12 5"></polyline></svg></button>
                 <div class="testimonials-track" id="testimonialTrack">
                     <div class="testimonial-card">
                         <h4>Katherine Haun</h4>
@@ -266,7 +271,6 @@
                         <button class="read-more">Read more</button>
                     </div>
                 </div>
-                <button class="slider-btn next-btn" id="testimonialNext"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"></line><polyline points="12 5 19 12 12 19"></polyline></svg></button>
             </div>
         </div>
     </section>
@@ -280,19 +284,24 @@
                 </button>
                 <div class="modal-content">
                     <h2 style="margin-top: 0; margin-bottom: 8px;">Book a Visit</h2>
-                    <p style="color: var(--text-muted); margin-bottom: 24px; font-size: 15px;">Choose a convenient time to visit Toddlers Academy. We look forward to welcoming you and your family!</p>
-                    <!--
-                        TODO: Connect Google Calendar Appointment Scheduling
-                        1. In Google Calendar, create an Appointment Schedule (requires Google Workspace).
-                        2. Copy the booking page URL, e.g.:
-                           https://calendar.google.com/calendar/appointments/schedules/YOUR_SCHEDULE_ID
-                        3. Paste the URL as the value of data-appointment-src on the iframe below.
-                    -->
+                    <p style="color: var(--text-muted); margin-bottom: 20px; font-size: 15px;">Choose a convenient time to visit Toddlers Academy. We look forward to welcoming you and your family!</p>
+
+                    <!-- Location Switch -->
+                    <div class="location-switch-wrap">
+                        <input type="checkbox" id="locationToggle">
+                        <label for="locationToggle" class="location-pill-track" aria-label="Select location">
+                            <span class="location-pill-thumb"></span>
+                            <span class="location-pill-label left">Q-Center</span>
+                            <span class="location-pill-label right">The Bells</span>
+                        </label>
+                    </div>
+
                     <div class="book-visit-iframe-wrap">
                         <iframe
                             id="bookVisitFrame"
                             src="about:blank"
-                            data-appointment-src="https://calendar.google.com/calendar/appointments/schedules/AcZssZ2c8CTd0rbG5WXbyJGhB03nqa1-y7iasV1ZPKFzKsm1XVzGkqocftyvEpO8uJSS-Vv6119sIGCr?gv=true"
+                            data-qcenter-src="https://calendar.app.google/KFmCVf97nGR2eEy36"
+                            data-bells-src="https://calendar.app.google/KFmCVf97nGR2eEy36"
                             width="100%"
                             height="520"
                             frameborder="0"
@@ -345,7 +354,7 @@
 
                 <div class="footer-contact">
                     <h3>Contact us</h3>
-                    <a href="mailto:info@toddlersacademy.eu">info@toddlersacademy.eu</a>
+                    <a href="mailto:toddlersacademykindergarten@gmail.com">toddlersacademykindergarten@gmail.com</a>
                     <a href="tel:+359898455375">+359 898 455 375</a>
                 </div>
             </div>
@@ -690,21 +699,39 @@
         const closeBookVisitModalBtn = document.getElementById('closeBookVisitModal');
         const bookVisitFrame = document.getElementById('bookVisitFrame');
         const bookVisitPlaceholder = document.getElementById('bookVisitPlaceholder');
+        const locationToggle = document.getElementById('locationToggle');
+
+        function getCalendarSrc() {
+            if (locationToggle && locationToggle.checked) {
+                return (bookVisitFrame.getAttribute('data-bells-src') || '').trim();
+            }
+            return (bookVisitFrame.getAttribute('data-qcenter-src') || '').trim();
+        }
+
+        function loadCalendar() {
+            const src = getCalendarSrc();
+            if (src !== '') {
+                bookVisitFrame.src = src;
+                bookVisitFrame.style.display = 'block';
+                if (bookVisitPlaceholder) bookVisitPlaceholder.style.display = 'none';
+            } else {
+                bookVisitFrame.src = 'about:blank';
+                bookVisitFrame.style.display = 'none';
+                if (bookVisitPlaceholder) bookVisitPlaceholder.style.display = 'flex';
+            }
+        }
+
+        if (locationToggle) {
+            locationToggle.addEventListener('change', () => {
+                if (bookVisitModal.classList.contains('active')) {
+                    loadCalendar();
+                }
+            });
+        }
 
         if (bookVisitModal && bookVisitBtn) {
             function openBookVisitModal() {
-                const appointmentSrc = bookVisitFrame.getAttribute('data-appointment-src');
-                if (appointmentSrc && appointmentSrc.trim() !== '') {
-                    // Load the Google appointment page into the iframe
-                    if (bookVisitFrame.src === 'about:blank' || bookVisitFrame.src === window.location.href) {
-                        bookVisitFrame.src = appointmentSrc.trim();
-                    }
-                    bookVisitFrame.style.display = 'block';
-                    if (bookVisitPlaceholder) bookVisitPlaceholder.style.display = 'none';
-                } else {
-                    bookVisitFrame.style.display = 'none';
-                    if (bookVisitPlaceholder) bookVisitPlaceholder.style.display = 'flex';
-                }
+                loadCalendar();
                 bookVisitModal.classList.add('active');
                 bookVisitModal.removeAttribute('aria-hidden');
                 document.body.style.overflow = 'hidden';
