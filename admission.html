@@ -448,7 +448,7 @@
         </div>
 
         <!-- Procedure Modal -->
-        <div id="procedureModal" class="modal-overlay">
+        <div id="procedureModal" class="modal-overlay"> 
             <div class="modal-container" style="max-width: 900px;">
                 <button id="closeProcedureModalBtn" class="modal-close" aria-label="Close modal">
                     <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><line x1="18" y1="6" x2="6" y2="18"></line><line x1="6" y1="6" x2="18" y2="18"></line></svg>
@@ -499,14 +499,12 @@
                     <hr>
                     <form id="enrollmentForm" novalidate>
                         <h3>Welcome</h3>
-                        <table>
-                        <tbody>
-                            <tr><td>Please fill out the form in the order presented, providing accurate and detailed information.</td></tr>
-                            <tr><td>Thank you for choosing <strong>Toddlers Academy Kindergarten</strong>.</td></tr>
-                            <tr><td>We look forward to welcoming your family into our community!</td></tr>
-                            <tr><td>* Please provide your details for enrollment purposes only.</td></tr>
-                        </tbody>
-                    </table>
+                        <div class="enrollment-welcome-block">
+                            <p>Please fill out the form in the order presented, providing accurate and detailed information.</p>
+                            <p>Thank you for choosing <strong>Toddlers Academy Kindergarten</strong>.</p>
+                            <p>We look forward to welcoming your family into our community!</p>
+                            <p>* Please provide your details for enrollment purposes only.</p>
+                        </div>
 
                     <table class="form-table two-cols" style="margin-bottom: 24px;">
                         <tbody>
@@ -605,12 +603,8 @@
                     <p><label style="cursor: pointer; display: flex; align-items: center; gap: 8px;"><input type="checkbox" required class="round-checkbox"> <strong>I agree to the collection and processing of our personal data</strong></label></p>
                     <div style="margin-top: 24px; display: flex; flex-direction: column; gap: 16px;">
                         <label style="display: flex; align-items: center; gap: 12px; flex-wrap: wrap;">
-                            <strong>Parent Signature:</strong> 
-                            <input type="text" class="form-input" required style="max-width: 300px; flex: 1;" placeholder="Your name...">
-                        </label>
-                        <label style="display: flex; align-items: center; gap: 12px; flex-wrap: wrap;">
                             <strong>Date:</strong> 
-                            <input type="date" class="form-input" required style="max-width: 200px;">
+                            <input type="date" id="enrollmentDate" class="form-input" required readonly aria-readonly="true" style="max-width: 200px; pointer-events: none;">
                         </label>
                     </div>
                     <hr>
@@ -673,6 +667,7 @@
         const procedureCardBtn = document.getElementById('procedureCardBtn');
         const procedureModal = document.getElementById('procedureModal');
         const closeProcedureModalBtn = document.getElementById('closeProcedureModalBtn');
+        const enrollmentDateInput = document.getElementById('enrollmentDate');
         const handbookCardBtn = document.getElementById('handbookCardBtn');
         const handbookModal = document.getElementById('handbookModal');
         const closeHandbookModalBtn = document.getElementById('closeHandbookModalBtn');
@@ -680,6 +675,16 @@
         const calendarModal = document.getElementById('calendarModal');
         const closeCalendarModalBtn = document.getElementById('closeCalendarModalBtn');
         const pageShell = document.querySelector('.page-shell');
+
+        function setEnrollmentDateToToday() {
+            const today = new Date();
+            const year = today.getFullYear();
+            const month = String(today.getMonth() + 1).padStart(2, '0');
+            const day = String(today.getDate()).padStart(2, '0');
+            enrollmentDateInput.value = `${year}-${month}-${day}`;
+        }
+
+        setEnrollmentDateToToday();
 
         // Custom Select Initialization
         document.querySelectorAll('select.form-input').forEach(select => {
@@ -748,6 +753,7 @@
 
         function openModal() {
             enrollmentModal.classList.add('active');
+            setEnrollmentDateToToday();
             document.body.style.overflow = 'hidden';
         }
 
@@ -813,6 +819,12 @@
             // Clear all input fields when the modal is closed
             const inputs = enrollmentModal.querySelectorAll('input, select');
             inputs.forEach(input => {
+                if (input.id === 'enrollmentDate') {
+                    setEnrollmentDateToToday();
+                    input.classList.remove('error-border');
+                    return;
+                }
+
                 if (input.type === 'checkbox' || input.type === 'radio') {
                     input.checked = false;
                 } else {
