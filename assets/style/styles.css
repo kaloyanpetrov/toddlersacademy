@@ -401,7 +401,7 @@ main section {
     display: inline-block;
     margin: 14px 0 14px;
     padding-left: 18px;
-    font-size: clamp(32px, 4vw, 42px);
+    font-size: clamp(24px, 3vw, 32px);
     line-height: 1.08;
     font-weight: 600;
     vertical-align: middle;
@@ -409,7 +409,7 @@ main section {
 
 .timeline-body p {
     margin: 0 0 12px;
-    font-size: 20px;
+    font-size: 16px;
     line-height: 1.6;
     color: var(--text-muted);
 }
@@ -588,11 +588,11 @@ main section {
     }
 
     .timeline-body h2 {
-        font-size: clamp(28px, 7vw, 36px);
+        font-size: clamp(20px, 6vw, 28px);
     }
 
     .timeline-body p {
-        font-size: 18px;
+        font-size: 15px;
         line-height: 1.55;
     }
 
@@ -1546,9 +1546,9 @@ main section {
 }
 
 .feature-card-item {
-    background: #ffffff;
+    background: #004a66;
     border-radius: 14px;
-    border-top: 5px solid #004a66;
+    border-top: 5px solid var(--page-bg);
     padding: 16px 14px 14px;
     min-height: 156px;
 }
@@ -1557,7 +1557,7 @@ main section {
     margin: 0 0 10px;
     font-size: 16px;
     line-height: 1.3;
-    color: #333333;
+    color: var(--page-bg);
     font-weight: 700;
 }
 
@@ -1565,7 +1565,7 @@ main section {
     margin: 0;
     font-size: 13px;
     line-height: 1.5;
-    color: #9a968e;
+    color: rgba(253, 252, 235, 0.7);
 }
 
 .acad-after-copy {
