@@ -642,6 +642,7 @@ main section {
     opacity: 0;
     transition: opacity 0.4s ease;
     background: transparent;
+    mix-blend-mode: screen;
 }
 @media (max-width: 768px) {
     .hero-section {
