@@ -73,7 +73,6 @@
                 <video
                     id="heroVideo"
                     class="hero-rive"
-                    src="Desktop.webm"
                     autoplay
                     muted
                     playsinline
@@ -372,6 +371,14 @@
         (function initHeroVideo() {
             const video = document.getElementById('heroVideo');
             const pageLoader = document.getElementById('pageLoader');
+
+            // Use transparent WebM (VP9 alpha) on browsers that fully support it (Chrome, Firefox, Edge).
+            // Fall back to HEVC MP4 (hvc1 alpha) for Safari and iOS where WebM alpha is not supported.
+            const canWebmAlpha = video.canPlayType('video/webm; codecs="vp9"') === 'probably';
+            video.src = canWebmAlpha
+                ? 'assets/videos/Desktop.webm'
+                : 'assets/videos/toddlers.mp4';
+            video.load();
             let loaderHidden = false;
 
             function hidePageLoader() {
