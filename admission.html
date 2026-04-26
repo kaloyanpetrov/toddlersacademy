@@ -10,6 +10,8 @@
     <link href="https://cdn.jsdelivr.net/npm/remixicon@4.3.0/fonts/remixicon.css" rel="stylesheet">
     <link rel="stylesheet" href="assets/style/styles.css">
     <script src="assets/js/section-reveal.js" defer></script>
+    <!-- hCaptcha -->
+    <script src="https://js.hcaptcha.com/1/api.js" async defer></script>
 </head>
 <body>
     <div class="page-shell">
@@ -498,6 +500,11 @@
                     <img src="assets/images/toddlers-header-preview.png" alt="Toddlers Academy Header">
                     <hr>
                     <form id="enrollmentForm" novalidate>
+
+                        <!-- ── HONEYPOT: invisible to humans, bots fill it ── -->
+                        <input type="text" name="website" id="honeypot" tabindex="-1" autocomplete="off"
+                               style="position:absolute;left:-9999px;width:1px;height:1px;opacity:0;" aria-hidden="true">
+
                         <h3>Welcome</h3>
                         <div class="enrollment-welcome-block">
                             <p>Please fill out the form in the order presented, providing accurate and detailed information.</p>
@@ -511,7 +518,7 @@
                             <tr>
                                 <td><strong>Preferred Location</strong></td>
                                 <td>
-                                    <select class="form-input" required>
+                                    <select class="form-input" name="location" id="f_location" required>
                                         <option value="" disabled selected>Select</option>
                                         <option value="Q-Center, Tsarigradsko Shose">Q-Center, Tsarigradsko Shose</option>
                                         <option value="The Bells, Vitoshki Kambani">The Bells, Vitoshki Kambani</option>
@@ -526,24 +533,24 @@
                             <tr class="section-header"><th colspan="2">I. CHILD INFORMATION</th></tr>
                         </thead>
                         <tbody>
-                            <tr><td><strong>Full Name</strong></td><td><input type="text" class="form-input" required placeholder="e.g., John Doe"></td></tr>
-                            <tr><td><strong>Age at Admission</strong></td><td><input type="text" class="form-input" required placeholder="e.g., 3 years"></td></tr>
-                            <tr><td><strong>Date of Birth</strong></td><td><input type="text" class="form-input" required placeholder="DD/MM/YYYY"></td></tr>
-                            <tr><td><strong>Place of Birth</strong></td><td><input type="text" class="form-input" required placeholder="e.g., Sofia, Bulgaria"></td></tr>
+                            <tr><td><strong>Full Name</strong></td><td><input type="text" class="form-input" name="childFullName" id="f_childFullName" required placeholder="e.g., John Doe"></td></tr>
+                            <tr><td><strong>Age at Admission</strong></td><td><input type="text" class="form-input" name="childAge" id="f_childAge" required placeholder="e.g., 3 years"></td></tr>
+                            <tr><td><strong>Date of Birth</strong></td><td><input type="text" class="form-input" name="childDOB" id="f_childDOB" required placeholder="DD/MM/YYYY"></td></tr>
+                            <tr><td><strong>Place of Birth</strong></td><td><input type="text" class="form-input" name="childPlaceOfBirth" id="f_childPlaceOfBirth" required placeholder="e.g., Sofia, Bulgaria"></td></tr>
                             <tr><td><strong>Sex</strong></td><td>
-                                <select class="form-input" required>
+                                <select class="form-input" name="childSex" id="f_childSex" required>
                                     <option value="" disabled selected>Select</option>
                                     <option value="Male">Male</option>
                                     <option value="Female">Female</option>
                                     <option value="Prefer Not to Say">Prefer Not to Say</option>
                                 </select>
                             </td></tr>
-                            <tr><td><strong>Bulgarian National Identification Number (EGN) or Personal Foreigner Number (LNCH)</strong></td><td><input type="text" class="form-input" required placeholder="Enter EGN or LNCH"></td></tr>
-                            <tr><td><strong>Nationality</strong></td><td><input type="text" class="form-input" required placeholder="e.g., Bulgarian"></td></tr>
-                            <tr><td><strong>Primary Language Spoken</strong></td><td><input type="text" class="form-input" required placeholder="e.g., English"></td></tr>
-                            <tr><td><strong>Other Languages Spoken</strong></td><td><input type="text" class="form-input" placeholder="e.g., Spanish, German"></td></tr>
-                            <tr><td><strong>Home Address</strong></td><td><input type="text" class="form-input" required placeholder="Enter full address"></td></tr>
-                            <tr><td><strong>Allergies or Special Diets</strong></td><td><input type="text" class="form-input" placeholder="e.g., Peanut allergy, Vegetarian"></td></tr>
+                            <tr><td><strong>Bulgarian National Identification Number (EGN) or Personal Foreigner Number (LNCH)</strong></td><td><input type="text" class="form-input" name="childEGN" id="f_childEGN" required placeholder="Enter EGN or LNCH" maxlength="10" inputmode="numeric"></td></tr>
+                            <tr><td><strong>Nationality</strong></td><td><input type="text" class="form-input" name="childNationality" id="f_childNationality" required placeholder="e.g., Bulgarian"></td></tr>
+                            <tr><td><strong>Primary Language Spoken</strong></td><td><input type="text" class="form-input" name="childLanguage" id="f_childLanguage" required placeholder="e.g., English"></td></tr>
+                            <tr><td><strong>Other Languages Spoken</strong></td><td><input type="text" class="form-input" name="childOtherLanguages" id="f_childOtherLanguages" placeholder="e.g., Spanish, German"></td></tr>
+                            <tr><td><strong>Home Address</strong></td><td><input type="text" class="form-input" name="childAddress" id="f_childAddress" required placeholder="Enter full address"></td></tr>
+                            <tr><td><strong>Allergies or Special Diets</strong></td><td><input type="text" class="form-input" name="childAllergies" id="f_childAllergies" placeholder="e.g., Peanut allergy, Vegetarian"></td></tr>
                         </tbody>
                     </table>
 
@@ -552,12 +559,12 @@
                             <tr class="section-header"><th colspan="2">II. PARENT/GUARDIAN INFORMATION</th></tr>
                         </thead>
                         <tbody>
-                            <tr><td><strong>Full Name</strong></td><td><input type="text" class="form-input" required placeholder="e.g., Jane Doe"></td></tr>
-                            <tr><td><strong>ID Number (EGN or LNCH)</strong></td><td><input type="text" class="form-input" required placeholder="Enter EGN or LNCH"></td></tr>
-                            <tr><td><strong>Relationship to Child</strong></td><td><input type="text" class="form-input" required placeholder="e.g., Mother, Father, Guardian"></td></tr>
-                            <tr><td><strong>Home Address</strong></td><td><input type="text" class="form-input" required placeholder="Enter full address"></td></tr>
-                            <tr><td><strong>E-mail</strong></td><td><input type="email" class="form-input" required placeholder="example@email.com"></td></tr>
-                            <tr><td><strong>Mobile Phone Number</strong></td><td><input type="tel" class="form-input" required placeholder="+359..."></td></tr>
+                            <tr><td><strong>Full Name</strong></td><td><input type="text" class="form-input" name="parentName" id="f_parentName" required placeholder="e.g., Jane Doe"></td></tr>
+                            <tr><td><strong>ID Number (EGN or LNCH)</strong></td><td><input type="text" class="form-input" name="parentEGN" id="f_parentEGN" required placeholder="Enter EGN or LNCH" maxlength="10" inputmode="numeric"></td></tr>
+                            <tr><td><strong>Relationship to Child</strong></td><td><input type="text" class="form-input" name="parentRelationship" id="f_parentRelationship" required placeholder="e.g., Mother, Father, Guardian"></td></tr>
+                            <tr><td><strong>Home Address</strong></td><td><input type="text" class="form-input" name="parentAddress" id="f_parentAddress" required placeholder="Enter full address"></td></tr>
+                            <tr><td><strong>E-mail</strong></td><td><input type="email" class="form-input" name="parentEmail" id="f_parentEmail" required placeholder="example@email.com"></td></tr>
+                            <tr><td><strong>Mobile Phone Number</strong></td><td><input type="tel" class="form-input" name="parentPhone" id="f_parentPhone" required placeholder="+359..."></td></tr>
                         </tbody>
                     </table>
 
@@ -569,8 +576,8 @@
                             <tr class="section-header"><th colspan="2">III. EMERGENCY CONTACT</th></tr>
                         </thead>
                         <tbody>
-                            <tr><td><strong>Name and Surname</strong></td><td><input type="text" class="form-input" required placeholder="e.g., Mark Doe"></td></tr>
-                            <tr><td><strong>Mobile Phone Number</strong></td><td><input type="tel" class="form-input" required placeholder="+359..."></td></tr>
+                            <tr><td><strong>Name and Surname</strong></td><td><input type="text" class="form-input" name="emergencyName" id="f_emergencyName" required placeholder="e.g., Mark Doe"></td></tr>
+                            <tr><td><strong>Mobile Phone Number</strong></td><td><input type="tel" class="form-input" name="emergencyPhone" id="f_emergencyPhone" required placeholder="+359..."></td></tr>
                         </tbody>
                     </table>
 
@@ -579,12 +586,22 @@
                             <tr class="section-header"><th colspan="2">IV. GENERAL PRACTITIONER INFORMATION</th></tr>
                         </thead>
                         <tbody>
-                            <tr><td><strong>Full Name</strong></td><td><input type="text" class="form-input" required placeholder="e.g., Dr. Smith"></td></tr>
-                            <tr><td><strong>Mobile Phone Number</strong></td><td><input type="tel" class="form-input" required placeholder="+359..."></td></tr>
+                            <tr><td><strong>Full Name</strong></td><td><input type="text" class="form-input" name="gpName" id="f_gpName" required placeholder="e.g., Dr. Smith"></td></tr>
+                            <tr><td><strong>Mobile Phone Number</strong></td><td><input type="tel" class="form-input" name="gpPhone" id="f_gpPhone" required placeholder="+359..."></td></tr>
                         </tbody>
                     </table>
 
-                    <h2>V. GDPR INFORMATION</h2>
+                    <!-- Additional notes field -->
+                    <table class="form-table two-cols">
+                        <thead>
+                            <tr class="section-header"><th colspan="2">V. ADDITIONAL NOTES</th></tr>
+                        </thead>
+                        <tbody>
+                            <tr><td colspan="2"><textarea class="form-input" name="additionalNotes" id="f_additionalNotes" rows="3" style="width:100%;resize:vertical;" placeholder="Any additional information you would like us to know..."></textarea></td></tr>
+                        </tbody>
+                    </table>
+
+                    <h2>VI. GDPR INFORMATION</h2>
                     <p>At Toddlers Academy Kindergarten, we are committed to protecting your personal data and ensuring compliance with the General Data Protection Regulation (GDPR). Below, we explain how your data will be handled and your rights under GDPR:</p>
                     <ul>
                         <li><strong>Why We Collect Your Data</strong><br>We collect personal data, such as your name, contact information, and your child's details, to facilitate the enrollment process and provide educational services. This data is necessary to ensure proper communication and administration of your child's education.</li>
@@ -610,7 +627,17 @@
                     <hr>
                     <p><em>Questions? Contact us at: toddlersacademykindergarten@gmail.com</em></p>
                     
-                    <button type="submit" class="modal-submit-btn">Send</button>
+                    <!-- hCaptcha widget — replace data-sitekey with yours from hcaptcha.com -->
+                    <div class="h-captcha"
+                         data-sitekey="095cdc30-a2e6-45d6-b330-42ec39f0fa96"
+                         data-callback="onCaptchaSolved"
+                         data-expired-callback="onCaptchaExpired"
+                         style="margin: 16px 0;">
+                    </div>
+
+                    <div id="formStatusMsg" style="display:none; padding:12px; border-radius:8px; margin-bottom:12px; font-weight:500;"></div>
+
+                    <button type="submit" class="modal-submit-btn" id="submitBtn">Send</button>
                     </form>
                 </div>
             </div>
@@ -890,8 +917,7 @@
             });
 
             if (isValid) {
-                alert('Form submitted successfully!');
-                closeModal();
+                submitEnrollmentForm();
             }
         });
 
@@ -1054,6 +1080,129 @@
                 }
             }
         });
+
+        // ── HCAPTCHA STATE ────────────────────────────────────────────
+        var hcaptchaToken = null;
+
+        function onCaptchaSolved(token) {
+            hcaptchaToken = token;
+        }
+
+        function onCaptchaExpired() {
+            hcaptchaToken = null;
+        }
+
+        // ── FORM SUBMISSION ───────────────────────────────────────────
+        // Replace this URL with your actual Apps Script deployment URL
+        var APPS_SCRIPT_URL = 'https://script.google.com/macros/s/AKfycbw1PciCJr_lvJKdEr-HTQGoJHOom01XHB8Goix6LdwMAy4_wMZTm9uEl_F0EBwmi9w/exec';
+
+        function showStatus(message, isError) {
+            var el = document.getElementById('formStatusMsg');
+            el.style.display = 'block';
+            el.style.background = isError ? '#fdecea' : '#e8f5e9';
+            el.style.color      = isError ? '#c0392b' : '#2e7d32';
+            el.style.border     = isError ? '1px solid #f5c6cb' : '1px solid #c3e6cb';
+            el.innerText = message;
+        }
+
+        function hideStatus() {
+            document.getElementById('formStatusMsg').style.display = 'none';
+        }
+
+        function getFieldValue(id) {
+            var el = document.getElementById(id);
+            return el ? el.value.trim() : '';
+        }
+
+        function submitEnrollmentForm() {
+            // Extra client-side honeypot guard
+            if (document.getElementById('honeypot').value !== '') return;
+
+            // hCaptcha check
+            if (!hcaptchaToken) {
+                showStatus('Please complete the CAPTCHA challenge before submitting.', true);
+                return;
+            }
+
+            var submitBtn = document.getElementById('submitBtn');
+            submitBtn.disabled = true;
+            submitBtn.innerText = 'Sending...';
+            hideStatus();
+
+            var payload = {
+                // Anti-spam
+                website       : document.getElementById('honeypot').value,
+                hcaptchaToken : hcaptchaToken,
+
+                // Location
+                location      : getFieldValue('f_location'),
+
+                // Child
+                childFullName     : getFieldValue('f_childFullName'),
+                childAge          : getFieldValue('f_childAge'),
+                childDOB          : getFieldValue('f_childDOB'),
+                childPlaceOfBirth : getFieldValue('f_childPlaceOfBirth'),
+                childSex          : getFieldValue('f_childSex'),
+                childEGN          : getFieldValue('f_childEGN'),
+                childNationality  : getFieldValue('f_childNationality'),
+                childLanguage     : getFieldValue('f_childLanguage'),
+                childOtherLanguages: getFieldValue('f_childOtherLanguages'),
+                childAddress      : getFieldValue('f_childAddress'),
+                childAllergies    : getFieldValue('f_childAllergies'),
+
+                // Parent
+                parentName         : getFieldValue('f_parentName'),
+                parentEGN          : getFieldValue('f_parentEGN'),
+                parentRelationship : getFieldValue('f_parentRelationship'),
+                parentAddress      : getFieldValue('f_parentAddress'),
+                parentEmail        : getFieldValue('f_parentEmail'),
+                parentPhone        : getFieldValue('f_parentPhone'),
+
+                // Emergency contact
+                emergencyName         : getFieldValue('f_emergencyName'),
+                emergencyRelationship : getFieldValue('f_emergencyRelationship') || 'N/A',
+                emergencyPhone        : getFieldValue('f_emergencyPhone'),
+
+                // GP
+                gpName  : getFieldValue('f_gpName'),
+                gpPhone : getFieldValue('f_gpPhone'),
+
+                // Notes
+                additionalNotes : getFieldValue('f_additionalNotes'),
+
+                // Date
+                submissionDate : document.getElementById('enrollmentDate').value,
+            };
+
+            // Apps Script redirects on POST — use no-cors and assume success
+            // (server-side validation will silently catch any remaining bad data)
+            fetch(APPS_SCRIPT_URL, {
+                method : 'POST',
+                mode   : 'no-cors',        // Required for Apps Script cross-origin POST
+                headers: { 'Content-Type': 'application/json' },
+                body   : JSON.stringify(payload),
+            })
+            .then(function() {
+                // With no-cors we can't read the response body — but if we get here, the request was sent
+                showStatus('\u2713 Your enrollment has been submitted successfully! We will contact you soon.', false);
+                submitBtn.innerText = 'Sent!';
+                // Close modal after 3 seconds
+                setTimeout(function() {
+                    closeModal();
+                    submitBtn.disabled = false;
+                    submitBtn.innerText = 'Send';
+                    hideStatus();
+                    hcaptchaToken = null;
+                    if (window.hcaptcha) hcaptcha.reset();
+                }, 3000);
+            })
+            .catch(function(err) {
+                console.error('Submission error:', err);
+                showStatus('Network error. Please try again or contact us directly at toddlersacademykindergarten@gmail.com', true);
+                submitBtn.disabled = false;
+                submitBtn.innerText = 'Send';
+            });
+        }
     </script>
 </body>
 </html>

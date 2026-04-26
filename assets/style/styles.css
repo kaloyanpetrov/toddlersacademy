@@ -641,7 +641,6 @@ main section {
     display: block;
     opacity: 0;
     transition: opacity 0.4s ease;
-    background: transparent;
 }
 @media (max-width: 768px) {
     .hero-section {
@@ -1161,8 +1160,8 @@ main section {
 }
 
 .director-avatar {
-    width: 200px;
-    height: 200px;
+    width: 90px;
+    height: 90px;
     border-radius: 50%;
     object-fit: cover;
     flex-shrink: 0;
@@ -1170,7 +1169,7 @@ main section {
 }
 
 .adm-hero-title {
-    font-size: clamp(44px, 6vw, 72px);
+    font-size: clamp(52px, 7vw, 80px);
     font-weight: 800;
     line-height: 1;
     margin: 0;

@@ -372,13 +372,11 @@
             const video = document.getElementById('heroVideo');
             const pageLoader = document.getElementById('pageLoader');
 
-            // Use transparent WebM (VP9 alpha) on browsers that fully support it (Chrome, Firefox, Edge).
-            // Fall back to HEVC MP4 (hvc1 alpha) for Safari and iOS where WebM alpha is not supported.
-            const canWebmAlpha = video.canPlayType('video/webm; codecs="vp9"') === 'probably';
-            video.src = canWebmAlpha
-                ? 'assets/videos/Desktop.webm'
-                : 'assets/videos/toddlers.mp4';
+            // Mobile devices (iOS, Android) cannot render transparent WebM — use HEVC MP4 with alpha instead.
+            const isMobile = /iPhone|iPad|iPod|Android/i.test(navigator.userAgent);
+            video.src = 'assets/videos/toddlers.webm';
             video.load();
+
             let loaderHidden = false;
 
             function hidePageLoader() {
@@ -411,12 +409,19 @@
                 return;
             }
 
-            video.addEventListener('canplay', () => {
+            if (video.readyState >= 3) {
                 clearTimeout(safetyTimer);
                 video.style.opacity = '1';
                 hidePageLoader();
                 tryPlay();
-            }, { once: true });
+            } else {
+                video.addEventListener('canplay', () => {
+                    clearTimeout(safetyTimer);
+                    video.style.opacity = '1';
+                    hidePageLoader();
+                    tryPlay();
+                }, { once: true });
+            }
 
             // Resume playback when the tab becomes visible again (only if not finished)
             document.addEventListener('visibilitychange', () => {
