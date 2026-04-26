@@ -303,6 +303,13 @@ main section {
     font-weight: 600;
 }
 
+.section-subheading {
+    margin: 12px 0 0;
+    font-size: 15px;
+    line-height: 1.7;
+    color: #8e8a83;
+}
+
 .timeline {
     position: relative;
     display: grid;
@@ -1030,6 +1037,7 @@ main section {
     }
     .features-grid { grid-template-columns: repeat(2, 1fr); }
     .locations-grid { grid-template-columns: 1fr; }
+    .location-card { height: auto; aspect-ratio: 5 / 4; }
     .testimonials-track { gap: 16px; }
     .testimonial-card { flex: 0 0 calc((100% - 16px) / 2); padding: 24px; }
     .cta-float-left, .cta-float-right, .cta-crayon-left, .cta-crayon-right { display: none; }
@@ -1160,8 +1168,8 @@ main section {
 }
 
 .director-avatar {
-    width: 90px;
-    height: 90px;
+    width: 200px;
+    height: 200px;
     border-radius: 50%;
     object-fit: cover;
     flex-shrink: 0;
@@ -1661,9 +1669,10 @@ main section {
 }
 
 .extra-subtitle {
-    margin: 18px 0 0;
-    font-size: 14px;
-    color: #8f8b84;
+    margin: 12px 0 0;
+    font-size: 15px;
+    line-height: 1.7;
+    color: #8e8a83;
 }
 
 .extra-focus {
@@ -2100,7 +2109,7 @@ main section {
     background-color: rgba(0,0,0,0.02) !important;
 }
 
-.modal-content input.form-input, .modal-content select.form-input {
+.modal-content input.form-input, .modal-content select.form-input, .modal-content textarea.form-input {
     width: 100%;
     padding: 8px 16px;
     border: 1px solid rgba(0,0,0,0.1);
@@ -2110,6 +2119,14 @@ main section {
     font-size: 14px;
     box-sizing: border-box;
     transition: all 0.2s ease;
+}
+
+.modal-content textarea.form-input {
+    border-radius: 16px;
+    resize: vertical;
+    line-height: 1.5;
+    min-height: 80px;
+    padding: 14px 18px;
 }
 
 /* Base style for actual select inputs to hide them when replaced by custom wrapper */
@@ -2179,7 +2196,7 @@ main section {
 }
 
 .custom-select-trigger.focus,
-.modal-content input.form-input:focus, .modal-content select.form-input:focus {
+.modal-content input.form-input:focus, .modal-content select.form-input:focus, .modal-content textarea.form-input:focus {
     outline: none;
     border-color: #f15931;
     background: transparent;
@@ -2281,6 +2298,7 @@ main section {
 
 /* Bind Error state */
 .modal-content .form-input.error-border,
+.modal-content textarea.form-input.error-border,
 select.form-input.error-border ~ .custom-select-trigger {
     border: 2px solid red !important;
     background: rgba(255,0,0,0.05);

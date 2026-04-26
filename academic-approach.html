@@ -278,26 +278,22 @@
             <section class="acad-section extra-activities">
                 <div class="container">
                     <h2 class="acad-section-title">Extra Activities</h2>
-                    <p class="extra-subtitle">Click on an activity to learn more:</p>
+                    <p class="extra-subtitle">Explore some of our activities by clicking on the images below.</p>
                     <div class="extra-icons" aria-label="Extra activity icons">
                         <button class="extra-icon icon-blue-dark" type="button" data-label="Yoga" aria-label="Yoga activity"
-                            data-en="Focuses on mindfulness, relaxation, and flexibility. Children learn age-appropriate poses and breathing techniques to promote physical well-being and inner peace."
-                            data-bg="Фокусира се върху осъзнатостта, релаксацията и гъвкавостта. Децата усвояват подходящи за възрастта им пози и дихателни техники, които насърчават физическото здраве и вътрешния мир.">
+                            data-en="Focuses on mindfulness, relaxation, and flexibility. Children learn age-appropriate poses and breathing techniques to promote physical well-being and inner peace.">
                             <i class="ri-mental-health-line" aria-hidden="true"></i>
                         </button>
                         <button class="extra-icon icon-blue-light" type="button" data-label="Dancing" aria-label="Dancing activity"
-                            data-en="An energetic class teaching various dance styles to promote self-expression, rhythm, and coordination in a joyful environment."
-                            data-bg="Енергичен клас, в който се изучават различни танцови стилове, насърчаващи себеизразяването, ритъма и координацията в една радостна и позитивна среда.">
+                            data-en="An energetic class teaching various dance styles to promote self-expression, rhythm, and coordination in a joyful environment.">
                             <i class="ri-music-2-line" aria-hidden="true"></i>
                         </button>
                         <button class="extra-icon icon-orange" type="button" data-label="Sports" aria-label="Sports activity"
-                            data-en="A fun, active class that encourages teamwork, coordination, and fitness. Activities include football, basketball, corrective gymnastics, relay races, and organized games."
-                            data-bg="Забавно и активно занимание, което насърчава работата в екип, координацията и добрата физическа форма. Дейностите включват футбол, баскетбол, изправяща (коректива) гимнастика, щафетни игри и други забавления.">
+                            data-en="A fun, active class that encourages teamwork, coordination, and fitness. Activities include football, basketball, corrective gymnastics, relay races, and organized games.">
                             <i class="ri-basketball-line" aria-hidden="true"></i>
                         </button>
                         <button class="extra-icon icon-mustard" type="button" data-label="Art" aria-label="Art activity"
-                            data-en="A creative exploration of various mediums and techniques, helping children express themselves while developing their artistic skills. All materials are included."
-                            data-bg="Творческо изследване на различни художествени материали и техники, което помага на децата да изразят себе си и да развият своите артистични умения.">
+                            data-en="A creative exploration of various mediums and techniques, helping children express themselves while developing their artistic skills. All materials are included.">
                             <i class="ri-palette-line" aria-hidden="true"></i>
                         </button>
                     </div>
@@ -320,7 +316,6 @@
                     </div>
                     <div class="activity-modal-body">
                         <p id="activityModalEn"></p>
-                        <p id="activityModalBg"></p>
                         <div id="activityModalPhotos"></div>
                     </div>
                 </div>
@@ -401,7 +396,6 @@
         const activityModalIcon = document.getElementById('activityModalIcon');
         const activityModalTitle = document.getElementById('activityModalTitle');
         const activityModalEn = document.getElementById('activityModalEn');
-        const activityModalBg = document.getElementById('activityModalBg');
         const activityColors = {
             'icon-blue-dark':  '#004a66',
             'icon-blue-light': '#82c2da',
@@ -421,7 +415,6 @@
             activityModalTitle.textContent = label;
             activityModalTitle.style.color = color;
             activityModalEn.textContent = en;
-            activityModalBg.textContent = bg;
 
             activityModal.classList.add('active');
             activityModal.removeAttribute('aria-hidden');
