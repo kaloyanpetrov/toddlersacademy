@@ -424,7 +424,7 @@ main section {
 .footer-overlay {
     position: absolute;
     inset: 0;
-    background: url("../images/crayon-effect.png") center/cover no-repeat;
+    background: url("../images/crayon-effect.webp") center/cover no-repeat;
     opacity: 0.35;
     pointer-events: none;
 }
@@ -1124,7 +1124,7 @@ main section {
 .cta-overlay {
     position: absolute;
     inset: 0;
-    background: url("../images/crayon-effect.png") center/cover no-repeat;
+    background: url("../images/crayon-effect.webp") center/cover no-repeat;
     opacity: 0.35;
     pointer-events: none;
     z-index: 0;
@@ -1160,7 +1160,7 @@ main section {
 .adm-hero-overlay {
     position: absolute;
     inset: 0;
-    background: url("assets/crayon.png") center/cover no-repeat;
+    background: url("assets/crayon.webp") center/cover no-repeat;
     opacity: 0.35;
     mix-blend-mode: luminosity;
     pointer-events: none;
@@ -1696,7 +1696,7 @@ main section {
 }
 
 .extra-icons {
-    margin-top: 26px;
+    margin-top: 52px;
     display: flex;
     justify-content: center;
     gap: 18px;
@@ -1770,17 +1770,32 @@ main section {
     background: #f0b857;
 }
 
+@media (max-width: 600px) {
+    .extra-icons {
+        flex-wrap: nowrap;
+        gap: 8px;
+        justify-content: space-between;
+    }
+    .extra-icon {
+        width: 70px;
+        height: 70px;
+        min-width: 70px;
+        font-size: 30px;
+        flex-shrink: 0;
+    }
+}
+
 /* Activity inline panel */
 .activity-panel {
     overflow: hidden;
     max-height: 0;
     opacity: 0;
     margin-top: 0;
-    transition: max-height 0.55s ease, opacity 0.4s ease, margin-top 0.4s ease;
+    transition: max-height 0.45s ease-in-out, opacity 0.35s ease-in-out, margin-top 0.35s ease-in-out;
 }
 
 .activity-panel.is-open {
-    max-height: 6000px;
+    /* max-height is set dynamically by JS to match actual content height */
     opacity: 1;
     margin-top: 40px;
 }
@@ -1797,15 +1812,7 @@ main section {
 }
 
 .activity-panel-icon {
-    width: 56px;
-    height: 56px;
-    border-radius: 50%;
-    flex-shrink: 0;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    font-size: 26px;
-    color: #fff;
+    display: none;
 }
 
 .activity-panel-icon.icon-blue-dark  { background: #004a66; }
@@ -2708,6 +2715,11 @@ input[type="checkbox"]:not(.round-checkbox).error-border {
 }
 
 /* GALLERY MASONRY */
+@keyframes masonry-shimmer {
+    0%   { background-position: -400px 0; }
+    100% { background-position:  400px 0; }
+}
+
 .masonry-gallery {
     column-count: 3;
     column-gap: 20px;
@@ -2719,11 +2731,20 @@ input[type="checkbox"]:not(.round-checkbox).error-border {
     overflow: hidden;
     cursor: pointer;
     box-shadow: var(--shadow-soft);
+    background: linear-gradient(90deg, #e8e4d0 25%, #f3f0e0 50%, #e8e4d0 75%);
+    background-size: 800px 100%;
+    animation: masonry-shimmer 1.4s ease-in-out infinite;
 }
 .masonry-item img {
     width: 100%;
     display: block;
-    transition: transform 0.3s ease;
+    aspect-ratio: 4 / 3;
+    opacity: 0;
+    transition: transform 0.3s ease, opacity 0.4s ease;
+}
+.masonry-item img.is-loaded {
+    opacity: 1;
+    aspect-ratio: auto;
 }
 .masonry-item:hover img {
     transform: scale(1.03);
@@ -2857,7 +2878,7 @@ input[type="checkbox"]:not(.round-checkbox).error-border {
 .bg-flag-btn {
     position: fixed;
     right: 0;
-    top: 50%;
+    top: 75%;
     transform: translateY(-50%);
     z-index: 9999;
     background: #000;

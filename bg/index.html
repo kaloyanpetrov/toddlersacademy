@@ -1,0 +1,759 @@
+<!DOCTYPE html>
+<html lang="bg">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Toddlers Academy | Начало</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <script src="https://d3js.org/d3.v7.min.js"></script>
+    <script src="https://unpkg.com/topojson-client@3"></script>
+    <link href="https://cdn.jsdelivr.net/npm/remixicon@4.3.0/fonts/remixicon.css" rel="stylesheet">
+    <link rel="icon" href="../assets/images/icon.svg" type="image/svg+xml">
+    <link rel="stylesheet" href="../assets/style/styles.css">
+    <script src="../assets/js/section-reveal.js" defer></script>
+</head>
+<body>
+    <div id="pageLoader" class="page-loader" aria-hidden="true" aria-label="Loading">
+        <div class="page-spinner"></div>
+    </div>
+    <div class="page-shell">
+        <header class="site-header">
+            <div class="container header-inner">
+                <a class="brand" href="#top" aria-label="Toddlers Academy начало">
+                    <img src="../assets/images/navbar-logo.webp" alt="Toddlers Academy лого" width="105" height="50">
+                </a>
+
+                <nav class="main-nav" aria-label="Основна навигация">
+                    <a class="active" href="index.html">Начало</a>
+                    <a href="about-us.html">За нас</a>
+                    <a href="academic-approach.html">Академичен подход</a>
+                    <a href="student-life.html">Живот на студентите</a>
+                    <a href="admission.html">Прием</a>
+                    <a href="q-center.html">Q-Center</a>
+                    <a href="the-bells.html">The Bells</a>
+                </nav>
+
+                <div class="header-actions">
+                    <a class="cta-button" href="admission.html">Запишете се <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" style="margin-left: 6px;"><line x1="7" y1="17" x2="17" y2="7"></line><polyline points="7 7 17 7 17 17"></polyline></svg></a>
+                    
+                    <button class="mobile-menu-trigger" aria-label="Отвори меню" aria-expanded="false">
+                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><line x1="3" y1="12" x2="21" y2="12"></line><line x1="3" y1="6" x2="21" y2="6"></line><line x1="3" y1="18" x2="21" y2="18"></line></svg>
+                    </button>
+                </div>
+            </div>
+        </header>
+
+        <div class="mobile-menu-overlay" id="mobileMenu">
+            <div class="mobile-menu-header">
+                <a class="brand" href="#top">
+                    <img src="../assets/images/navbar-logo.webp" alt="Toddlers Academy лого" width="105" height="50">
+                </a>
+                <button class="mobile-menu-close" aria-label="Затвори меню">
+                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><line x1="18" y1="6" x2="6" y2="18"></line><line x1="6" y1="6" x2="18" y2="18"></line></svg>
+                </button>
+            </div>
+            
+            <nav class="mobile-nav" aria-label="Мобилна навигация">
+                <a class="active" href="index.html">Начало</a>
+                <a href="about-us.html">За нас</a>
+                <a href="academic-approach.html">Академичен подход</a>
+                <a href="student-life.html">Живот на студентите</a>
+                <a href="admission.html">Прием</a>
+                <a href="q-center.html">Q-Center</a>
+                <a href="the-bells.html">The Bells</a>
+                
+                <a class="cta-button mobile-cta" href="admission.html">Запишете се <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" style="margin-left: 6px;"><line x1="7" y1="17" x2="17" y2="7"></line><polyline points="7 7 17 7 17 17"></polyline></svg></a>
+            </nav>
+        </div>
+
+        <main>
+    <section class="hero-section">
+        <div class="container hero-container">
+            <div class="hero-image" id="heroWrap">
+                <video
+                    id="heroVideo"
+                    class="hero-rive"
+                    autoplay
+                    muted
+                    playsinline
+                    aria-label="Toddlers Academy анимирана илюстрация"
+                ></video>
+            </div>
+            <div class="hero-action">
+                <a class="cta-button" href="#about">Научете повече <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" style="margin-left: 6px;"><line x1="7" y1="17" x2="17" y2="7"></line><polyline points="7 7 17 7 17 17"></polyline></svg></a>
+            </div>
+        </div>
+    </section>
+
+    <section class="first-step-section" id="about">
+        <div class="container twocol-layout">
+            <div class="text-content">
+                <h2>Първата стъпка<br>към светлото бъдеще на Вашето дете</h2>
+                <p>Основана през 2010 г., ЧДГ „Детска Академия" е утвърдена двуезична детска градина и ясла, посветена на развитието на най-малките в една многолика международна среда. С помощта на нашите учители (носители на английския език) и вдъхновяващи български педагози, ние предлагаме обучение, което „потапя" децата в два езика едновременно. Така провокираме тяхното любопитство, помагаме им да станат по-уверени и полагаме основите за любов към знанието за цял живот. При нас групите са истински космополитни – събираме на едно място деца от различни култури и държави от целия свят. Заедно създаваме динамична общност, в която всяко дете се чувства ценено, прието и точно толкова уютно, колкото у дома си.</p>
+            </div>
+            <div class="image-content">
+                <img src="../assets/images/A6-01.webp" alt="Герой върху тухли">
+            </div>
+        </div>
+    </section>
+
+    <section class="why-choose-us-section">
+        <div class="container">
+            <div class="section-heading">
+                <h2>Защо да изберете нас?</h2>
+                <p style="color: var(--text-muted); margin-top: 16px; line-height: 1.6;">Изборът на правилната детска градина може да окаже значително влияние върху развитието на Вашето дете и да постави солидна основа за бъдещото му обучение. За Toddlers Academy отличителните качества и предимства, които трябва да вземете предвид, са:</p>
+            </div>
+            
+            <div class="features-grid">
+                <div class="feature-card f-bg-1">
+                    <h3>Официално<br>лицензирани</h3>
+                    <p>Официално лицензирани и одобрени от Министерството на образованието и науката</p>
+                </div>
+                <div class="feature-card f-bg-2">
+                    <h3>Доверени</h3>
+                    <p>Родителите ни се доверяват вече над 15 години с доказан опит и резултати.</p>
+                </div>
+                <div class="feature-card f-bg-3">
+                    <h3>Сертификат</h3>
+                    <p>Издаваме официалния сертификат, необходим за постъпване в първи клас в България.</p>
+                </div>
+                <div class="feature-card f-bg-2">
+                    <h3>Международна среда</h3>
+                    <p>Международна и двуезична учебна среда.</p>
+                </div>
+                <div class="feature-card f-bg-1">
+                    <h3>Двуезично<br>образование</h3>
+                    <p>„Потапящо двуезично обучение" с учители – носители на английския език, и силно мотивирани български педагози, използващи съвременни, научно доказани методи</p>
+                </div>
+                <div class="feature-card f-bg-3">
+                    <h3>Учебни<br>групи</h3>
+                    <p>Специализирани учебни групи за деца от 1.5 до 7 години, съобразени с конкретните етапи от тяхното развитие.</p>
+                </div>
+                <div class="feature-card f-bg-2">
+                    <h3>Индивидуален<br>подход</h3>
+                    <p>Персонализирано внимание в малки групи (средно по 13 деца).</p>
+                </div>
+                <div class="feature-card f-bg-1">
+                    <h3>Развитие</h3>
+                    <p>Силен акцент върху социално-емоционалното и поведенческото развитие, помагайки на децата да станат по-самостоятелни и уверени личности.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="map-section">
+        <div class="container">
+            <div class="section-heading">
+                <h2>Нашите студенти са от цял свят</h2>
+                <p class="section-subheading">Задръжте курсора върху страна по-долу.</p>
+            </div>
+            <div class="map-container" style="text-align: center; margin-top: 40px; position: relative; height: min(700px, 75vh); background: transparent; border-radius: 20px; overflow: hidden;">
+                <svg id="world-map" aria-label="Карта на света с държавите на студентите"></svg>
+                <div id="tooltip" class="tooltip" aria-hidden="true">
+                    <div class="flag" id="country-flag"></div>
+                    <div class="name-tag" id="country-name">Държава</div>
+                    <img class="character" id="tooltip-character" src="../assets/images/B1.webp" alt="Маркер на картата">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="cta-banner">
+        <div class="cta-overlay"></div>
+        <div class="container cta-banner-inner">
+            <img src="../assets/images/A3.webp" class="cta-float-left" alt="Плаващ герой">
+            <div class="cta-banner-content">
+                <h2>Направете първата стъпка</h2>
+                <p>Записването на детето ви в <strong>Toddlers Academy</strong> е изключително лесно!</p>
+                <div class="cta-banner-actions">
+                    <button id="bookVisitBtn" class="btn-outline">Запазете посещение <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="margin-left: 4px;"><line x1="7" y1="17" x2="17" y2="7"></line><polyline points="7 7 17 7 17 17"></polyline></svg></button>
+                    <a href="admission.html" class="btn-solid">Запишете се <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="margin-left: 4px;"><line x1="7" y1="17" x2="17" y2="7"></line><polyline points="7 7 17 7 17 17"></polyline></svg></a>
+                </div>
+            </div>
+            <img src="../assets/images/A5.webp" class="cta-float-right" alt="Плаващ герой">
+        </div>
+    </section>
+
+    <section class="locations-section">
+        <div class="container">
+            <div class="section-heading">
+                <h2>Нашите локации</h2>
+                <p style="color: var(--text-muted); margin-top: 16px; line-height: 1.6;">Две удобни местоположения за Вашето семейство. Знаем колко ценно е времето за работещите родители, затова предлагаме две модерни и внимателно избрани бази, стратегически разположени в непосредствена близост до големи бизнес центрове:</p>
+            </div>
+            <div class="locations-grid">
+                <a class="location-card" href="q-center.html">
+                    <img src="../assets/images/q-center-preview.webp" alt="Q Center">
+                    <div class="location-card-content">
+                        <h3>Q Center</h3>
+                        <p>бул. „Цариградско шосе" 32 (4-ти км)<br><br>
+                            Уютно, модерно и безопасно пространство, съобразено с нуждите на децата,
+                            следващо най-високите световни стандарти за грижа и образование.
+                        </p>
+                        <p style="font-size: 13px; margin-top: 8px;">Понеделник – Петък | 8:00 – 18:30 ч.</p>
+                    </div>
+                    <div class="location-arrow"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="7" y1="17" x2="17" y2="7"></line><polyline points="7 7 17 7 17 17"></polyline></svg></div>
+                </a>
+                <a class="location-card" href="the-bells.html">
+                    <img src="../assets/images/the-bells-preview.webp" alt="The Bells">
+                    <div class="location-card-content">
+                        <h3>The Bells</h3>
+                        <p>ул. „Витошки камбаните" 9 (до парк „Гаритидж")<br><br>
+                            Близо до дома или работата, чист планински въздух от Витоша, безопасни открити зони за игра с прекрасна гледка.
+                        </p>
+                        <p style="font-size: 13px; margin-top: 8px;">Понеделник – Петък | 8:00 – 18:30 ч.</p>
+                    </div>
+                    <div class="location-arrow"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="7" y1="17" x2="17" y2="7"></line><polyline points="7 7 17 7 17 17"></polyline></svg></div>
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <section class="testimonials-section">
+        <div class="container">
+            <div class="team-section-header">
+                <div class="team-section-intro">
+                    <h2 class="location-team-title">Чуйте от родителите на нашите ученици</h2>
+                    <p class="location-team-desc">Нашите семейства са нашите най-големи поддръжници и фенове!</p>
+                </div>
+                <div class="team-carousel-controls">
+                    <button class="team-carousel-arrow" id="testimonialPrev" aria-label="Предишен отзив"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="19" y1="12" x2="5" y2="12"></line><polyline points="12 19 5 12 12 5"></polyline></svg></button>
+                    <button class="team-carousel-arrow" id="testimonialNext" aria-label="Следващ отзив"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"></line><polyline points="12 5 19 12 12 19"></polyline></svg></button>
+                </div>
+            </div>
+
+            <div class="testimonials-slider">
+                <div class="testimonials-track" id="testimonialTrack">
+                    <div class="testimonial-card">
+                        <h4>Katherine Haun</h4>
+                        <p class="testimonial-text">Our family has benefited so much from Toddlers over the past 4 years and continues to do so! We started at Toddlers Academy on Tsarigradsko Shose (the original location) 4 years ago with our (then) 1 and 3-year-olds. Our 1-year-old daughter was immediately integrated into the youngest group, where she was exposed to Bulgarian all day and learned the language so quickly and without an accent! Our 3-year-old son was shy and did not want to learn the language, but through the love and caring support of all the teachers and staff, he began to show improvements and now thrives in his Bulgarian studies each day in his bilingual school. Both continued for 2-3 more years, where they developed so many skills, made life-long friendships, and were prepared for their next journey of education. We now are blessed to continue our journey with Toddlers but in the new location in Kambanite. Our son, who is three years old, loves the new building and the teachers! I can't say enough wonderful things about the teachers and staff, the extra programs offered, and the way in which they made these timid foreigners feel comfortable dropping our children off for preschool each day!<br><br>Thank you, Mrs. Desi, Mr. Niki, Miss Lisa, Miss Sophie, Miss Radi, Miss Mimi, Miss Kaitlyn, Mrs. Marina, and so many others for the impact they had and continue to have on shaping all of my children. For many years to come we will call Toddlers home!<br>Let Toddlers Academy Kindergarten be the first step in your child's lifelong love of learning and discovery!</p>
+                        <button class="read-more">Прочети повече</button>
+                    </div>
+                    <div class="testimonial-card">
+                        <h4>Stefani Yankova</h4>
+                        <p class="testimonial-text">As today is the last day for Lora Yankova in Toddlers Academy, I wanted to express my deepest gratitude for the care and kindness you all have provided to her. Your dedication has made a great impact on her growth and I am truly thankful for everything you have done through the year. Being far away from our relatives, you all were the first people, aside from her father and me, to take care of Lora. Special thanks to Miss Mimi, Miss Veni, Miss Marina and not least Miss Dani for all the fairytales she told her.<br><br>Knowing that she was in your hands brought me the calm I really needed. I'll be forever thankful for the smiles and joy you brought her. Lora has not only learned and grown there but has also formed her first friendships. She would come home talking about her friends or dancing and singing, while playing. From learning new English words to giving thumbs-ups, all thanks to the wonderful environment you have created.<br>I will cherish the photos and stories from this past year. Thank you for making her first "school year" such a great experience.<br>With heartfelt thanks and warm regards</p>
+                        <button class="read-more">Прочети повече</button>
+                    </div>
+                    <div class="testimonial-card">
+                        <h4>Василена Атанасова</h4>
+                        <p class="testimonial-text">Toddlers Academy е едно вълшебно място! От първия ден усетихме колко много любов, грижа и внимание получават децата. Подходът е индивидуален, атмосферата - спокойна и уютна, а екипът - невероятно отдаден. Базата е модерна и добре поддържана, храната е с изключително качество. Най-важното за мен е, че дъщеря ми тръгва всяка сутрин с усмивка и нетърпение - това казва всичко! ❤️<br>От сърце благодаря на целия екип за обичта и професионализма! Горещо препоръчвам!</p>
+                        <button class="read-more">Прочети повече</button>
+                    </div>
+                    <div class="testimonial-card">
+                        <h4>Shabir Haqshenas</h4>
+                        <p class="testimonial-text">We have had a pleasant experience with this kindergarten. In a relatively short time, my son has begun using both English and Bulgarian, which is especially important for us as a family.<br><br>The kindergarten is well organized, with clear routines and a safe, structured environment. The food is fresh, healthy, and prepared daily, which we really appreciate.<br><br>Children spend time both indoors and outdoors, supporting their physical and social development. The educational approach feels modern and well balanced.<br><br>As a foreign family, we are satisfied with our choice and happy with our child's progress so far.</p>
+                        <button class="read-more">Прочети повече</button>
+                    </div>
+                    <div class="testimonial-card">
+                        <h4>Mihai Moraru</h4>
+                        <p class="testimonial-text">Dear Toddlers Academy team!<br>I would like to express my gratitude to you, for the diligent care provided to both of my children, for getting involved in the best professional manner in offering good education and development. Words are not enough to thank all of you! Me and my kids will treasure the moments spent with you and we will keep all of you in our hearts!!! I wish you good health, may all your wishes come true and keep up the great work you are doing!</p>
+                        <button class="read-more">Прочети повече</button>
+                    </div>
+                    <div class="testimonial-card">
+                        <h4>Marco Tulio</h4>
+                        <p class="testimonial-text">I will be always thankful with Toddlers Academy. They took my only Spanish speaking 4-year girl and support their grow into a trilingual (English Bulgarian Spanish) confident princess. Empathy, care, support, attention, arts, patience, love. All mixed in a small group when my girl was happy. I was extremely lucky to find the school. Muchas gracias.</p>
+                        <button class="read-more">Прочети повече</button>
+                    </div>
+                    <div class="testimonial-card">
+                        <h4>Добрина Германова</h4>
+                        <p class="testimonial-text">Преподавателите са абсолютни професионалисти. Средата е отлична. Учат се на всички важни ценности, на уважение и взаимопомощ. Препоръчвам детската градина.</p>
+                        <button class="read-more">Прочети повече</button>
+                    </div>
+                    <div class="testimonial-card">
+                        <h4>Йорданка Симеонова</h4>
+                        <p class="testimonial-text">Ако има детска градина, която да дава обич, знания и много повече от това на децата, то това е нашата детска градина. Вече 5 години сме спокойни, че направихме правилния избор. Работят отдадено и творят чудеса. Децата ни се чувстват обичани, щастливи и свободни.</p>
+                        <button class="read-more">Прочети повече</button>
+                    </div>
+                    <div class="testimonial-card">
+                        <h4>Йорданка Вълчкова</h4>
+                        <p class="testimonial-text">Wonderful Place for Young Minds to Grow! Our son has been attending Toddlers Academy for four years, and we could not be happier with the experience. From the moment we walked in, we knew this was the right place for our child.</p>
+                        <button class="read-more">Прочети повече</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+</main>
+
+        <!-- Модал за запазване на посещение -->
+        <div id="bookVisitModal" class="modal-overlay" aria-hidden="true">
+            <div class="modal-container" style="max-width: 720px;">
+                <button id="closeBookVisitModal" class="modal-close" aria-label="Затвори прозорец">
+                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><line x1="18" y1="6" x2="6" y2="18"></line><line x1="6" y1="6" x2="18" y2="18"></line></svg>
+                </button>
+                <div class="modal-content">
+                    <h2 style="margin-top: 0; margin-bottom: 8px;">Запазете посещение</h2>
+                    <p style="color: var(--text-muted); margin-bottom: 20px; font-size: 15px;">Изберете удобно за Вас време за посещение на Toddlers Academy. Очакваме Вас и Вашето семейство с нетърпение!</p>
+
+                    <div class="location-switch-wrap">
+                        <input type="checkbox" id="locationToggle">
+                        <label for="locationToggle" class="location-pill-track" aria-label="Изберете локация">
+                            <span class="location-pill-thumb"></span>
+                            <span class="location-pill-label left">Q-Center</span>
+                            <span class="location-pill-label right">The Bells</span>
+                        </label>
+                    </div>
+
+                    <div class="book-visit-iframe-wrap">
+                        <iframe
+                            id="bookVisitFrame"
+                            src="about:blank"
+                            data-qcenter-src="https://calendar.app.google/kkadH4yN9useUhzF7"
+                            data-bells-src="https://calendar.app.google/KFmCVf97nGR2eEy36"
+                            width="100%"
+                            height="520"
+                            frameborder="0"
+                            title="Запазване на посещение — Google Appointment Scheduling"
+                            style="display: block; border: none;"
+                        ></iframe>
+                        <div class="book-visit-placeholder" id="bookVisitPlaceholder">
+                            <svg width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="18" rx="2" ry="2"></rect><line x1="16" y1="2" x2="16" y2="6"></line><line x1="8" y1="2" x2="8" y2="6"></line><line x1="3" y1="10" x2="21" y2="10"></line></svg>
+                            <p>Системата за запазване на часове ще се появи тук след свързване.</p>
+                            <span>Добавете URL адреса за резервация в <code>data-appointment-src</code> на iframe за активиране.</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Модал за отзив -->
+        <div class="modal-overlay" id="testimonialModal" aria-hidden="true">
+            <div class="modal-container" style="max-width: 600px;">
+                <button class="modal-close" id="btnCloseTestimonial" aria-label="Затвори прозорец">
+                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><line x1="18" y1="6" x2="6" y2="18"></line><line x1="6" y1="6" x2="18" y2="18"></line></svg>
+                </button>
+                <div class="modal-content">
+                    <h3 id="testimonialModalAuthor" style="margin-top: 0; margin-bottom: 24px; color: var(--accent-blue); font-size: 24px;"></h3>
+                    <div id="testimonialModalText" style="color: var(--text-muted); font-size: 16px; line-height: 1.8;"></div>
+                </div>
+            </div>
+        </div>
+
+        <footer class="site-footer" id="footer">
+            <div class="footer-overlay"></div>
+            <div class="container footer-content">
+                <div class="footer-branding">
+                    <img src="../assets/images/toddlers-header-preview.webp" alt="Toddlers Academy пълно лого" width="480" height="175">
+                    <p class="copyright">© 2026 Toddlers Academy | Политика за поверителност</p>
+                </div>
+
+                <div class="footer-links">
+                    <h3>Бързи връзки</h3>
+                    <a href="about-us.html">За нас</a>
+                    <a href="student-life.html">Живот на студентите</a>
+                    <a href="academic-approach.html">Академичен подход</a>
+                    <a href="admission.html">Прием</a>
+                    <a href="#">Контакти</a>
+                </div>
+
+                <div class="footer-contact">
+                    <h3>Свържете се с нас</h3>
+                    <a href="mailto:toddlersacademykindergarten@gmail.com">toddlersacademykindergarten@gmail.com</a>
+                    <a href="tel:+359898455375">+359 898 455 375</a>
+                    <div class="social-links" aria-label="Социални мрежи">
+                        <a href="https://www.facebook.com/ToddlersAcademySofia/" aria-label="Facebook" target="_blank" rel="noopener noreferrer"><i class="ri-facebook-fill" aria-hidden="true"></i><span>Facebook</span></a>
+                        <a href="https://www.instagram.com/toddlers_academy/" aria-label="Instagram" target="_blank" rel="noopener noreferrer"><i class="ri-camera-line" aria-hidden="true"></i><span>Instagram</span></a>
+                    </div>
+                </div>
+            </div>
+        </footer>
+    </div>
+
+    <script>
+        const header = document.querySelector('.site-header');
+        const mobileMenuTrigger = document.querySelector('.mobile-menu-trigger');
+        const mobileMenuClose = document.querySelector('.mobile-menu-close');
+        const mobileMenu = document.getElementById('mobileMenu');
+        const mobileNavLinks = document.querySelectorAll('.mobile-nav a');
+        let lastScrollTop = 0;
+
+        (function initHeroVideo() {
+            const video = document.getElementById('heroVideo');
+            const pageLoader = document.getElementById('pageLoader');
+
+            video.src = '../assets/videos/toddlers.webm';
+            video.load();
+
+            let loaderHidden = false;
+
+            function hidePageLoader() {
+                if (loaderHidden || !pageLoader) return;
+                loaderHidden = true;
+                pageLoader.classList.add('fade-out');
+                pageLoader.addEventListener('transitionend', () => pageLoader.remove(), { once: true });
+            }
+
+            function tryPlay() {
+                const p = video.play();
+                if (p !== undefined) {
+                    p.catch(() => {
+                        const resume = () => { video.play(); document.removeEventListener('click', resume); document.removeEventListener('touchstart', resume); };
+                        document.addEventListener('click', resume, { once: true });
+                        document.addEventListener('touchstart', resume, { once: true });
+                    });
+                }
+            }
+
+            const safetyTimer = setTimeout(() => {
+                video.style.opacity = '1';
+                hidePageLoader();
+            }, 6000);
+
+            if (!video) {
+                clearTimeout(safetyTimer);
+                hidePageLoader();
+                return;
+            }
+
+            if (video.readyState >= 3) {
+                clearTimeout(safetyTimer);
+                video.style.opacity = '1';
+                hidePageLoader();
+                tryPlay();
+            } else {
+                video.addEventListener('canplay', () => {
+                    clearTimeout(safetyTimer);
+                    video.style.opacity = '1';
+                    hidePageLoader();
+                    tryPlay();
+                }, { once: true });
+            }
+
+            document.addEventListener('visibilitychange', () => {
+                if (!document.hidden && video.paused && !video.ended) tryPlay();
+            });
+
+            video.addEventListener('pause', () => {
+                if (!document.hidden && !video.ended) tryPlay();
+            });
+        }());
+
+        function openMenu() {
+            mobileMenu.classList.add('open');
+            document.body.style.overflow = 'hidden';
+        }
+
+        function closeMenu() {
+            mobileMenu.classList.remove('open');
+            document.body.style.overflow = '';
+        }
+
+        mobileMenuTrigger.addEventListener('click', openMenu);
+        mobileMenuClose.addEventListener('click', closeMenu);
+        
+        mobileNavLinks.forEach(link => {
+            link.addEventListener('click', closeMenu);
+        });
+
+        const timelineItems = document.querySelectorAll('.timeline-item');
+
+        window.addEventListener('scroll', () => {
+            let scrollTop = window.pageYOffset || document.documentElement.scrollTop;
+            
+            if (scrollTop > lastScrollTop && scrollTop > 100) {
+                header.classList.add('hidden-header');
+            } else {
+                header.classList.remove('hidden-header');
+            }
+            lastScrollTop = scrollTop;
+
+            if (timelineItems.length > 0) {
+                let closestItem = timelineItems[0];
+                let minDistance = Infinity;
+                const viewportCenter = window.innerHeight / 2;
+
+                if (scrollTop <= 80) {
+                    closestItem = timelineItems[0];
+                } else {
+                    timelineItems.forEach(item => {
+                        const marker = item.querySelector('.timeline-marker');
+                        if(marker) {
+                            const rect = marker.getBoundingClientRect();
+                            const markerCenterY = rect.top + (rect.height / 2);
+                            const distance = Math.abs(viewportCenter - markerCenterY);
+                            if (distance < minDistance) {
+                                minDistance = distance;
+                                closestItem = item;
+                            }
+                        }
+                    });
+                }
+
+                timelineItems.forEach(item => item.classList.remove('active'));
+                if (closestItem) {
+                    closestItem.classList.add('active');
+                }
+            }
+        });
+
+        window.dispatchEvent(new Event('scroll'));
+
+        function initWorldMap() {
+            if (!window.d3 || !window.topojson) {
+                return;
+            }
+
+            const mapElement = document.getElementById('world-map');
+            const mapContainer = document.querySelector('.map-container');
+            const tooltipElement = document.getElementById('tooltip');
+
+            if (!mapElement || !mapContainer || !tooltipElement) {
+                return;
+            }
+
+            const svg = d3.select('#world-map');
+            const tooltip = d3.select('#tooltip');
+            const countryNameTag = d3.select('#country-name');
+            const countryFlag = d3.select('#country-flag');
+
+            const highlightedCountries = {
+                Afghanistan: { name: 'Афганистан', code: 'af' },
+                Albania: { name: 'Албания', code: 'al' },
+                Algeria: { name: 'Алжир', code: 'dz' },
+                Belarus: { name: 'Беларус', code: 'by' },
+                Belgium: { name: 'Белгия', code: 'be' },
+                Brazil: { name: 'Бразилия', code: 'br' },
+                Bulgaria: { name: 'България', code: 'bg' },
+                Cambodia: { name: 'Камбоджа', code: 'kh' },
+                China: { name: 'Китай', code: 'cn' },
+                Ecuador: { name: 'Еквадор', code: 'ec' },
+                Egypt: { name: 'Египет', code: 'eg' },
+                'United Kingdom': { name: 'Великобритания', code: 'gb' },
+                France: { name: 'Франция', code: 'fr' },
+                Germany: { name: 'Германия', code: 'de' },
+                Greece: { name: 'Гърция', code: 'gr' },
+                India: { name: 'Индия', code: 'in' },
+                Indonesia: { name: 'Индонезия', code: 'id' },
+                Iran: { name: 'Иран', code: 'ir' },
+                Iraq: { name: 'Ирак', code: 'iq' },
+                Israel: { name: 'Израел', code: 'il' },
+                Italy: { name: 'Италия', code: 'it' },
+                Kazakhstan: { name: 'Казахстан', code: 'kz' },
+                Lebanon: { name: 'Ливан', code: 'lb' },
+                Libya: { name: 'Либия', code: 'ly' },
+                Mexico: { name: 'Мексико', code: 'mx' },
+                Netherlands: { name: 'Нидерландия', code: 'nl' },
+                Nigeria: { name: 'Нигерия', code: 'ng' },
+                Pakistan: { name: 'Пакистан', code: 'pk' },
+                Poland: { name: 'Полша', code: 'pl' },
+                Portugal: { name: 'Португалия', code: 'pt' },
+                Romania: { name: 'Румъния', code: 'ro' },
+                Russia: { name: 'Русия', code: 'ru' },
+                'South Africa': { name: 'Южна Африка', code: 'za' },
+                Spain: { name: 'Испания', code: 'es' },
+                Turkey: { name: 'Турция', code: 'tr' },
+                Ukraine: { name: 'Украйна', code: 'ua' },
+                'United States of America': { name: 'САЩ', code: 'us' },
+                Vietnam: { name: 'Виетнам', code: 'vn' }
+            };
+
+            const width = mapContainer.clientWidth;
+            const height = mapContainer.clientHeight;
+
+            const projection = d3.geoMercator()
+                .scale(180)
+                .translate([width / 2, height / 1.5]);
+
+            const path = d3.geoPath().projection(projection);
+
+            svg.selectAll('*').remove();
+            svg.attr('viewBox', `0 0 ${width} ${height}`);
+
+            d3.json('https://unpkg.com/world-atlas@2.0.2/countries-110m.json').then(world => {
+                const countries = topojson.feature(world, world.objects.countries).features;
+
+                svg.append('g')
+                    .selectAll('path')
+                    .data(countries)
+                    .enter()
+                    .append('path')
+                    .attr('d', path)
+                    .attr('class', d => highlightedCountries[d.properties.name] ? 'country highlighted' : 'country')
+                    .on('mouseover', function(event, d) {
+                        const countryInfo = highlightedCountries[d.properties.name];
+                        if (!countryInfo) {
+                            return;
+                        }
+
+                        countryNameTag.text(countryInfo.name);
+                        countryFlag.html(`<img src="https://flagcdn.com/w80/${countryInfo.code}.webp" alt="${countryInfo.name} знаме">`);
+                        tooltip.style('opacity', 1);
+                    })
+                    .on('mousemove', function(event) {
+                        const [x, y] = d3.pointer(event, mapContainer);
+                        tooltip.style('left', `${x}px`).style('top', `${y - 10}px`);
+                    })
+                    .on('mouseout', function() {
+                        tooltip.style('opacity', 0);
+                    });
+            });
+        }
+
+        initWorldMap();
+
+        const testimonialTrack = document.getElementById('testimonialTrack');
+        const btnPrev = document.getElementById('testimonialPrev');
+        const btnNext = document.getElementById('testimonialNext');
+
+        if (testimonialTrack && btnPrev && btnNext) {
+            const originalCards = Array.from(testimonialTrack.children);
+            
+            originalCards.forEach(card => {
+                const clone = card.cloneNode(true);
+                clone.classList.add('clone-node');
+                testimonialTrack.appendChild(clone);
+            });
+            originalCards.slice().reverse().forEach(card => {
+                const clone = card.cloneNode(true);
+                clone.classList.add('clone-node');
+                testimonialTrack.insertBefore(clone, testimonialTrack.firstChild);
+            });
+
+            const getMetrics = () => {
+                const trackStyle = window.getComputedStyle(testimonialTrack);
+                const gap = parseInt(trackStyle.gap) || 24;
+                const cardWidth = originalCards[0].offsetWidth;
+                const totalWidthOriginal = originalCards.length * (cardWidth + gap);
+                return { gap, cardWidth, totalWidthOriginal };
+            };
+
+            setTimeout(() => {
+                const { totalWidthOriginal } = getMetrics();
+                testimonialTrack.style.scrollBehavior = 'auto';
+                testimonialTrack.scrollLeft = totalWidthOriginal;
+                setTimeout(() => testimonialTrack.style.scrollBehavior = '', 50);
+            }, 100);
+
+            testimonialTrack.addEventListener('scroll', () => {
+                const { cardWidth, totalWidthOriginal } = getMetrics();
+                
+                if (testimonialTrack.scrollLeft <= cardWidth) {
+                    testimonialTrack.style.scrollBehavior = 'auto';
+                    testimonialTrack.scrollLeft += totalWidthOriginal;
+                    setTimeout(() => testimonialTrack.style.scrollBehavior = '', 5);
+                } 
+                else if (testimonialTrack.scrollLeft >= (totalWidthOriginal * 2) - cardWidth) {
+                    testimonialTrack.style.scrollBehavior = 'auto';
+                    testimonialTrack.scrollLeft -= totalWidthOriginal;
+                    setTimeout(() => testimonialTrack.style.scrollBehavior = '', 5);
+                }
+            });
+
+            btnNext.addEventListener('click', () => {
+                const { cardWidth, gap } = getMetrics();
+                testimonialTrack.scrollBy({ left: cardWidth + gap, behavior: 'smooth' });
+            });
+
+            btnPrev.addEventListener('click', () => {
+                const { cardWidth, gap } = getMetrics();
+                testimonialTrack.scrollBy({ left: -(cardWidth + gap), behavior: 'smooth' });
+            });
+        }
+
+        const testimonialModal = document.getElementById('testimonialModal');
+        const btnCloseTestimonial = document.getElementById('btnCloseTestimonial');
+        const testimonialModalAuthor = document.getElementById('testimonialModalAuthor');
+        const testimonialModalText = document.getElementById('testimonialModalText');
+
+        if (testimonialModal && btnCloseTestimonial) {
+            document.querySelectorAll('.testimonial-card .read-more').forEach(btn => {
+                btn.addEventListener('click', (e) => {
+                    const card = e.target.closest('.testimonial-card');
+                    const author = card.querySelector('h4').innerText;
+                    const text = card.querySelector('.testimonial-text').innerHTML;
+                    
+                    testimonialModalAuthor.innerText = author;
+                    testimonialModalText.innerHTML = text;
+                    testimonialModal.classList.add('active');
+                    document.body.style.overflow = 'hidden';
+                });
+            });
+
+            btnCloseTestimonial.addEventListener('click', () => {
+                testimonialModal.classList.remove('active');
+                document.body.style.overflow = '';
+            });
+
+            testimonialModal.addEventListener('click', (e) => {
+                if (e.target === testimonialModal) {
+                    testimonialModal.classList.remove('active');
+                    document.body.style.overflow = '';
+                }
+            });
+        }
+
+        const bookVisitModal = document.getElementById('bookVisitModal');
+        const bookVisitBtn = document.getElementById('bookVisitBtn');
+        const closeBookVisitModalBtn = document.getElementById('closeBookVisitModal');
+        const bookVisitFrame = document.getElementById('bookVisitFrame');
+        const bookVisitPlaceholder = document.getElementById('bookVisitPlaceholder');
+        const locationToggle = document.getElementById('locationToggle');
+
+        function getCalendarSrc() {
+            if (locationToggle && locationToggle.checked) {
+                return (bookVisitFrame.getAttribute('data-bells-src') || '').trim();
+            }
+            return (bookVisitFrame.getAttribute('data-qcenter-src') || '').trim();
+        }
+
+        function loadCalendar() {
+            const src = getCalendarSrc();
+            if (src !== '') {
+                bookVisitFrame.src = src;
+                bookVisitFrame.style.display = 'block';
+                if (bookVisitPlaceholder) bookVisitPlaceholder.style.display = 'none';
+            } else {
+                bookVisitFrame.src = 'about:blank';
+                bookVisitFrame.style.display = 'none';
+                if (bookVisitPlaceholder) bookVisitPlaceholder.style.display = 'flex';
+            }
+        }
+
+        if (locationToggle) {
+            locationToggle.addEventListener('change', () => {
+                if (bookVisitModal.classList.contains('active')) {
+                    loadCalendar();
+                }
+            });
+        }
+
+        if (bookVisitModal && bookVisitBtn) {
+            function openBookVisitModal() {
+                loadCalendar();
+                bookVisitModal.classList.add('active');
+                bookVisitModal.removeAttribute('aria-hidden');
+                document.body.style.overflow = 'hidden';
+            }
+
+            function closeBookVisitModalFn() {
+                bookVisitModal.classList.remove('active');
+                bookVisitModal.setAttribute('aria-hidden', 'true');
+                document.body.style.overflow = '';
+            }
+
+            bookVisitBtn.addEventListener('click', openBookVisitModal);
+            closeBookVisitModalBtn.addEventListener('click', closeBookVisitModalFn);
+            bookVisitModal.addEventListener('click', (e) => {
+                if (e.target === bookVisitModal) closeBookVisitModalFn();
+            });
+            document.addEventListener('keydown', (e) => {
+                if (e.key === 'Escape' && bookVisitModal.classList.contains('active')) {
+                    closeBookVisitModalFn();
+                }
+            });
+        }
+    </script>
+
+    <button class="bg-flag-btn" aria-label="Превключи към английски" onclick="window.location.href='../index.html'">
+        <svg xmlns="http://www.w3.org/2000/svg" width="18" height="12" viewBox="0 0 60 40">
+            <rect width="60" height="40" fill="#012169"/>
+            <path d="M0,0 L60,40 M60,0 L0,40" stroke="#fff" stroke-width="8"/>
+            <path d="M0,0 L60,40 M60,0 L0,40" stroke="#C8102E" stroke-width="4.5"/>
+            <path d="M30,0 V40 M0,20 H60" stroke="#fff" stroke-width="14"/>
+            <path d="M30,0 V40 M0,20 H60" stroke="#C8102E" stroke-width="8"/>
+        </svg>
+    </button>
+
+</body>
+</html>
