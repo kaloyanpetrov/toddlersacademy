@@ -13,6 +13,9 @@
     <script src="assets/js/section-reveal.js" defer></script>
     <!-- hCaptcha -->
     <script src="https://js.hcaptcha.com/1/api.js" async defer></script>
+    <!-- flatpickr -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/flatpickr/dist/flatpickr.min.css">
+    <script src="https://cdn.jsdelivr.net/npm/flatpickr"></script>
 </head>
 <body>
 <div class="page-shell">
@@ -164,10 +167,6 @@
             <div class="footer-branding">
                 <img src="assets/images/toddlers-header-preview.png" alt="Toddlers Academy full logo" width="480" height="175">
                 <p class="copyright">© 2026 Toddlers Academy | Privacy Policy</p>
-                <div class="social-links" aria-label="Social media links">
-                    <a href="https://www.facebook.com/ToddlersAcademySofia/" aria-label="Facebook" target="_blank" rel="noopener noreferrer">f</a>
-                    <a href="https://www.instagram.com/toddlers_academy/" aria-label="Instagram" target="_blank" rel="noopener noreferrer">◎</a>
-                </div>
             </div>
 
             <div class="footer-links">
@@ -183,6 +182,10 @@
                 <h3>Contact us</h3>
                 <a href="mailto:toddlersacademykindergarten@gmail.com">toddlersacademykindergarten@gmail.com</a>
                 <a href="tel:+359898455375">+359 898 455 375</a>
+                <div class="social-links" aria-label="Social media links">
+                    <a href="https://www.facebook.com/ToddlersAcademySofia/" aria-label="Facebook" target="_blank" rel="noopener noreferrer"><i class="ri-facebook-fill" aria-hidden="true"></i><span>Facebook</span></a>
+                    <a href="https://www.instagram.com/toddlers_academy/" aria-label="Instagram" target="_blank" rel="noopener noreferrer"><i class="ri-camera-line" aria-hidden="true"></i><span>Instagram</span></a>
+                </div>
             </div>
         </div>
     </footer>
@@ -536,7 +539,7 @@
                         <tbody>
                         <tr><td><strong>Full Name <span style="color:red;">*</span></strong></td><td><input type="text" class="form-input" name="childFullName" id="f_childFullName" required placeholder="e.g., John Doe"></td></tr>
                         <tr><td><strong>Age at Admission <span style="color:red;">*</span></strong></td><td><input type="text" class="form-input" name="childAge" id="f_childAge" required placeholder="e.g., 3 years"></td></tr>
-                        <tr><td><strong>Date of Birth <span style="color:red;">*</span></strong></td><td><input type="date" class="form-input" name="childDOB" id="f_childDOB" required></td></tr>
+                        <tr><td><strong>Date of Birth <span style="color:red;">*</span></strong></td><td><input type="text" class="form-input" name="childDOB" id="f_childDOB" required placeholder="dd/mm/yyyy" autocomplete="off"></td></tr>
                         <tr><td><strong>Place of Birth <span style="color:red;">*</span></strong></td><td><input type="text" class="form-input" name="childPlaceOfBirth" id="f_childPlaceOfBirth" required placeholder="e.g., Sofia, Bulgaria"></td></tr>
                         <tr><td><strong>Sex <span style="color:red;">*</span></strong></td><td>
                             <select class="form-input" name="childSex" id="f_childSex" required>
@@ -627,7 +630,7 @@
                     <div style="margin-top: 24px; display: flex; flex-direction: column; gap: 16px;">
                         <label style="display: flex; align-items: center; gap: 12px; flex-wrap: wrap;">
                             <strong>Date:</strong>
-                            <input type="date" id="enrollmentDate" class="form-input" required readonly aria-readonly="true" style="max-width: 200px; pointer-events: none;">
+                            <input type="text" id="enrollmentDate" class="form-input" required readonly aria-readonly="true" style="max-width: 200px; pointer-events: none;">
                         </label>
                     </div>
                     <hr>
@@ -714,20 +717,17 @@
         const year = today.getFullYear();
         const month = String(today.getMonth() + 1).padStart(2, '0');
         const day = String(today.getDate()).padStart(2, '0');
-        enrollmentDateInput.value = `${year}-${month}-${day}`;
+        enrollmentDateInput.value = `${day}/${month}/${year}`;
     }
 
     setEnrollmentDateToToday();
 
-    // Open date picker on click anywhere on the DOB field
-    const dobInput = document.getElementById('f_childDOB');
-    if (dobInput) {
-        dobInput.addEventListener('click', function() {
-            if (typeof this.showPicker === 'function') {
-                try { this.showPicker(); } catch(e) {}
-            }
-        });
-    }
+    // flatpickr for Date of Birth — dd/mm/yyyy
+    flatpickr('#f_childDOB', {
+        dateFormat: 'd/m/Y',
+        allowInput: true,
+        disableMobile: false
+    });
 
     // Custom Select Initialization
     document.querySelectorAll('select.form-input').forEach(select => {
@@ -1166,7 +1166,7 @@
             location      : getFieldValue('f_location'),
             childFullName     : getFieldValue('f_childFullName'),
             childAge          : getFieldValue('f_childAge'),
-            childDOB          : (function() { var v = getFieldValue('f_childDOB'); if (!v) return ''; var p = v.split('-'); return p.length === 3 ? p[2] + '/' + p[1] + '/' + p[0] : v; })(),
+            childDOB          : getFieldValue('f_childDOB'),
             childPlaceOfBirth : getFieldValue('f_childPlaceOfBirth'),
             childSex          : getFieldValue('f_childSex'),
             childEGN          : getFieldValue('f_childEGN'),
@@ -1187,7 +1187,7 @@
             gpName  : getFieldValue('f_gpName'),
             gpPhone : getFieldValue('f_gpPhone'),
             additionalNotes : getFieldValue('f_additionalNotes'),
-            submissionDate  : document.getElementById('enrollmentDate').value,
+            submissionDate  : (function() { var v = document.getElementById('enrollmentDate').value; return v; })(),
         };
 
         fetch(APPS_SCRIPT_URL, {
@@ -1218,5 +1218,14 @@
             });
     }
 </script>
+
+    <button class="bg-flag-btn" aria-label="Switch to Bulgarian">
+        <div class="bg-flag">
+            <span class="flag-white"></span>
+            <span class="flag-green"></span>
+            <span class="flag-red"></span>
+        </div>
+    </button>
+
 </body>
 </html>
