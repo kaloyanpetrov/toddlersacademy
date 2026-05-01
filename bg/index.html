@@ -286,6 +286,7 @@
                     <h2 style="margin-top: 0; margin-bottom: 8px;">Запазете посещение</h2>
                     <p style="color: var(--text-muted); margin-bottom: 20px; font-size: 15px;">Изберете удобно за Вас време за посещение на Toddlers Academy. Очакваме Вас и Вашето семейство с нетърпение!</p>
 
+                    <!-- Превключвател на локация -->
                     <div class="location-switch-wrap">
                         <input type="checkbox" id="locationToggle">
                         <label for="locationToggle" class="location-pill-track" aria-label="Изберете локация">
@@ -295,24 +296,13 @@
                         </label>
                     </div>
 
-                    <div class="book-visit-iframe-wrap">
-                        <iframe
-                            id="bookVisitFrame"
-                            src="about:blank"
-                            data-qcenter-src="https://calendar.app.google/kkadH4yN9useUhzF7"
-                            data-bells-src="https://calendar.app.google/KFmCVf97nGR2eEy36"
-                            width="100%"
-                            height="520"
-                            frameborder="0"
-                            title="Запазване на посещение — Google Appointment Scheduling"
-                            style="display: block; border: none;"
-                        ></iframe>
-                        <div class="book-visit-placeholder" id="bookVisitPlaceholder">
-                            <svg width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="18" rx="2" ry="2"></rect><line x1="16" y1="2" x2="16" y2="6"></line><line x1="8" y1="2" x2="8" y2="6"></line><line x1="3" y1="10" x2="21" y2="10"></line></svg>
-                            <p>Системата за запазване на часове ще се появи тук след свързване.</p>
-                            <span>Добавете URL адреса за резервация в <code>data-appointment-src</code> на iframe за активиране.</span>
-                        </div>
+                    <div id="tidycalQCenter">
+                        <div class="tidycal-embed" data-path="kaloianpetrov10/book-a-visit"></div>
                     </div>
+                    <div id="tidycalBells" style="display:none;">
+                        <div class="tidycal-embed" data-path="kaloianpetrov10/book-a-visit"></div>
+                    </div>
+                    <script src="https://asset-tidycal.b-cdn.net/js/embed.js" async></script>
                 </div>
             </div>
         </div>
@@ -686,41 +676,17 @@
         const bookVisitModal = document.getElementById('bookVisitModal');
         const bookVisitBtn = document.getElementById('bookVisitBtn');
         const closeBookVisitModalBtn = document.getElementById('closeBookVisitModal');
-        const bookVisitFrame = document.getElementById('bookVisitFrame');
-        const bookVisitPlaceholder = document.getElementById('bookVisitPlaceholder');
         const locationToggle = document.getElementById('locationToggle');
-
-        function getCalendarSrc() {
-            if (locationToggle && locationToggle.checked) {
-                return (bookVisitFrame.getAttribute('data-bells-src') || '').trim();
-            }
-            return (bookVisitFrame.getAttribute('data-qcenter-src') || '').trim();
-        }
-
-        function loadCalendar() {
-            const src = getCalendarSrc();
-            if (src !== '') {
-                bookVisitFrame.src = src;
-                bookVisitFrame.style.display = 'block';
-                if (bookVisitPlaceholder) bookVisitPlaceholder.style.display = 'none';
-            } else {
-                bookVisitFrame.src = 'about:blank';
-                bookVisitFrame.style.display = 'none';
-                if (bookVisitPlaceholder) bookVisitPlaceholder.style.display = 'flex';
-            }
-        }
 
         if (locationToggle) {
             locationToggle.addEventListener('change', () => {
-                if (bookVisitModal.classList.contains('active')) {
-                    loadCalendar();
-                }
+                document.getElementById('tidycalQCenter').style.display = locationToggle.checked ? 'none' : 'block';
+                document.getElementById('tidycalBells').style.display = locationToggle.checked ? 'block' : 'none';
             });
         }
 
         if (bookVisitModal && bookVisitBtn) {
             function openBookVisitModal() {
-                loadCalendar();
                 bookVisitModal.classList.add('active');
                 bookVisitModal.removeAttribute('aria-hidden');
                 document.body.style.overflow = 'hidden';
