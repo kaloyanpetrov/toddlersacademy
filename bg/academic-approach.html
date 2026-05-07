@@ -342,6 +342,11 @@
                                 <p class="activity-panel-text">Енергичен урок, преподаващ различни танцови стилове за насърчаване на себеизразяването, ритъма и координацията в радостна среда.</p>
                             </div>
                         </div>
+                        <div class="activity-video-wrap">
+                            <video controls preload="none" poster="../assets/images/dance-poster.webp" class="activity-video">
+                                <source src="../assets/videos/dance.mov" type="video/mp4">
+                            </video>
+                        </div>
                     </div>
 
                     <!-- Панел спорт -->
@@ -352,6 +357,11 @@
                                 <h3 class="activity-panel-title" style="color:#f15931;">Спорт</h3>
                                 <p class="activity-panel-text">Забавен и активен урок, насърчаващ екипната работа, координацията и физическата форма. Включва футбол, баскетбол, коригираща гимнастика, щафетни игри и организирани игри.</p>
                             </div>
+                        </div>
+                        <div class="activity-video-wrap">
+                            <video controls preload="none" poster="../assets/images/sport-poster.webp" class="activity-video">
+                                <source src="../assets/videos/sport.mov" type="video/mp4">
+                            </video>
                         </div>
                         <div class="masonry-gallery">
                             <div class="masonry-item"><img loading="lazy" src="../assets/images/extra-activities-gallery/sports/sports-01.webp" alt="Спорт" tabindex="0"></div>
@@ -491,6 +501,8 @@
         function closeActivityPanel(id) {
             const p = document.getElementById('activity-panel-' + id);
             const b = document.querySelector('.extra-icon[data-activity="' + id + '"]');
+            // Pause any video in the panel
+            p.querySelectorAll('video').forEach(vid => vid.pause());
             p.style.maxHeight = p.scrollHeight + 'px';
             p.offsetHeight;
             p.style.maxHeight = '0';

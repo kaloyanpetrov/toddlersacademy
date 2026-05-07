@@ -342,6 +342,11 @@
                                 <p class="activity-panel-text">An energetic class teaching various dance styles to promote self-expression, rhythm, and coordination in a joyful environment.</p>
                             </div>
                         </div>
+                        <div class="activity-video-wrap">
+                            <video controls preload="none" poster="assets/images/dance-poster.webp" class="activity-video">
+                                <source src="assets/videos/dance.mov" type="video/mp4">
+                            </video>
+                        </div>
                     </div>
 
                     <!-- Sports panel -->
@@ -352,6 +357,11 @@
                                 <h3 class="activity-panel-title" style="color:#f15931;">Sports</h3>
                                 <p class="activity-panel-text">A fun, active class that encourages teamwork, coordination, and fitness. Activities include football, basketball, corrective gymnastics, relay races, and organized games.</p>
                             </div>
+                        </div>
+                        <div class="activity-video-wrap">
+                            <video controls preload="none" poster="assets/images/sport-poster.webp" class="activity-video">
+                                <source src="assets/videos/sport.mov" type="video/mp4">
+                            </video>
                         </div>
                         <div class="masonry-gallery">
                             <div class="masonry-item"><img loading="lazy" src="assets/images/extra-activities-gallery/sports/sports-01.webp" alt="Sports" tabindex="0"></div>
@@ -491,6 +501,8 @@
         function closeActivityPanel(id) {
             const p = document.getElementById('activity-panel-' + id);
             const b = document.querySelector('.extra-icon[data-activity="' + id + '"]');
+            // Pause any video in the panel
+            p.querySelectorAll('video').forEach(vid => vid.pause());
             // Pin to current rendered height so the collapse animation has a start point
             p.style.maxHeight = p.scrollHeight + 'px';
             p.offsetHeight; // force reflow
