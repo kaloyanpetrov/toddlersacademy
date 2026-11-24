@@ -1,6 +1,13 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+  <script
+    id="Cookiebot"
+    src="https://consent.cookiebot.com/uc.js"
+    data-cbid="630d918b-b691-43cf-b2a6-0b89070b5ed1"
+    data-blockingmode="auto"
+    type="text/javascript">
+  </script>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Toddlers Academy | The Bells</title>
@@ -283,24 +290,13 @@
                         </label>
                     </div>
 
-                    <div class="book-visit-iframe-wrap">
-                        <iframe
-                            id="bookVisitFrame"
-                            src="about:blank"
-                            data-qcenter-src="https://calendar.app.google/KFmCVf97nGR2eEy36"
-                            data-bells-src="https://calendar.app.google/KFmCVf97nGR2eEy36"
-                            width="100%"
-                            height="520"
-                            frameborder="0"
-                            title="Book a visit — Google Appointment Scheduling"
-                            style="display: block; border: none;"
-                        ></iframe>
-                        <div class="book-visit-placeholder" id="bookVisitPlaceholder">
-                            <svg width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="18" rx="2" ry="2"></rect><line x1="16" y1="2" x2="16" y2="6"></line><line x1="8" y1="2" x2="8" y2="6"></line><line x1="3" y1="10" x2="21" y2="10"></line></svg>
-                            <p>Google Appointment Scheduling will appear here once connected.</p>
-                            <span>Add the booking URL to <code>data-appointment-src</code> on the iframe to activate.</span>
-                        </div>
+                    <div id="tidycalQCenter" style="display:none;">
+                        <div class="tidycal-embed" data-path="admissiontoddlers/book-a-visit-at-q-center"></div>
                     </div>
+                    <div id="tidycalBells">
+                        <div class="tidycal-embed" data-path="admissiontoddlers/book-a-visit-at-the-bells"></div>
+                    </div>
+                    <script src="https://asset-tidycal.b-cdn.net/js/embed.js" async></script>
                 </div>
             </div>
         </div>
@@ -338,7 +334,7 @@
             <div class="container footer-content">
                 <div class="footer-branding">
                     <img src="assets/images/toddlers-header-preview.webp" alt="Toddlers Academy full logo" width="480" height="175">
-                    <p class="copyright">© 2026 Toddlers Academy | Privacy Policy</p>
+                    <p class="copyright">© 2026 Toddlers Academy | <a href="privacy-policy.html" style="color:inherit;">Privacy Policy</a> | <a href="cookie-policy.html" style="color:inherit;">Cookie Policy</a></p>
                 </div>
 
                 <div class="footer-links">
@@ -348,6 +344,7 @@
                     <a href="academic-approach.html">Academic Approach</a>
                     <a href="admission.html">Admission</a>
                     <a href="#">Contacts</a>
+                    <a href="javascript:Cookiebot.renew()">Cookie settings</a>
                 </div>
 
                 <div class="footer-contact">
@@ -600,40 +597,18 @@
         const bookVisitModal = document.getElementById('bookVisitModal');
         const bookVisitBtn = document.getElementById('bookVisitBtn');
         const closeBookVisitModalBtn = document.getElementById('closeBookVisitModal');
-        const bookVisitFrame = document.getElementById('bookVisitFrame');
-        const bookVisitPlaceholder = document.getElementById('bookVisitPlaceholder');
         const locationToggle = document.getElementById('locationToggle');
-
-        function getCalendarSrc() {
-            if (locationToggle && locationToggle.checked) {
-                return (bookVisitFrame.getAttribute('data-bells-src') || '').trim();
-            }
-            return (bookVisitFrame.getAttribute('data-qcenter-src') || '').trim();
-        }
-
-        function loadCalendar() {
-            const src = getCalendarSrc();
-            if (src !== '') {
-                bookVisitFrame.src = src;
-                bookVisitFrame.style.display = 'block';
-                if (bookVisitPlaceholder) bookVisitPlaceholder.style.display = 'none';
-            } else {
-                bookVisitFrame.src = 'about:blank';
-                bookVisitFrame.style.display = 'none';
-                if (bookVisitPlaceholder) bookVisitPlaceholder.style.display = 'flex';
-            }
-        }
 
         if (locationToggle) {
             locationToggle.addEventListener('change', () => {
-                if (bookVisitModal.classList.contains('active')) loadCalendar();
+                document.getElementById('tidycalQCenter').style.display = locationToggle.checked ? 'none' : 'block';
+                document.getElementById('tidycalBells').style.display = locationToggle.checked ? 'block' : 'none';
             });
         }
 
         if (bookVisitModal && bookVisitBtn) {
             function openBookVisitModal() {
                 locationToggle.checked = true; // Default to The Bells
-                loadCalendar();
                 bookVisitModal.classList.add('active');
                 bookVisitModal.removeAttribute('aria-hidden');
                 document.body.style.overflow = 'hidden';
